@@ -14,12 +14,21 @@
     "@emotion/styled": "^11.11.5",
     "@mui/icons-material": "^5.15.19",
     "@mui/material": "^5.15.19",
+    "i18next": "^23.11.5",
+    "i18next-browser-languagedetector": "^7.1.0",
+    "path": "^0.12.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.51.5",
-    "react-router-dom": "^6.23.1"
+    "react-i18next": "^13.3.1",
+    "react-router-dom": "^6.23.1",
+    "vite-plugin-checker": "^0.4.7",
+    "vite-plugin-dts": "^1.7.1",
+    "vite-plugin-externals": "^0.5.0",
+    "vite-tsconfig-paths": "^4.0.3"
   },
   "devDependencies": {
+    "@types/node": "^20.12.13",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
