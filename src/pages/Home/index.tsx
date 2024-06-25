@@ -4,7 +4,7 @@ import authTranslations from "./i18n/fa.json";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import Home from "src/components/home";
 
-export default function HomeRoutes() {
+const HomeRoutes = () => {
   addTranslationSchema("fa", authTranslations);
   // const { instance } = getInstance()
   // const counterServices = counterService(instance)
@@ -16,7 +16,9 @@ export default function HomeRoutes() {
     </Routes>
     // </EntityRoot>
   );
-}
+};
+
+export default HomeRoutes;
 
 export const counterMenu: any = [
   {

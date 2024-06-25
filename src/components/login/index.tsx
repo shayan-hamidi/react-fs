@@ -3,7 +3,7 @@ import { useForm, FormProvider } from "react-hook-form";
 import { FsTextInput } from "@fs/form";
 import { FsButton } from "../../../packages/core/Button";
 
-export default function LogIn() {
+const LogIn = () => {
   const methods = useForm();
 
   const onSubmit = (data: any) => {
@@ -40,4 +40,6 @@ export default function LogIn() {
       </Paper>
     </Container>
   );
-}
+};
+
+export default LogIn;

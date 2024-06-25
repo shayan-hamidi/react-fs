@@ -1,13 +1,13 @@
 import { TextField, TextFieldProps } from "@mui/material";
 import { Controller, useFormContext } from "react-hook-form";
 
-export default function FsTextInput({
+const FsTextInput = ({
   name,
   textFieldProps,
 }: {
   name: string;
   textFieldProps?: TextFieldProps;
-}) {
+}) => {
   const { control } = useFormContext();
   return (
     <Controller
@@ -26,4 +26,5 @@ export default function FsTextInput({
       )}
     />
   );
-}
+};
+export default FsTextInput;

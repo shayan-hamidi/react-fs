@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function useCopyToClipboard() {
+const useCopyToClipboard = () => {
   const [isCopied, setIsCopied] = useState(false);
   useEffect(() => {
     if (isCopied) {
@@ -20,4 +20,6 @@ export default function useCopyToClipboard() {
   };
 
   return { isCopied, copyToClipboard };
-}
+};
+
+export default { useCopyToClipboard };

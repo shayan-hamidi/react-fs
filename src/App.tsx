@@ -5,7 +5,7 @@ import faTranslations from "src/i18n/fa.json";
 import { BrowserRouter as Router } from "react-router-dom";
 import AppRoutes from "./routes/AppRoutes";
 
-function App() {
+const App = () => {
   const { ready } = useTranslation();
   ready && addTranslationSchema("fa", faTranslations);
   return (
@@ -13,6 +13,6 @@ function App() {
       <AppRoutes />
     </Router>
   );
-}
+};
 
 export default App;

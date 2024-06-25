@@ -1,4 +1,5 @@
 import { version } from "../../../package.json";
-export default function useVersion() {
+const useVersion = () => {
   return { version };
-}
+};
+export default { useVersion };

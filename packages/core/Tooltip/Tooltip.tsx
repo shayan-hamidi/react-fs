@@ -5,15 +5,13 @@ type FsTooltipProps = Omit<TooltipProps, "title"> & {
   i18nKey: string;
 };
 
-export default function FsTooltip({
-  children,
-  i18nKey,
-  ...rest
-}: FsTooltipProps) {
+const FsTooltip = ({ children, i18nKey, ...rest }: FsTooltipProps) => {
   const { t } = useTranslation();
   return (
     <Tooltip title={t(i18nKey)} {...rest}>
       {children}
     </Tooltip>
   );
-}
+};
+
+export default FsTooltip;

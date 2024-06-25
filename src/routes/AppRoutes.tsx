@@ -5,7 +5,7 @@ import NotFoundPage from "src/common/NotFoundPage/NotFoundPage";
 import HomeRoutes from "src/pages/Home";
 import LoginRoutes from "src/pages/Login";
 
-export default function AppRoutes() {
+const AppRoutes = () => {
   return (
     // <ErrorBoundary onError={onError}>
     <>
@@ -26,4 +26,6 @@ export default function AppRoutes() {
     </>
     // </ErrorBoundary>
   );
-}
+};
+
+export default AppRoutes;
