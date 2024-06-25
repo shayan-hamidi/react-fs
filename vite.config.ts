@@ -14,12 +14,16 @@ export default defineConfig({
         replacement: path.resolve(__dirname, "./packages/core"),
       },
       {
-        find: "@fs/helper",
-        replacement: path.resolve(__dirname, "./packages/helper"),
-      },
-      {
         find: "@fs/form",
         replacement: path.resolve(__dirname, "./packages/form"),
+      },
+      {
+        find: "@fs/table",
+        replacement: path.resolve(__dirname, "./packages/table"),
+      },
+      {
+        find: "@fs/helper",
+        replacement: path.resolve(__dirname, "./packages/helper"),
       },
       {
         find: "@fs/utils",

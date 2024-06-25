@@ -2,12 +2,18 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import { FsButton } from "../packages/core/Button";
+import { useTranslation } from "react-i18next";
+import { addTranslationSchema } from "./i18nConfig";
+import faTranslations from "src/i18n/fa.json";
 
 function App() {
   const [count, setCount] = useState(0);
-
+  const { ready } = useTranslation();
+  ready && addTranslationSchema("fa", faTranslations);
   return (
     <>
+      <FsButton i18nKey={"OK"} />
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />

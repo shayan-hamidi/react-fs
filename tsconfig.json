@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2020",
+    "baseUrl": "./",
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
@@ -22,11 +23,12 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "@/*": ["./src/*"],
-      "@fs/utils": ["./packages/utils"],
+      "src/*": ["src/*"],
+      "@fs/core": ["./packages/core"],
       "@fs/form": ["./packages/form"],
+      "@fs/table": ["./packages/table"],
       "@fs/helper": ["./packages/helper"],
-      "@fs/core": ["./packages/core"]
+      "@fs/utils": ["./packages/utils"]
     }
   },
   "references": [{ "path": "./tsconfig.node.json" }],
