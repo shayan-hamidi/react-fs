@@ -2,7 +2,7 @@ import { useState } from "react";
 import reactLogo from "../../assets/react.svg";
 import viteLogo from "../../../public/vite.svg";
 import { FsButton } from "@fs/core";
-import { FsSelect } from "@fs/form";
+import { FsSelect, FsTextInput } from "@fs/form";
 import { FormProvider, useForm } from "react-hook-form";
 
 const Home = () => {
@@ -15,7 +15,13 @@ const Home = () => {
     <>
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)}>
-          <FsSelect name="ss" selectProps={{}} />
+          <FsSelect
+            name="ss"
+            i18nKey="ss"
+            items={[{ label: "shine", value: "asdjkaojd" }]}
+          />
+          <FsTextInput name="sdsd" />
+          <FsButton i18nKey="ssssssss" type="submit" />
         </form>
       </FormProvider>
       <FsButton i18nKey="tooltipppp" tooltipProps={{ i18nKey: "ssss" }} />

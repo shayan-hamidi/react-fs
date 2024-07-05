@@ -19,9 +19,7 @@ const FsTextInput = ({
           {...field}
           {...textFieldProps}
           label={name}
-          variant="outlined"
           fullWidth
-          margin="normal"
         />
       )}
     />
