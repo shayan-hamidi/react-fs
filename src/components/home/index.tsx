@@ -16,11 +16,11 @@ const Home = () => {
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)}>
           <FsSelect
-            name="ss"
+            name="assssss"
             i18nKey="ss"
             items={[{ label: "shine", value: "asdjkaojd" }]}
           />
-          <FsTextInput name="sdsd" />
+          <FsTextInput name="sdsd" i18nKey="dsdsds" />
           <FsButton i18nKey="ssssssss" type="submit" />
         </form>
       </FormProvider>

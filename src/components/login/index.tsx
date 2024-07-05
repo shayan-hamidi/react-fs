@@ -26,8 +26,8 @@ const LogIn = () => {
         </Typography>
         <FormProvider {...methods}>
           <form onSubmit={methods.handleSubmit(onSubmit)}>
-            <FsTextInput name="UserName" />
-            <FsTextInput name="password" />
+            <FsTextInput name="UserName" i18nKey={"UserName"} />
+            <FsTextInput name="password" i18nKey={"password"} />
             <FsButton
               type="submit"
               variant="contained"
