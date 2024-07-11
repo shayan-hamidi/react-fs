@@ -2,7 +2,7 @@ import { useState } from "react";
 import reactLogo from "../../assets/react.svg";
 import viteLogo from "../../../public/vite.svg";
 import { FsButton } from "@fs/core";
-import { FsCheckbox, FsSelect, FsTextInput } from "@fs/form";
+import { FsCheckbox, FsSelect, FsTextInput, FsAutoComplete } from "@fs/form";
 import { FormProvider, useForm } from "react-hook-form";
 
 const Home = () => {
@@ -21,6 +21,16 @@ const Home = () => {
             items={[{ label: "shine", value: "asdjkaojd" }]}
           />
           <FsCheckbox name="checkbox" i18nKey="saasd" />
+          <FsAutoComplete
+            name="autoComplete"
+            options={[
+              { value: "1", label: "11" },
+              { value: "2", label: "22" },
+              { value: "3", label: "33" },
+              { value: "4", label: "44" },
+            ]}
+            i18nKey="sssss"
+          />
           <FsTextInput name="sdsd" i18nKey="dsdsds" />
           <FsButton i18nKey="ssssssss" type="submit" />
         </form>
