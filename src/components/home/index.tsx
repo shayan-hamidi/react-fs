@@ -8,6 +8,7 @@ import {
   FsTextInput,
   FsAutoComplete,
   FsSwitch,
+  FsRadioGroup,
 } from "@fs/form";
 import { FormProvider, useForm } from "react-hook-form";
 
@@ -21,6 +22,15 @@ const Home = () => {
     <>
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)}>
+          <FsRadioGroup
+            name="radio"
+            i18nKey="radiolabel"
+            list={[
+              { label: "11", value: "1" },
+              { label: "22", value: "2" },
+              { label: "33", value: "3" },
+            ]}
+          />
           <FsSwitch name="ssss" i18nKey="lable" />
           <FsSelect
             name="assssss"

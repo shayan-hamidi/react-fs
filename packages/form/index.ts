@@ -3,4 +3,5 @@ export * from "./Select";
 export * from "./Checkbox";
 export * from "./AutoComplete";
 export * from "./Switch";
+export * from "./RadioGroup";
 export * from "./validators";
