@@ -25,7 +25,7 @@ const FsRadioGroup = ({ name, i18nKey, list, ...rest }: FsRadioGroupProps) => {
       render={({ field }) => {
         return (
           <>
-            <FormLabel>{t(i18nKey)}</FormLabel>
+            <FormLabel sx={{ display: "block" }}>{t(i18nKey)}</FormLabel>
             <RadioGroup {...field} {...rest}>
               {list.map(({ label, value }, index) => (
                 <FormControlLabel
