@@ -2,7 +2,13 @@ import { useState } from "react";
 import reactLogo from "../../assets/react.svg";
 import viteLogo from "../../../public/vite.svg";
 import { FsButton } from "@fs/core";
-import { FsCheckbox, FsSelect, FsTextInput, FsAutoComplete } from "@fs/form";
+import {
+  FsCheckbox,
+  FsSelect,
+  FsTextInput,
+  FsAutoComplete,
+  FsSwitch,
+} from "@fs/form";
 import { FormProvider, useForm } from "react-hook-form";
 
 const Home = () => {
@@ -15,6 +21,7 @@ const Home = () => {
     <>
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)}>
+          <FsSwitch name="ssss" i18nKey="lable" />
           <FsSelect
             name="assssss"
             i18nKey="ss"
