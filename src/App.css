@@ -40,3 +40,29 @@
 .read-the-docs {
   color: #888;
 }
+/* Add these styles to your CSS file or within a <style> tag in your component file */
+@keyframes slideIn {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-200%);
+  }
+}
+
+.alert-enter {
+  animation: slideIn 0.5s forwards;
+}
+
+.alert-exit {
+  animation: slideOut 0.5s forwards;
+}

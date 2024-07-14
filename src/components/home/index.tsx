@@ -1,7 +1,7 @@
 import { useState } from "react";
 import reactLogo from "../../assets/react.svg";
 import viteLogo from "../../../public/vite.svg";
-import { FsButton, FsChip } from "@fs/core";
+import { FsButton, FsChip, FsAlert } from "@fs/core";
 import {
   FsCheckbox,
   FsSelect,
@@ -22,6 +22,7 @@ const Home = () => {
     <>
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)}>
+          <FsAlert />
           <FsChip i18nkey="Chip" />
           <FsRadioGroup
             name="radio"
