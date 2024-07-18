@@ -1,37 +1,14 @@
-import { CheckCircleOutline } from "@mui/icons-material";
-import { Alert } from "@mui/material";
-import { useEffect, useState } from "react";
+import { Alert, AlertProps } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
-const FsAlert = () => {
-  const [visible, setVisible] = useState(true);
+type FsAlertProps = AlertProps & {
+  i18nkey: string;
+};
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setVisible(false);
-    }, 2000); // 2 seconds before starting the exit transition
+const FsAlert = ({ i18nkey, ...rest }: FsAlertProps) => {
+  const { t } = useTranslation();
 
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    if (!visible) {
-      const timer = setTimeout(() => {
-        // Additional clean-up or state change can be done here if needed
-      }, 500); // Match this duration with your exit animation duration
-
-      return () => clearTimeout(timer);
-    }
-  }, [visible]);
-  return (
-    <div
-      className={`alert ${visible ? "alert-enter" : "alert-exit"}`}
-      style={{ position: "fixed", top: 0, margin: "0 auto" }}
-    >
-      <Alert icon={<CheckCircleOutline />}>
-        Here is a gentle confirmation that your action was successful.
-      </Alert>
-    </div>
-  );
+  return <Alert {...rest}>{t(i18nkey)}</Alert>;
 };
 
 export default FsAlert;
