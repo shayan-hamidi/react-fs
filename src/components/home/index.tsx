@@ -1,4 +1,10 @@
-import { FsAlert, FsButton, FsChip, FsNotifiedAlert } from "@fs/core";
+import {
+  FsAccordion,
+  FsAlert,
+  FsButton,
+  FsChip,
+  FsNotifiedAlert,
+} from "@fs/core";
 import {
   FsAutoComplete,
   FsCheckbox,
@@ -7,6 +13,7 @@ import {
   FsSwitch,
   FsTextInput,
 } from "@fs/form";
+import { Box } from "@mui/material";
 import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import viteLogo from "../../../public/vite.svg";
@@ -55,6 +62,10 @@ const Home = () => {
           <FsButton i18nKey="ssssssss" type="submit" />
         </form>
       </FormProvider>
+      <FsAccordion
+        children={<Box sx={{ background: "Accordion detials" }}>sssss</Box>}
+        titleKey={"Accordion Title"}
+      ></FsAccordion>
       <FsButton i18nKey="tooltipppp" tooltipProps={{ i18nKey: "ssss" }} />
       <div>
         <a href="https://vitejs.dev" target="_blank">
