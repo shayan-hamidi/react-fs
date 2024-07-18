@@ -5,6 +5,7 @@ import {
   FsChip,
   FsNotifiedAlert,
   FsToggleButtonGroup,
+  FsTypography,
 } from "@fs/core";
 import {
   FsAutoComplete,
@@ -87,6 +88,9 @@ const Home = () => {
           { label: "label2", value: "value2" },
         ]}
       />
+      <FsTypography component="h3" i18nKey="header3" variant="h3" />
+      <FsTypography component="p" i18nKey="paragraph1" variant="body1" />
+      <FsTypography component="span" i18nKey="span1" variant="caption" />
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
