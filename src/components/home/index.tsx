@@ -1,16 +1,16 @@
-import { useState } from "react";
-import reactLogo from "../../assets/react.svg";
-import viteLogo from "../../../public/vite.svg";
-import { FsButton, FsChip } from "@fs/core";
+import { FsAlert, FsButton, FsChip, FsNotifiedAlert } from "@fs/core";
 import {
-  FsCheckbox,
-  FsSelect,
-  FsTextInput,
   FsAutoComplete,
-  FsSwitch,
+  FsCheckbox,
   FsRadioGroup,
+  FsSelect,
+  FsSwitch,
+  FsTextInput,
 } from "@fs/form";
+import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
+import viteLogo from "../../../public/vite.svg";
+import reactLogo from "../../assets/react.svg";
 
 const Home = () => {
   const [count, setCount] = useState(0);
@@ -22,6 +22,8 @@ const Home = () => {
     <>
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)}>
+          <FsNotifiedAlert i18nkey="new notification" severity="error" />
+          <FsAlert i18nkey="new notification" severity="info" />
           <FsChip i18nkey="Chip" />
           <FsRadioGroup
             name="radio"
