@@ -10,6 +10,7 @@ import {
   FsAutoComplete,
   FsCheckbox,
   FsRadioGroup,
+  FsRangeSlider,
   FsSelect,
   FsSwitch,
   FsTextInput,
@@ -66,6 +67,7 @@ const Home = () => {
             ]}
             i18nKey="sssss"
           />
+          <FsRangeSlider name="rangeSlider" />
           <FsTextInput name="sdsd" i18nKey="dsdsds" />
           <FsButton i18nKey="ssssssss" type="submit" />
         </form>
