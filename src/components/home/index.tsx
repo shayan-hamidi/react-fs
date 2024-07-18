@@ -4,6 +4,7 @@ import {
   FsButton,
   FsChip,
   FsNotifiedAlert,
+  FsToggleButtonGroup,
 } from "@fs/core";
 import {
   FsAutoComplete,
@@ -20,8 +21,15 @@ import viteLogo from "../../../public/vite.svg";
 import reactLogo from "../../assets/react.svg";
 
 const Home = () => {
+  const [value, setValue] = useState("value2");
   const [count, setCount] = useState(0);
   const methods = useForm();
+  const handleChange = (
+    _event: React.MouseEvent<HTMLElement>,
+    newAlignment: string
+  ) => {
+    setValue(newAlignment);
+  };
   const onSubmit = (data: any) => {
     console.log(data);
   };
@@ -67,6 +75,16 @@ const Home = () => {
         titleKey={"Accordion Title"}
       ></FsAccordion>
       <FsButton i18nKey="tooltipppp" tooltipProps={{ i18nKey: "ssss" }} />
+      <FsToggleButtonGroup
+        color="primary"
+        value={value}
+        exclusive
+        onChange={handleChange}
+        items={[
+          { label: "label", value: "value" },
+          { label: "label2", value: "value2" },
+        ]}
+      />
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
