@@ -56,6 +56,9 @@ const Home = () => {
               { label: "22", value: "2" },
               { label: "33", value: "3" },
             ]}
+            rules={{
+              required: "پر کردن فیلد اجباری است.",
+            }}
           />
           <FsSwitch name="ssss" i18nKey="lable" />
           <FsSelect
@@ -63,7 +66,13 @@ const Home = () => {
             i18nKey="ss"
             items={[{ label: "shine", value: "asdjkaojd" }]}
           />
-          <FsCheckbox name="checkbox" i18nKey="saasd" />
+          <FsCheckbox
+            name="checkbox"
+            i18nKey="saasd"
+            rules={{
+              required: "پر کردن فیلد اجباری است.",
+            }}
+          />
           <FsAutoComplete
             name="autoComplete"
             options={[
