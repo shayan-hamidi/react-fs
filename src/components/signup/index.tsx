@@ -26,10 +26,10 @@ const SignUp = () => {
         </Typography>
         <FormProvider {...methods}>
           <form onSubmit={methods.handleSubmit(onSubmit)}>
-            <FsTextInput name="UserName" />
-            <FsTextInput name="email" />
-            <FsTextInput name="password" />
-            <FsTextInput name="rePassword" />
+            <FsTextInput name="UserName" i18nKey="" />
+            <FsTextInput name="email" i18nKey="email" />
+            <FsTextInput name="password" i18nKey="password" />
+            <FsTextInput name="rePassword" i18nKey="rePassword" />
             <FsButton
               type="submit"
               variant="contained"
