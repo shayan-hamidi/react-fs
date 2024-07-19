@@ -6,6 +6,7 @@ import {
   FsNotifiedAlert,
   FsToggleButtonGroup,
   FsTypography,
+  useModal,
 } from "@fs/core";
 import {
   FsAutoComplete,
@@ -21,11 +22,16 @@ import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import viteLogo from "../../../public/vite.svg";
 import reactLogo from "../../assets/react.svg";
+import { default as Test1Modal, default as TestModal } from "./Test1Modal";
+import Test2Modal from "./Test2Modal";
 
 const Home = () => {
   const [value, setValue] = useState("value2");
   const [count, setCount] = useState(0);
+  const { open: openTest1Modal } = useModal("test1Modal");
+  const { open: openTest2Modal } = useModal("test2Modal");
   const methods = useForm();
+  // const { openModal, closeModal } = useModal();
   const handleChange = (
     _event: React.MouseEvent<HTMLElement>,
     newAlignment: string
@@ -73,6 +79,14 @@ const Home = () => {
           <FsButton i18nKey="ssssssss" type="submit" />
         </form>
       </FormProvider>
+      <FsButton
+        i18nKey="open test 1 modal"
+        onClick={() => openTest1Modal({ userId: "12" })}
+      />
+      <FsButton i18nKey="open test 2 modal" onClick={openTest2Modal} />
+      <Test1Modal />
+      <Test2Modal />
+      <TestModal />
       <FsAccordion
         children={<Box sx={{ background: "Accordion detials" }}>sssss</Box>}
         titleKey={"Accordion Title"}
