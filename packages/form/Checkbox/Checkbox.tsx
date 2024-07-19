@@ -1,5 +1,5 @@
 import { FsTypography } from "@fs/core";
-import { Checkbox, CheckboxProps, FormControlLabel } from "@mui/material";
+import { Box, Checkbox, CheckboxProps, FormControlLabel } from "@mui/material";
 import { Controller, ControllerProps, useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { useExtractErrorInfo } from "../useExtractErrorInfo";
@@ -32,7 +32,7 @@ const FsCheckbox = ({
       rules={rules}
       render={({ field }) => {
         return (
-          <>
+          <Box>
             <FormControlLabel
               control={<Checkbox {...field} {...rest} />}
               label={t(i18nKey)}
@@ -44,7 +44,7 @@ const FsCheckbox = ({
               i18nKey={errorI18nKey}
               color={"error"}
             />
-          </>
+          </Box>
         );
       }}
     />

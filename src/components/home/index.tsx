@@ -65,6 +65,9 @@ const Home = () => {
             name="assssss"
             i18nKey="ss"
             items={[{ label: "shine", value: "asdjkaojd" }]}
+            rules={{
+              required: "پر کردن فیلد اجباری است.",
+            }}
           />
           <FsCheckbox
             name="checkbox"
@@ -82,9 +85,23 @@ const Home = () => {
               { value: "4", label: "44" },
             ]}
             i18nKey="sssss"
+            rules={{
+              required: "پر کردن فیلد اجباری است.",
+            }}
           />
-          <FsRangeSlider name="rangeSlider" />
-          <FsTextInput name="sdsd" i18nKey="dsdsds" />
+          <FsRangeSlider
+            name="rangeSlider"
+            rules={{
+              required: "پر کردن فیلد اجباری است.",
+            }}
+          />
+          <FsTextInput
+            name="sdsd"
+            i18nKey="dsdsds"
+            rules={{
+              required: "پر کردن فیلد اجباری است.",
+            }}
+          />
           <FsButton i18nKey="ssssssss" type="submit" />
         </form>
       </FormProvider>
