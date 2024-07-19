@@ -1,9 +1,10 @@
-import { CircularProgress } from "@mui/material";
-import { Suspense } from "react";
+import { Box, CircularProgress } from "@mui/material";
+import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import NotFoundPage from "src/common/NotFoundPage/NotFoundPage";
-import HomeRoutes from "src/pages/Home";
-import LoginRoutes from "src/pages/Login";
+
+const LoginRoutes = lazy(() => import("src/components/login"));
+const HomeRoutes = lazy(() => import("src/pages/Home"));
+const NotFoundPage = lazy(() => import("src/common/NotFoundPage/NotFoundPage"));
 
 const AppRoutes = () => {
   return (
@@ -12,7 +13,18 @@ const AppRoutes = () => {
       {(() => {
         return (
           <>
-            <Suspense fallback={<CircularProgress />}>
+            <Suspense
+              fallback={
+                <Box
+                  sx={{ height: "100vh" }}
+                  display={"flex"}
+                  justifyContent={"center"}
+                  alignItems={"center"}
+                >
+                  Loading <CircularProgress sx={{ margin: "0px 10px" }} />
+                </Box>
+              }
+            >
               <Routes>
                 <Route path="404" element={<NotFoundPage message="404Msg" />} />
                 <Route path="403" element={<NotFoundPage message="403Msg" />} />

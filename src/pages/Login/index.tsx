@@ -1,8 +1,10 @@
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import { addTranslationSchema } from "src/i18nConfig";
 import authTranslations from "./i18n/fa.json";
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import Login from "src/components/login";
+
+const Login = lazy(() => import("src/components/login"));
 
 const LoginRoutes = () => {
   addTranslationSchema("fa", authTranslations);
