@@ -1,1 +1,2 @@
-export * from './I18Next'
+export * from "./I18Next";
+export * from "./Theme";
