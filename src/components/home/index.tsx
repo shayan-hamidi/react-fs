@@ -1,22 +1,5 @@
-import {
-  FsAccordion,
-  FsAlert,
-  FsButton,
-  FsChip,
-  FsNotifiedAlert,
-  FsToggleButtonGroup,
-  FsTypography,
-  useModal,
-} from "@fs/core";
-import {
-  FsAutoComplete,
-  FsCheckbox,
-  FsRadioGroup,
-  FsRangeSlider,
-  FsSelect,
-  FsSwitch,
-  FsTextInput,
-} from "@fs/form";
+import { FsAccordion, FsAlert, FsButton, FsChip, FsNotifiedAlert, FsToggleButtonGroup, FsTypography, useModal } from "@fs/core";
+import { FsAutoComplete, FsCheckbox, FsRadioGroup, FsRangeSlider, FsSelect, FsSwitch, FsTextInput } from "@fs/form";
 import { Box } from "@mui/material";
 import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
@@ -32,17 +15,14 @@ const Home = () => {
   const { open: openTest2Modal } = useModal("test2Modal");
   const methods = useForm();
   // const { openModal, closeModal } = useModal();
-  const handleChange = (
-    _event: React.MouseEvent<HTMLElement>,
-    newAlignment: string
-  ) => {
+  const handleChange = (_event: React.MouseEvent<HTMLElement>, newAlignment: string) => {
     setValue(newAlignment);
   };
   const onSubmit = (data: any) => {
     console.log(data);
   };
   return (
-    <>
+    <Box p={4}>
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)}>
           <FsNotifiedAlert i18nkey="new notification" severity="error" />
@@ -105,18 +85,12 @@ const Home = () => {
           <FsButton i18nKey="ssssssss" type="submit" />
         </form>
       </FormProvider>
-      <FsButton
-        i18nKey="open test 1 modal"
-        onClick={() => openTest1Modal({ userId: "12" })}
-      />
+      <FsButton i18nKey="open test 1 modal" onClick={() => openTest1Modal({ userId: "12" })} />
       <FsButton i18nKey="open test 2 modal" onClick={openTest2Modal} />
       <Test1Modal />
       <Test2Modal />
       <TestModal />
-      <FsAccordion
-        children={<Box sx={{ background: "Accordion detials" }}>sssss</Box>}
-        titleKey={"Accordion Title"}
-      ></FsAccordion>
+      <FsAccordion children={<Box sx={{ background: "Accordion detials" }}>sssss</Box>} titleKey={"Accordion Title"}></FsAccordion>
       <FsButton i18nKey="tooltipppp" tooltipProps={{ i18nKey: "ssss" }} />
       <FsToggleButtonGroup
         color="primary"
@@ -141,17 +115,13 @@ const Home = () => {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
+    </Box>
   );
 };
 

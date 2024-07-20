@@ -28,7 +28,8 @@
       "@fs/form": ["./packages/form"],
       "@fs/table": ["./packages/table"],
       "@fs/helper": ["./packages/helper"],
-      "@fs/utils": ["./packages/utils"]
+      "@fs/utils": ["./packages/utils"],
+      "@fs/http": ["./packages/http"]
     }
   },
   "references": [{ "path": "./tsconfig.node.json" }],
