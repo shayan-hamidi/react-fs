@@ -1,4 +1,3 @@
-import { ModalProvider } from "@fs/core";
 import { useTranslation } from "react-i18next";
 import { BrowserRouter as Router } from "react-router-dom";
 import faTranslations from "src/i18n/fa.json";
@@ -11,9 +10,7 @@ const App = () => {
   ready && addTranslationSchema("fa", faTranslations);
   return (
     <Router basename={import.meta.env.BASE_URL}>
-      <ModalProvider>
-        <AppRoutes />
-      </ModalProvider>
+      <AppRoutes />
     </Router>
   );
 };
