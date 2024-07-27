@@ -12,6 +12,7 @@ import {
   FsAutoComplete,
   FsCheckbox,
   FsDatePicker,
+  FsFormProvider,
   FsRadioGroup,
   FsRangeSlider,
   FsSelect,
@@ -20,7 +21,7 @@ import {
 } from "@fs/form";
 import { Box } from "@mui/material";
 import { useState } from "react";
-import { FormProvider, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 // import viteLogo from "../../../public/vite.svg";
 // import reactLogo from "../../assets/react.svg";
 import { default as Test1Modal, default as TestModal } from "./Test1Modal";
@@ -44,69 +45,70 @@ const Home = () => {
   };
   return (
     <>
-      <FormProvider {...methods}>
-        <form onSubmit={methods.handleSubmit(onSubmit)}>
-          <FsNotifiedAlert i18nkey="new notification" severity="error" />
-          <FsAlert i18nkey="new notification" severity="info" />
-          <FsDatePicker name={"asdadadasdasdasdasd"} i18nKey={"ss"}  />
-          <FsChip i18nkey="Chip" />
-          <FsRadioGroup
-            name="radio"
-            i18nKey="radiolabel"
-            list={[
-              { label: "11", value: "1" },
-              { label: "22", value: "2" },
-              { label: "33", value: "3" },
-            ]}
-            rules={{
-              required: "پر کردن فیلد اجباری است.",
-            }}
-          />
-          <FsSwitch name="ssss" i18nKey="lable" />
-          <FsSelect
-            name="assssss"
-            i18nKey="ss"
-            items={[{ label: "shine", value: "asdjkaojd" }]}
-            rules={{
-              required: "پر کردن فیلد اجباری است.",
-            }}
-          />
-          <FsCheckbox
-            name="checkbox"
-            i18nKey="saasd"
-            rules={{
-              required: "پر کردن فیلد اجباری است.",
-            }}
-          />
-          <FsAutoComplete
-            name="autoComplete"
-            options={[
-              { value: "1", label: "11" },
-              { value: "2", label: "22" },
-              { value: "3", label: "33" },
-              { value: "4", label: "44" },
-            ]}
-            i18nKey="sssss"
-            rules={{
-              required: "پر کردن فیلد اجباری است.",
-            }}
-          />
-          <FsRangeSlider
-            name="rangeSlider"
-            rules={{
-              required: "پر کردن فیلد اجباری است.",
-            }}
-          />
-          <FsTextInput
-            name="sdsd"
-            i18nKey="dsdsds"
-            rules={{
-              required: "پر کردن فیلد اجباری است.",
-            }}
-          />
-          <FsButton i18nKey="ssssssss" type="submit" />
-        </form>
-      </FormProvider>
+      <FsFormProvider
+        methods={methods}
+        formProps={{ onSubmit: methods.handleSubmit(onSubmit) }}
+      >
+        <FsNotifiedAlert i18nkey="new notification" severity="error" />
+        <FsAlert i18nkey="new notification" severity="info" />
+        <FsDatePicker name={"asdadadasdasdasdasd"} i18nKey={"ss"} />
+        <FsChip i18nkey="Chip" />
+        <FsRadioGroup
+          name="radio"
+          i18nKey="radiolabel"
+          list={[
+            { label: "11", value: "1" },
+            { label: "22", value: "2" },
+            { label: "33", value: "3" },
+          ]}
+          rules={{
+            required: "پر کردن فیلد اجباری است.",
+          }}
+        />
+        <FsSwitch name="ssss" i18nKey="lable" />
+        <FsSelect
+          name="assssss"
+          i18nKey="ss"
+          items={[{ label: "shine", value: "asdjkaojd" }]}
+          rules={{
+            required: "پر کردن فیلد اجباری است.",
+          }}
+        />
+        <FsCheckbox
+          name="checkbox"
+          i18nKey="saasd"
+          rules={{
+            required: "پر کردن فیلد اجباری است.",
+          }}
+        />
+        <FsAutoComplete
+          name="autoComplete"
+          options={[
+            { value: "1", label: "11" },
+            { value: "2", label: "22" },
+            { value: "3", label: "33" },
+            { value: "4", label: "44" },
+          ]}
+          i18nKey="sssss"
+          rules={{
+            required: "پر کردن فیلد اجباری است.",
+          }}
+        />
+        <FsRangeSlider
+          name="rangeSlider"
+          rules={{
+            required: "پر کردن فیلد اجباری است.",
+          }}
+        />
+        <FsTextInput
+          name="sdsd"
+          i18nKey="dsdsds"
+          rules={{
+            required: "پر کردن فیلد اجباری است.",
+          }}
+        />
+        <FsButton i18nKey="ssssssss" type="submit" />
+      </FsFormProvider>
       <FsButton
         i18nKey="open test 1 modal"
         onClick={() => openTest1Modal({ userId: "12" })}

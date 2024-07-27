@@ -1,13 +1,19 @@
-import { FormProvider } from "react-hook-form";
-import { ReactNode } from "react";
+import { FormHTMLAttributes, ReactNode } from "react";
+import { FieldValues, FormProvider, UseFormReturn } from "react-hook-form";
 
 type FsFormProviderProps = {
   children: ReactNode;
+  formProps: FormHTMLAttributes<HTMLFormElement>;
+  methods: UseFormReturn<FieldValues, any, undefined>;
 };
-const FsFormProvider = ({ children }: FsFormProviderProps) => {
+const FsFormProvider = ({
+  children,
+  methods,
+  formProps,
+}: FsFormProviderProps) => {
   return (
     <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(onSubmit)}>{children}</form>
+      <form {...formProps}>{children}</form>
     </FormProvider>
   );
 };
