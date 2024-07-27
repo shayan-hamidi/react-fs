@@ -561,19 +561,6 @@
   resolved "https://registry.yarnpkg.com/@microsoft/tsdoc/-/tsdoc-0.15.0.tgz#f29a55df17cb6e87cfbabce33ff6a14a9f85076d"
   integrity sha512-HZpPoABogPvjeJOdzCOSJsXeL/SMCBgBZMVC3X3d7YYp2gf31MfxhUoYUNwf1ERPJOnQc0wkFn9trqI6ZEdZuA==
 
-"@mui/base@^5.0.0-beta.40":
-  version "5.0.0-beta.40"
-  resolved "https://registry.yarnpkg.com/@mui/base/-/base-5.0.0-beta.40.tgz#1f8a782f1fbf3f84a961e954c8176b187de3dae2"
-  integrity sha512-I/lGHztkCzvwlXpjD2+SNmvNQvB4227xBXhISPjEaJUXGImOQ9f3D2Yj/T3KasSI/h0MLWy74X0J6clhPmsRbQ==
-  dependencies:
-    "@babel/runtime" "^7.23.9"
-    "@floating-ui/react-dom" "^2.0.8"
-    "@mui/types" "^7.2.14"
-    "@mui/utils" "^5.15.14"
-    "@popperjs/core" "^2.11.8"
-    clsx "^2.1.0"
-    prop-types "^15.8.1"
-
 "@mui/core-downloads-tracker@^5.16.5":
   version "5.16.5"
   resolved "https://registry.yarnpkg.com/@mui/core-downloads-tracker/-/core-downloads-tracker-5.16.5.tgz#396c7e133a0705c8d04c8ef36edad7ad94cb4981"
@@ -642,7 +629,7 @@
   resolved "https://registry.yarnpkg.com/@mui/types/-/types-7.2.15.tgz#dadd232fe9a70be0d526630675dff3b110f30b53"
   integrity sha512-nbo7yPhtKJkdf9kcVOF8JZHPZTmqXjJ/tI0bdWgHg5tp9AnIN4Y7f7wm9T+0SyGYJk76+GYZ8Q5XaTYAsUHN0Q==
 
-"@mui/utils@^5.15.14", "@mui/utils@^5.16.5":
+"@mui/utils@^5.16.5":
   version "5.16.5"
   resolved "https://registry.yarnpkg.com/@mui/utils/-/utils-5.16.5.tgz#3a16877a80166a7f8b58c893d08e0993040fc49e"
   integrity sha512-CwhcA9y44XwK7k2joL3Y29mRUnoBt+gOZZdGyw7YihbEwEErJYBtDwbZwVgH68zAljGe/b+Kd5bzfl63Gi3R2A==
@@ -666,20 +653,6 @@
     clsx "^2.1.1"
     prop-types "^15.8.1"
     reselect "^4.1.8"
-
-"@mui/x-date-pickers@^7.11.0":
-  version "7.11.1"
-  resolved "https://registry.yarnpkg.com/@mui/x-date-pickers/-/x-date-pickers-7.11.1.tgz#a06fa850aadedbe0be2c0eaa972fe4c1d938d618"
-  integrity sha512-CflouzTNSv0YeOA8iiYpJMtqGlwGC8LI9EE9egDGhatR9Mn5geRDTXsm0rRG/4pMOfaRxyJc6Yzr/axBhEXM7w==
-  dependencies:
-    "@babel/runtime" "^7.24.8"
-    "@mui/base" "^5.0.0-beta.40"
-    "@mui/system" "^5.16.5"
-    "@mui/utils" "^5.16.5"
-    "@types/react-transition-group" "^4.4.10"
-    clsx "^2.1.1"
-    prop-types "^15.8.1"
-    react-transition-group "^4.4.5"
 
 "@mui/x-internals@7.11.1":
   version "7.11.1"
