@@ -11,6 +11,7 @@ import {
 import {
   FsAutoComplete,
   FsCheckbox,
+  FsDatePicker,
   FsRadioGroup,
   FsRangeSlider,
   FsSelect,
@@ -20,8 +21,8 @@ import {
 import { Box } from "@mui/material";
 import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import viteLogo from "../../../public/vite.svg";
-import reactLogo from "../../assets/react.svg";
+// import viteLogo from "../../../public/vite.svg";
+// import reactLogo from "../../assets/react.svg";
 import { default as Test1Modal, default as TestModal } from "./Test1Modal";
 import Test2Modal from "./Test2Modal";
 
@@ -47,6 +48,7 @@ const Home = () => {
         <form onSubmit={methods.handleSubmit(onSubmit)}>
           <FsNotifiedAlert i18nkey="new notification" severity="error" />
           <FsAlert i18nkey="new notification" severity="info" />
+          <FsDatePicker name={"asdadadasdasdasdasd"} i18nKey={"ss"}  />
           <FsChip i18nkey="Chip" />
           <FsRadioGroup
             name="radio"
@@ -131,14 +133,14 @@ const Home = () => {
       <FsTypography component="h3" i18nKey="header3" variant="h3" />
       <FsTypography component="p" i18nKey="paragraph1" variant="body1" />
       <FsTypography component="span" i18nKey="span1" variant="caption" />
-      <div>
+      {/* <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
-      </div>
+      </div> */}
       <h1>Vite + React</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
