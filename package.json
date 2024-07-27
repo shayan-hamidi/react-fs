@@ -18,7 +18,6 @@
     "@mui/x-date-pickers": "^7.11.0",
     "@types/lodash": "^4.17.7",
     "axios": "^1.7.2",
-    "dayjs": "^1.11.12",
     "i18next": "^23.11.5",
     "i18next-browser-languagedetector": "^7.1.0",
     "path": "^0.12.7",
