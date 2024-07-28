@@ -46,6 +46,7 @@ const Home = () => {
   return (
     <>
       <FsFormProvider
+        name="form1"
         methods={methods}
         formProps={{ onSubmit: methods.handleSubmit(onSubmit) }}
       >

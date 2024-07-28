@@ -5,15 +5,19 @@ type FsFormProviderProps = {
   children: ReactNode;
   formProps: FormHTMLAttributes<HTMLFormElement>;
   methods: UseFormReturn<FieldValues, any, undefined>;
+  name: string;
 };
 const FsFormProvider = ({
   children,
   methods,
+  name,
   formProps,
 }: FsFormProviderProps) => {
   return (
     <FormProvider {...methods}>
-      <form {...formProps}>{children}</form>
+      <form data-cy={name} {...formProps}>
+        {children}
+      </form>
     </FormProvider>
   );
 };
