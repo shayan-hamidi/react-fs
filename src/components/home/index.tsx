@@ -12,6 +12,7 @@ import {
   FsAutoComplete,
   FsCheckbox,
   FsDatePicker,
+  FsDateTimePicker,
   FsFormProvider,
   FsRadioGroup,
   FsRangeSlider,
@@ -55,6 +56,7 @@ const Home = () => {
         <FsAlert i18nkey="new notification" severity="info" />
         <FsDatePicker name={"asdadadasdasdasdasd"} i18nKey={"ss"} />
         <FsTimePicker name={"timePicker"} i18nKey={"ss"} />
+        <FsDateTimePicker name={"dateTimePicker"} i18nKey={"ss"} />
         <FsChip i18nkey="Chip" />
         <FsRadioGroup
           name="radio"
