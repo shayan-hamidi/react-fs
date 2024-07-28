@@ -1,11 +1,11 @@
 import { AdapterMomentJalaali } from "@mui/x-date-pickers/AdapterMomentJalaali";
 import { DatePicker, DatePickerProps } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import moment from "moment-jalaali";
+import moment, { type Moment } from "moment-jalaali";
 import { Controller, ControllerProps, useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
-type FsDatePickerProps = DatePickerProps<moment> & {
+type FsDatePickerProps = DatePickerProps<Moment> & {
   i18nKey: string;
   rules?: ControllerProps["rules"];
   name: string;
