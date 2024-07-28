@@ -18,6 +18,7 @@ import {
   FsSelect,
   FsSwitch,
   FsTextInput,
+  FsTimePicker,
 } from "@fs/form";
 import { Box } from "@mui/material";
 import { useState } from "react";
@@ -53,6 +54,7 @@ const Home = () => {
         <FsNotifiedAlert i18nkey="new notification" severity="error" />
         <FsAlert i18nkey="new notification" severity="info" />
         <FsDatePicker name={"asdadadasdasdasdasd"} i18nKey={"ss"} />
+        <FsTimePicker name={"timePicker"} i18nKey={"ss"} />
         <FsChip i18nkey="Chip" />
         <FsRadioGroup
           name="radio"
