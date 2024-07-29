@@ -5,7 +5,7 @@ import { Route, Routes } from "react-router-dom";
 const LoginRoutes = lazy(() => import("src/components/login"));
 const HomeRoutes = lazy(() => import("src/pages/Home"));
 const NotFoundPage = lazy(() => import("src/common/NotFoundPage/NotFoundPage"));
-const ErrorPage = lazy(() => import("src/pages//error.tsx"));
+const ErrorPage = lazy(() => import("src/pages/error.tsx"));
 
 const AppRoutes = () => {
   return (
