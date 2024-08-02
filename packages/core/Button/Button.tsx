@@ -9,14 +9,22 @@ type FsButtonProps = ButtonProps & {
   };
 };
 
-const FsButton = ({ i18nKey, tooltipProps, ...rest }: FsButtonProps) => {
+const FsButton = ({
+  i18nKey,
+  tooltipProps,
+  children,
+  ...rest
+}: FsButtonProps) => {
   const { t } = useTranslation();
   return tooltipProps ? (
     <FsTooltip {...tooltipProps}>
       <Button {...rest}>{t(i18nKey)}</Button>
     </FsTooltip>
   ) : (
-    <Button {...rest}>{t(i18nKey)}</Button>
+    <Button {...rest}>
+      {children}
+      {t(i18nKey)}
+    </Button>
   );
 };
 

@@ -20,6 +20,7 @@ import {
   FsSwitch,
   FsTextInput,
   FsTimePicker,
+  FsUploadFile,
 } from "@fs/form";
 import { Box } from "@mui/material";
 import { useState } from "react";
@@ -112,6 +113,7 @@ const Home = () => {
             required: "پر کردن فیلد اجباری است.",
           }}
         />
+        <FsUploadFile name="uploadFile" i18nKey="uploadFile" />sasdadad
         <FsButton i18nKey="ssssssss" type="submit" />
       </FsFormProvider>
       <FsButton
