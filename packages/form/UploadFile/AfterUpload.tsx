@@ -1,5 +1,5 @@
 import { FsTypography } from "@fs/core";
-import DeleteIcon from "@mui/icons-material/Delete"; // Assuming you use Material-UI icons
+import DeleteIcon from "@mui/icons-material/Delete";
 import { Box, IconButton } from "@mui/material";
 import excelIcon from "src/assets/images/files/excel.svg";
 import gifIcon from "src/assets/images/files/gif.svg";
@@ -90,4 +90,5 @@ const AfterUpload = ({ fileNames, removeFile }: AfterUploadProps) => {
     </Box>
   );
 };
+
 export default AfterUpload;

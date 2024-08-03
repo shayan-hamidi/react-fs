@@ -24,17 +24,24 @@ const BeforeUpload = ({
 
   const handleFiles = (files: FileList | null) => {
     if (files) {
-      const names = Array.from(files).map((file) => file.name);
+      const fileArray = Array.from(files);
+      const names = fileArray.map((file) => file.name);
       setFileNames(names);
+      field.onChange(fileArray);
     }
   };
+  const onDrop = (event: React.DragEvent<HTMLDivElement>) => {
+    if (!multiple && event.dataTransfer.files?.length > 1) {
+      alert("تنها یک فایل قابل آپلود است");
+    } else {
+      eventHandler(event);
+      handleFiles(event.dataTransfer.files);
+    }
+  };
+
   return (
     <Box
-      onDrop={(e) => {
-        eventHandler(e);
-        handleFiles(e.dataTransfer.files);
-        field.onChange(e.dataTransfer.files);
-      }}
+      onDrop={onDrop}
       onDragOver={eventHandler}
       onDragEnter={eventHandler}
       onDragLeave={eventHandler}
@@ -53,10 +60,7 @@ const BeforeUpload = ({
           hidden
           accept={accept}
           multiple={multiple}
-          onChange={(e) => {
-            handleFiles(e.target.files);
-            field.onChange(e.target.files);
-          }}
+          onChange={(e) => handleFiles(e.target.files)}
         />
         Drag & Drop files here, or click to select files
       </FsButton>

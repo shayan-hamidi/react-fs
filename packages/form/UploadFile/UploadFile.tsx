@@ -1,6 +1,6 @@
 import { FsTypography } from "@fs/core";
 import { Box } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Controller, ControllerProps, useFormContext } from "react-hook-form";
 import { useExtractErrorInfo } from "../useExtractErrorInfo";
 import AfterUpload from "./AfterUpload";
@@ -19,19 +19,28 @@ const FsUploadFile = ({
   rules,
   i18nKey,
   accept,
-  multiple = false,
+  multiple = true,
 }: FsUploadFileProps) => {
   const [fileNames, setFileNames] = useState<string[]>([]);
   const {
     control,
     formState: { errors },
-    getValues
+    setValue,
+    getValues,
   } = useFormContext();
   const { errorI18nKey } = useExtractErrorInfo(errors, name);
 
-  const removeFile = (fileName: string) => {
-    setFileNames((prev) => prev.filter((name) => name !== fileName));
-    console.log(getValues(name))
+  useEffect(() => {
+    const files: FileList | File[] = getValues(name) || [];
+    setFileNames(Array.from(files).map((file: File) => file.name));
+  }, [getValues, name]);
+
+  const removeFile = (fileName: string, field: { value: [] }) => {
+    const newFiles = Array.from(field.value).filter(
+      (file: File) => file.name !== fileName
+    );
+    setValue(name, newFiles);
+    setFileNames(newFiles.map((file: File) => file.name));
   };
 
   return (
@@ -59,7 +68,10 @@ const FsUploadFile = ({
                 />
               </>
             ) : (
-              <AfterUpload fileNames={fileNames} removeFile={removeFile} />
+              <AfterUpload
+                fileNames={fileNames}
+                removeFile={(fileName: string) => removeFile(fileName, field)}
+              />
             )}
           </Box>
         );
