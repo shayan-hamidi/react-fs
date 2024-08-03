@@ -1,13 +1,10 @@
-import { FsButton } from "@fs/core";
-import {
-    Box,
-    FormControl,
-    FormHelperText
-} from "@mui/material";
+import { FsTypography } from "@fs/core";
+import { Box } from "@mui/material";
 import { useState } from "react";
 import { Controller, ControllerProps, useFormContext } from "react-hook-form";
-import { useTranslation } from "react-i18next";
 import { useExtractErrorInfo } from "../useExtractErrorInfo";
+import AfterUpload from "./AfterUpload";
+import BeforeUpload from "./BeforeUpload";
 
 type FsUploadFileProps = {
   i18nKey: string;
@@ -22,18 +19,19 @@ const FsUploadFile = ({
   rules,
   i18nKey,
   accept,
-  multiple,
+  multiple = false,
 }: FsUploadFileProps) => {
-  const [selectedFiles, setSelectedFiles] = useState<FileList | null>(null);
+  const [fileNames, setFileNames] = useState<string[]>([]);
   const {
     control,
     formState: { errors },
+    getValues
   } = useFormContext();
-  const { t } = useTranslation();
   const { errorI18nKey } = useExtractErrorInfo(errors, name);
 
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedFiles(event.target.files);
+  const removeFile = (fileName: string) => {
+    setFileNames((prev) => prev.filter((name) => name !== fileName));
+    console.log(getValues(name))
   };
 
   return (
@@ -43,29 +41,26 @@ const FsUploadFile = ({
       rules={rules}
       render={({ field }) => {
         return (
-          <Box>
-            <FormControl error={!!errors[name]}>
-              <FsButton  variant="contained" component="label" i18nKey={i18nKey}>
-                <input
-                  type="file"
-                  hidden
+          <Box display={"block"}>
+            {!(fileNames.length > 0) ? (
+              <>
+                <BeforeUpload
+                  setFileNames={setFileNames}
+                  i18nKey={i18nKey}
                   accept={accept}
+                  field={field}
                   multiple={multiple}
-                  onChange={(e) => {
-                    handleFileChange(e);
-                    field.onChange(e.target.files);
-                  }}
                 />
-              </FsButton>
-              {selectedFiles && (
-                <Box>
-                  {Array.from(selectedFiles).map((file, index) => (
-                    <FormHelperText key={index}>{file.name}</FormHelperText>
-                  ))}
-                </Box>
-              )}
-              <FormHelperText error>{t(errorI18nKey)}</FormHelperText>
-            </FormControl>
+                <FsTypography
+                  component={"span"}
+                  variant="body2"
+                  i18nKey={errorI18nKey}
+                  color={"error"}
+                />
+              </>
+            ) : (
+              <AfterUpload fileNames={fileNames} removeFile={removeFile} />
+            )}
           </Box>
         );
       }}
