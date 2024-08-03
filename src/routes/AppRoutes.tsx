@@ -14,7 +14,12 @@ const AppRoutes = () => {
         return (
           <Suspense
             fallback={
-              <Box sx={{ height: "100vh" }} display={"flex"} justifyContent={"center"} alignItems={"center"}>
+              <Box
+                sx={{ height: "100vh" }}
+                display={"flex"}
+                justifyContent={"center"}
+                alignItems={"center"}
+              >
                 Loading <CircularProgress sx={{ margin: "0px 10px" }} />
               </Box>
             }
@@ -25,7 +30,13 @@ const AppRoutes = () => {
               <Route path="login/*" element={<LoginRoutes />} />
               <Route path="*" element={<HomeRoutes />} />
             </Routes>
-            <Route path="/" element={<></>} errorElement={<ErrorPage />}></Route>
+            <Routes>
+              <Route
+                path="/"
+                element={<></>}
+                errorElement={<ErrorPage />}
+              ></Route>
+            </Routes>
           </Suspense>
         );
       })()}
