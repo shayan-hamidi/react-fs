@@ -118,10 +118,9 @@ const Home = () => {
           methods={methods}
           formProps={{ onSubmit: methods.handleSubmit(onSubmit) }}
         >
-          <Box sx={{px:'200px'}}>
+          <Box sx={{ px: "200px" }}>
             <FsUploadFile
               name="uploadFile"
-              i18nKey="uploadFile"
               rules={{
                 required: "پر کردن فیلد اجباری است.",
               }}

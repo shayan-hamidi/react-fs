@@ -7,7 +7,7 @@ import AfterUpload from "./AfterUpload";
 import BeforeUpload from "./BeforeUpload";
 
 type FsUploadFileProps = {
-  i18nKey: string;
+  i18nKey?: string;
   rules?: ControllerProps["rules"];
   name: string;
   accept?: string;
@@ -19,7 +19,7 @@ const FsUploadFile = ({
   rules,
   i18nKey,
   accept,
-  multiple = true,
+  multiple = false,
 }: FsUploadFileProps) => {
   const [fileNames, setFileNames] = useState<string[]>([]);
   const {
@@ -27,6 +27,7 @@ const FsUploadFile = ({
     formState: { errors },
     setValue,
     getValues,
+    setError,
   } = useFormContext();
   const { errorI18nKey } = useExtractErrorInfo(errors, name);
 
@@ -59,6 +60,8 @@ const FsUploadFile = ({
                   accept={accept}
                   field={field}
                   multiple={multiple}
+                  setError={setError}
+                  name={name}
                 />
                 <FsTypography
                   component={"span"}

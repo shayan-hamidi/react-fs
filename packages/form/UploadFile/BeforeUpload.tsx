@@ -1,13 +1,20 @@
 import { FsButton } from "@fs/core";
 import { Box } from "@mui/material";
-import { ControllerRenderProps, FieldValues } from "react-hook-form";
+import {
+    ControllerRenderProps,
+    FieldValues,
+    UseFormSetError,
+} from "react-hook-form";
+import { Trans } from "react-i18next";
 
 type BeforeUploadProps = {
   setFileNames: Function;
-  i18nKey: string;
+  i18nKey?: string;
   accept?: string;
   field: ControllerRenderProps<FieldValues, string>;
   multiple?: boolean;
+  setError: UseFormSetError<FieldValues>;
+  name: string;
 };
 
 const BeforeUpload = ({
@@ -16,6 +23,8 @@ const BeforeUpload = ({
   accept,
   field,
   multiple,
+  name,
+  setError,
 }: BeforeUploadProps) => {
   const eventHandler = (event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
@@ -31,10 +40,13 @@ const BeforeUpload = ({
     }
   };
   const onDrop = (event: React.DragEvent<HTMLDivElement>) => {
+    eventHandler(event);
     if (!multiple && event.dataTransfer.files?.length > 1) {
-      alert("تنها یک فایل قابل آپلود است");
+      setError(name, {
+        message: "تنها یک فایل قابل آپلود است.",
+        type: "pattern",
+      });
     } else {
-      eventHandler(event);
       handleFiles(event.dataTransfer.files);
     }
   };
@@ -54,7 +66,7 @@ const BeforeUpload = ({
         padding: "20px",
       }}
     >
-      <FsButton variant="contained" component="label" i18nKey={i18nKey}>
+      <FsButton variant="contained" component="label">
         <input
           type="file"
           hidden
@@ -62,7 +74,9 @@ const BeforeUpload = ({
           multiple={multiple}
           onChange={(e) => handleFiles(e.target.files)}
         />
-        Drag & Drop files here, or click to select files
+        <Trans
+          i18nKey={i18nKey || "فایل/فایل ها را اینجا رها کنید یا انتخاب کنید"}
+        />
       </FsButton>
     </Box>
   );
