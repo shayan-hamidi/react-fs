@@ -10,11 +10,14 @@ import {
 import {
   FsAutoComplete,
   FsCheckbox,
+  FsDatePicker,
+  FsDateTimePicker,
   FsRadioGroup,
   FsRangeSlider,
   FsSelect,
   FsSwitch,
   FsTextInput,
+  FsTimePicker,
   FsUploadFile,
 } from "@fs/form";
 import { Box } from "@mui/material";
@@ -51,6 +54,27 @@ const Home = () => {
               { label: "22", value: "2" },
               { label: "33", value: "3" },
             ]}
+          />
+          <FsDatePicker
+            name="datePicker"
+            i18nKey="تقویم"
+            rules={{
+              required: "پر کردن فیلد اجباری است.",
+            }}
+          />
+          <FsTimePicker
+            name="timePicker"
+            i18nKey="ساعت"
+            rules={{
+              required: "پر کردن فیلد اجباری است.",
+            }}
+          />
+          <FsDateTimePicker
+            name="dateTimePicker"
+            i18nKey="تقویم - ساعت"
+            rules={{
+              required: "پر کردن فیلد اجباری است.",
+            }}
           />
           <FsSwitch name="ssss" i18nKey="lable" />
           <FsSelect

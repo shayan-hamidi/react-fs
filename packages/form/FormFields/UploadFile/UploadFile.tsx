@@ -1,8 +1,8 @@
-import { FsTypography } from "@fs/core";
+import ErrorMessage from "../../ErrorMessage";
 import { Box } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Controller, ControllerProps, useFormContext } from "react-hook-form";
-import { useExtractErrorInfo } from "../useExtractErrorInfo";
+import { useExtractErrorInfo } from "../../useExtractErrorInfo";
 import AfterUpload from "./AfterUpload";
 import BeforeUpload from "./BeforeUpload";
 
@@ -63,12 +63,7 @@ const FsUploadFile = ({
                   setError={setError}
                   name={name}
                 />
-                <FsTypography
-                  component={"span"}
-                  variant="body2"
-                  i18nKey={errorI18nKey}
-                  color={"error"}
-                />
+                <ErrorMessage i18nKey={errorI18nKey} />
               </>
             ) : (
               <AfterUpload

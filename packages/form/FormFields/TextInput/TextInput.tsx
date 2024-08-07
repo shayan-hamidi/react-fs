@@ -1,8 +1,8 @@
-import { FsTypography } from "@fs/core";
+import ErrorMessage from "../../ErrorMessage";
 import { Box, TextField, TextFieldProps } from "@mui/material";
 import { Controller, ControllerProps, useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { useExtractErrorInfo } from "../useExtractErrorInfo";
+import { useExtractErrorInfo } from "../../useExtractErrorInfo";
 
 type FsTextFieldProps = Omit<TextFieldProps, "label" | "name"> & {
   i18nKey: string;
@@ -34,12 +34,7 @@ const FsTextInput = ({
       render={({ field }) => (
         <Box>
           <TextField {...field} label={t(i18nKey)} fullWidth {...rest} />
-          <FsTypography
-            component={"span"}
-            variant="body2"
-            i18nKey={errorI18nKey}
-            color={"error"}
-          />
+          <ErrorMessage i18nKey={errorI18nKey} />
         </Box>
       )}
     />

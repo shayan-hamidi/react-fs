@@ -4,6 +4,9 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import moment, { type Moment } from "moment-jalaali";
 import { Controller, ControllerProps, useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
+import { useExtractErrorInfo } from "../../useExtractErrorInfo";
+import { Box } from "@mui/material";
+import ErrorMessage from "../../ErrorMessage";
 
 type FsDatePickerProps = DatePickerProps<Moment> & {
   i18nKey: string;
@@ -19,8 +22,12 @@ const FsDatePicker = ({
   defaultValue,
   ...rest
 }: FsDatePickerProps) => {
-  const { control } = useFormContext();
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext();
   const { t } = useTranslation();
+  const { errorI18nKey } = useExtractErrorInfo(errors, name);
   moment.loadPersian({ dialect: "persian-modern" });
   return (
     <Controller
@@ -30,7 +37,10 @@ const FsDatePicker = ({
       defaultValue={defaultValue}
       render={({ field }) => (
         <LocalizationProvider dateAdapter={AdapterMomentJalaali}>
-          <DatePicker label={t(i18nKey)} {...field} {...rest} />
+          <Box display={"flex"} flexDirection={"column"}>
+            <DatePicker label={t(i18nKey)} {...field} {...rest} />
+            <ErrorMessage i18nKey={errorI18nKey} />
+          </Box>
         </LocalizationProvider>
       )}
     />

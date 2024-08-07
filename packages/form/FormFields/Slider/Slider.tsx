@@ -1,7 +1,7 @@
-import { FsTypography } from "@fs/core";
+import ErrorMessage from "../../ErrorMessage";
 import { Box, Slider, SliderProps } from "@mui/material";
 import { Controller, ControllerProps, useFormContext } from "react-hook-form";
-import { useExtractErrorInfo } from "../useExtractErrorInfo";
+import { useExtractErrorInfo } from "../../useExtractErrorInfo";
 
 type FsRangeSliderProps = SliderProps & {
   name: string;
@@ -30,12 +30,7 @@ const FsRangeSlider = ({
       render={({ field }) => (
         <Box>
           <Slider valueLabelDisplay="auto" {...field} {...rest} />
-          <FsTypography
-            component={"span"}
-            variant="body2"
-            i18nKey={errorI18nKey}
-            color={"error"}
-          />
+          <ErrorMessage i18nKey={errorI18nKey} />
         </Box>
       )}
     />
