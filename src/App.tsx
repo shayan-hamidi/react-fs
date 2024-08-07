@@ -1,8 +1,8 @@
-import "./App.css";
 import { useTranslation } from "react-i18next";
-import { addTranslationSchema } from "./i18nConfig";
-import faTranslations from "src/i18n/fa.json";
 import { BrowserRouter as Router } from "react-router-dom";
+import faTranslations from "src/i18n/fa.json";
+import "./App.css";
+import { addTranslationSchema } from "./i18nConfig";
 import AppRoutes from "./routes/AppRoutes";
 
 const App = () => {
