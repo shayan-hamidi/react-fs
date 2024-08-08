@@ -1,18 +1,11 @@
-import { AxiosInstance } from "axios";
-const notificationBaseUrl = "/taxpayer/rest/notification";
+import { createBaseApi } from '@fs/http';
 
-const homeService = (instance: AxiosInstance) => ({
-  home: {},
-
-  notification: {
-    search: (filters: any) => {
-      return instance.get(`${notificationBaseUrl}/search`, {
-        params: { ...filters },
-      });
-    },
-    setAsRead: (id: string) => {
-      return instance.get(`${notificationBaseUrl}/set-as-read/${id}`);
-    },
-  },
+export const homeApi = createBaseApi('homeApi').injectEndpoints({
+  endpoints: (builder) => ({
+    getHomeData: builder.query<unknown, void>({
+      query: () => ({ url: '/home', method: 'GET' }),
+    }),
+  }),
 });
-export default homeService;
+
+export const { useGetHomeDataQuery } = homeApi;
