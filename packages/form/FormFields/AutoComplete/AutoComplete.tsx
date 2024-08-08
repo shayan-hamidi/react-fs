@@ -1,10 +1,9 @@
-import { FsTypography } from "@fs/core";
 import { Autocomplete, AutocompleteProps, Box } from "@mui/material";
 import { Controller, ControllerProps, useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { FsTextInput } from "../TextInput";
-import { useExtractErrorInfo } from "../useExtractErrorInfo";
-// import { useExtractErrorInfo } from "../useExtractErrorInfo";
+import { useExtractErrorInfo } from "../../useExtractErrorInfo";
+import ErrorMessage from "../../ErrorMessage";
 
 type TOptions = { value: string; label: string };
 
@@ -73,12 +72,7 @@ function FsAutoComplete<TMultiple extends boolean | undefined>({
               />
             )}
           />
-          <FsTypography
-            component={"span"}
-            variant="body2"
-            i18nKey={errorI18nKey}
-            color={"error"}
-          />
+          <ErrorMessage i18nKey={errorI18nKey} />
         </Box>
       )}
     />

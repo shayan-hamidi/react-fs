@@ -1,8 +1,8 @@
-import { FsTypography } from "@fs/core";
 import { Box, Checkbox, CheckboxProps, FormControlLabel } from "@mui/material";
 import { Controller, ControllerProps, useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { useExtractErrorInfo } from "../useExtractErrorInfo";
+import { useExtractErrorInfo } from "../../useExtractErrorInfo";
+import ErrorMessage from "../../ErrorMessage";
 
 type FsCheckboxProps = CheckboxProps & {
   i18nKey: string;
@@ -38,12 +38,7 @@ const FsCheckbox = ({
               label={t(i18nKey)}
               sx={{ display: "block" }}
             />
-            <FsTypography
-              component={"span"}
-              variant="body2"
-              i18nKey={errorI18nKey}
-              color={"error"}
-            />
+            <ErrorMessage i18nKey={errorI18nKey} />
           </Box>
         );
       }}

@@ -1,21 +1,39 @@
-import { FsAccordion, FsAlert, FsButton, FsChip, FsNotifiedAlert, FsToggleButtonGroup, FsTypography, useModal } from "@fs/core";
-import { FsAutoComplete, FsCheckbox, FsRadioGroup, FsRangeSlider, FsSelect, FsSwitch, FsTextInput } from "@fs/form";
+import {
+  FsAccordion,
+  FsAlert,
+  FsButton,
+  FsChip,
+  FsNotifiedAlert,
+  FsToggleButtonGroup,
+  FsTypography,
+} from "@fs/core";
+import {
+  FsAutoComplete,
+  FsCheckbox,
+  FsDatePicker,
+  FsDateTimePicker,
+  FsRadioGroup,
+  FsRangeSlider,
+  FsSelect,
+  FsSwitch,
+  FsTextInput,
+  FsTimePicker,
+  FsUploadFile,
+} from "@fs/form";
 import { Box } from "@mui/material";
 import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import viteLogo from "../../../public/vite.svg";
 import reactLogo from "../../assets/react.svg";
-import { default as Test1Modal, default as TestModal } from "./Test1Modal";
-import Test2Modal from "./Test2Modal";
 
 const Home = () => {
   const [value, setValue] = useState("value2");
   const [count, setCount] = useState(0);
-  const { open: openTest1Modal } = useModal("test1Modal");
-  const { open: openTest2Modal } = useModal("test2Modal");
   const methods = useForm();
-  // const { openModal, closeModal } = useModal();
-  const handleChange = (_event: React.MouseEvent<HTMLElement>, newAlignment: string) => {
+  const handleChange = (
+    _event: React.MouseEvent<HTMLElement>,
+    newAlignment: string
+  ) => {
     setValue(newAlignment);
   };
   const onSubmit = (data: any) => {
@@ -36,6 +54,24 @@ const Home = () => {
               { label: "22", value: "2" },
               { label: "33", value: "3" },
             ]}
+          />
+          <FsDatePicker
+            name="datePicker"
+            i18nKey="تقویم"
+            rules={{
+              required: "پر کردن فیلد اجباری است.",
+            }}
+          />
+          <FsTimePicker
+            name="timePicker"
+            i18nKey="ساعت"
+            rules={{
+              required: "پر کردن فیلد اجباری است.",
+            }}
+          />
+          <FsDateTimePicker
+            name="dateTimePicker"
+            i18nKey="تقویم - ساعت"
             rules={{
               required: "پر کردن فیلد اجباری است.",
             }}
@@ -45,17 +81,8 @@ const Home = () => {
             name="assssss"
             i18nKey="ss"
             items={[{ label: "shine", value: "asdjkaojd" }]}
-            rules={{
-              required: "پر کردن فیلد اجباری است.",
-            }}
           />
-          <FsCheckbox
-            name="checkbox"
-            i18nKey="saasd"
-            rules={{
-              required: "پر کردن فیلد اجباری است.",
-            }}
-          />
+          <FsCheckbox name="checkbox" i18nKey="saasd" />
           <FsAutoComplete
             name="autoComplete"
             options={[
@@ -65,19 +92,11 @@ const Home = () => {
               { value: "4", label: "44" },
             ]}
             i18nKey="sssss"
-            rules={{
-              required: "پر کردن فیلد اجباری است.",
-            }}
           />
-          <FsRangeSlider
-            name="rangeSlider"
-            rules={{
-              required: "پر کردن فیلد اجباری است.",
-            }}
-          />
-          <FsTextInput
-            name="sdsd"
-            i18nKey="dsdsds"
+          <FsRangeSlider name="rangeSlider" />
+          <FsTextInput name="sdsd" i18nKey="dsdsds" />
+          <FsUploadFile
+            name="uploadFile"
             rules={{
               required: "پر کردن فیلد اجباری است.",
             }}
@@ -85,12 +104,10 @@ const Home = () => {
           <FsButton i18nKey="ssssssss" type="submit" />
         </form>
       </FormProvider>
-      <FsButton i18nKey="open test 1 modal" onClick={() => openTest1Modal({ userId: "12" })} />
-      <FsButton i18nKey="open test 2 modal" onClick={openTest2Modal} />
-      <Test1Modal />
-      <Test2Modal />
-      <TestModal />
-      <FsAccordion children={<Box sx={{ background: "Accordion detials" }}>sssss</Box>} titleKey={"Accordion Title"}></FsAccordion>
+      <FsAccordion
+        children={<Box sx={{ background: "Accordion detials" }}>sssss</Box>}
+        titleKey={"Accordion Title"}
+      ></FsAccordion>
       <FsButton i18nKey="tooltipppp" tooltipProps={{ i18nKey: "ssss" }} />
       <FsToggleButtonGroup
         color="primary"
