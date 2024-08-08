@@ -1,6 +1,5 @@
-import { createBaseApi } from '.';
+import { createBaseApi } from '@fs/http';
 
-// Define types for Item
 export interface Item {
   id: number;
   name: string;
@@ -21,7 +20,7 @@ export interface UpdateItemPayload {
   price?: number;
 }
 
-export const itemApi = createBaseApi('itemApi').injectEndpoints({
+export const homeApi = createBaseApi('homeApi').injectEndpoints({
   endpoints: (builder) => ({
     getItems: builder.query<Item[], void>({
       query: () => ({ url: '/items', method: 'GET' }),
@@ -58,4 +57,4 @@ export const {
   useCreateItemMutation,
   useUpdateItemMutation,
   useDeleteItemMutation,
-} = itemApi;
+} = homeApi;
