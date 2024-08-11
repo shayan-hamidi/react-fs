@@ -29,6 +29,10 @@ export default defineConfig({
         find: "@fs/utils",
         replacement: path.resolve(__dirname, "./packages/utils"),
       },
+      {
+        find: "@fs/http",
+        replacement: path.resolve(__dirname, "./packages/http"),
+      },
     ],
   },
   build: {
