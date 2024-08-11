@@ -34,7 +34,7 @@ const FsTimePicker = ({
       name={name}
       control={control}
       rules={rules}
-      defaultValue={defaultValue}
+      defaultValue={defaultValue || null}
       render={({ field }) => (
         <LocalizationProvider dateAdapter={AdapterMomentJalaali}>
           <Box display={"flex"} flexDirection={"column"}>
