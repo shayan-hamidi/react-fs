@@ -1,7 +1,7 @@
-import { Container, Paper, Typography } from "@mui/material";
-import { useForm, FormProvider } from "react-hook-form";
-import { FsTextInput } from "@fs/form";
-import { FsButton } from "../../../packages/core/Button";
+import { Container, Paper, Typography } from '@mui/material';
+import { useForm, FormProvider } from 'react-hook-form';
+import { FsTextInput } from '@fs/form';
+import { FsButton } from '@fs/core';
 
 const LogIn = () => {
   const methods = useForm();
@@ -14,20 +14,20 @@ const LogIn = () => {
     <Container
       maxWidth="sm"
       style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100vh',
       }}
     >
-      <Paper elevation={3} style={{ padding: "20px", textAlign: "center" }}>
+      <Paper elevation={3} style={{ padding: '20px', textAlign: 'center' }}>
         <Typography variant="h5" gutterBottom>
           Log In
         </Typography>
         <FormProvider {...methods}>
           <form onSubmit={methods.handleSubmit(onSubmit)}>
-            <FsTextInput name="UserName" i18nKey={"UserName"} />
-            <FsTextInput name="password" i18nKey={"password"} />
+            <FsTextInput name="UserName" i18nKey={'UserName'} />
+            <FsTextInput name="password" i18nKey={'password'} />
             <FsButton
               type="submit"
               variant="contained"

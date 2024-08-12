@@ -23,8 +23,8 @@ import {
 import { Box } from "@mui/material";
 import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import viteLogo from "../../../public/vite.svg";
-import reactLogo from "../../assets/react.svg";
+import viteLogo from "../../../../public/vite.svg";
+import reactLogo from "../../../assets/react.svg";
 
 const Home = () => {
   const [value, setValue] = useState("value2");
