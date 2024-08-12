@@ -72,8 +72,8 @@ const baseQueryWithAxios =
     const {
       url,
       method = 'GET',
-      body,
-      params,
+      body = {},
+      params = {},
     } = typeof args === 'string' ? { url: args } : args;
 
     try {

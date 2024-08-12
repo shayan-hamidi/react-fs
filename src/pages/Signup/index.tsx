@@ -4,9 +4,9 @@ import { Route, Routes } from 'react-router-dom';
 import { addTranslationSchema } from 'src/i18nConfig';
 import authTranslations from './i18n/fa.json';
 
-const Login = lazy(() => import('./components'));
+const SignUp = lazy(() => import('./components'));
 
-const LoginRoutes = () => {
+const SignUpRoutes = () => {
   addTranslationSchema('fa', authTranslations);
   // const { instance } = getInstance()
   // const counterServices = counterService(instance)
@@ -14,17 +14,17 @@ const LoginRoutes = () => {
   return (
     // <EntityRoot entityName="counter" httpService={counterServices}>
     <Routes>
-      <Route path="/" element={<Login />} />
+      <Route path="/" element={<SignUp />} />
     </Routes>
     // </EntityRoot>
   );
 };
-export default LoginRoutes;
+export default SignUpRoutes;
 
 export const counterMenu: any = [
   {
-    path: '/login',
-    intlMessageId: `sidebar.counter`,
+    path: '/signup',
+    intlMessageId: `sidebar.signup`,
     icon: <HomeOutlinedIcon />,
   },
 ];
