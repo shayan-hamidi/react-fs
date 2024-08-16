@@ -28,7 +28,6 @@ import reactLogo from '../../../assets/react.svg';
 
 const Home = () => {
   const [value, setValue] = useState('value2');
-  const [count, setCount] = useState(0);
   const methods = useForm();
   const handleChange = (
     _event: React.MouseEvent<HTMLElement>,
