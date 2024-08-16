@@ -27,8 +27,7 @@
       "@fs/core": ["./packages/core"],
       "@fs/form": ["./packages/form"],
       "@fs/table": ["./packages/table"],
-      "@fs/utils": ["./packages/utils"],
-      "@fs/http": ["./packages/http"]
+      "@fs/utils": ["./packages/utils"]
     }
   },
   "references": [{ "path": "./tsconfig.node.json" }],

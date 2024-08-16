@@ -1,6 +1,6 @@
-import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
+import { defineConfig } from 'vite';
 import checker from 'vite-plugin-checker';
 
 // https://vitejs.dev/config/
@@ -22,16 +22,8 @@ export default defineConfig({
         replacement: path.resolve(__dirname, './packages/table'),
       },
       {
-        find: '@fs/http',
-        replacement: path.resolve(__dirname, './packages/http'),
-      },
-      {
         find: '@fs/utils',
         replacement: path.resolve(__dirname, './packages/utils'),
-      },
-      {
-        find: '@fs/http',
-        replacement: path.resolve(__dirname, './packages/http'),
       },
     ],
   },
