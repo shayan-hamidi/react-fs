@@ -18,10 +18,6 @@ export default defineConfig({
         replacement: path.resolve(__dirname, './packages/form'),
       },
       {
-        find: '@fs/table',
-        replacement: path.resolve(__dirname, './packages/table'),
-      },
-      {
         find: '@fs/utils',
         replacement: path.resolve(__dirname, './packages/utils'),
       },
