@@ -1,5 +1,4 @@
-export * from "./Breakpoints";
-export * from "./I18Next";
-export * from "./Theme";
 export * from "./helper";
+export * from "./i18Next";
+export * from "./theme";
 
