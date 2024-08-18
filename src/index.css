@@ -1,21 +1,21 @@
 @font-face {
   font-family: "iransansxv";
-  src: url("../src/assets/iranSans/webfont/IRANSansXV.woff")
+  src: url("../src/assets/fonts/iranSans/webfont/IRANSansXV.woff")
       format("woff-variations"),
     /* will be the standard and works in Safari now */
-      url("../src/assets/iranSans/webfont/IRANSansXV.woff") format("woff");
+      url("../src/assets/fonts/iranSans/webfont/IRANSansXV.woff") format("woff");
   /* for the other supporting browsers */
   font-weight: 100 1000;
   font-display: fallback;
 }
 @font-face {
   font-family: iransansx;
-  src: url("../src/assets/iranSans/webfont/staticfonts/iransansx-regular.woff")
+  src: url("../src/assets/fonts/iranSans/webfont/staticfonts/iransansx-regular.woff")
     format("woff");
 }
 @font-face {
   font-family: iransansx;
-  src: url("../src/assets/iranSans/webfont/staticfonts/iransansx-bold.woff")
+  src: url("../src/assets/fonts/iranSans/webfont/staticfonts/iransansx-bold.woff")
     format("woff");
   font-weight: 700;
 }
