@@ -51,6 +51,15 @@ Within the monorepo, the code is organized into self-contained **modules**. Each
 - **Scalability**: New features can be added in new modules without impacting existing code, enabling the application to scale efficiently.
 - **Consistency**: A single repository ensures that coding standards, tooling, and dependencies are consistent across the entire project.
 
+## Built With
+
+- `React`
+- `MUI`
+- `TypeScript`
+- `Vite`
+- `React-query`
+- `I18next`
+
 ## Folder Structure
 
 Below is the detailed structure of the project, which illustrates the organization of the code into different packages and modules:
