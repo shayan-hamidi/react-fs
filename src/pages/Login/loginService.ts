@@ -1,18 +1,13 @@
-import { AxiosInstance } from 'axios'
-const notificationBaseUrl = '/taxpayer/rest/notification'
+import { AxiosInstance } from 'axios';
+const notificationBaseUrl = '/fs/login';
 
 const counterService = (instance: AxiosInstance) => ({
-    counter: {},
-
-    notification: {
-        search: (filters: any) => {
-            return instance.get(`${notificationBaseUrl}/search`, {
-                params: { ...filters },
-            })
-        },
-        setAsRead: (id: string) => {
-            return instance.get(`${notificationBaseUrl}/set-as-read/${id}`)
-        },
+  login: {
+    search: (filters: any) => {
+      return instance.post(notificationBaseUrl, {
+        params: { ...filters },
+      });
     },
-})
-export default counterService
+  },
+});
+export default counterService;
