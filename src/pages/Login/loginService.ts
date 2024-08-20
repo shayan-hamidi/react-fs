@@ -1,10 +1,10 @@
-import { AxiosInstance } from 'axios';
-const notificationBaseUrl = '/fs/login';
+import { AxiosInstance } from "axios";
+const notificationBaseUrl = "https://api.quotable.io/random";
 
 const loginService = (instance: AxiosInstance) => ({
   login: {
     search: (filters: any) => {
-      return instance.post(notificationBaseUrl, {
+      return instance.get(notificationBaseUrl, {
         params: { ...filters },
       });
     },
