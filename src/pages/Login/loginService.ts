@@ -1,14 +1,15 @@
-import { AxiosInstance } from "axios";
-const notificationBaseUrl = "https://api.quotable.io/random";
+import { AxiosInstance } from 'axios';
+
+const listBaseUrl = 'https://jsonplaceholder.typicode.com/posts';
 
 const loginService = (instance: AxiosInstance) => ({
   login: {
-    search: (filters: any) => {
-      return instance.get(notificationBaseUrl, {
-        params: { ...filters },
-      });
+    getList: () => {
+      return instance.get(listBaseUrl);
     },
   },
 });
+
+export type LoginServiceActions = ReturnType<typeof loginService>;
 
 export default loginService;

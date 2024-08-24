@@ -8,7 +8,7 @@ export function getInstance() {
   const CancelToken = axios.CancelToken;
   const source = CancelToken.source();
   const instance = axios.create({
-    baseURL: '',
+    baseURL: 'Asdkajodjaosdo',
     cancelToken: Boolean(source) ? source.token : undefined,
     withCredentials: false,
     headers: {

@@ -8,7 +8,6 @@ import AppRoutes from './routes/AppRoutes';
 const App = () => {
   const { ready } = useTranslation();
   ready && addTranslationSchema('fa', faTranslations);
-  console.count();
   return (
     <Router basename={import.meta.env.BASE_URL}>
       <AppRoutes />

@@ -2,7 +2,8 @@ import { Container, Paper, Typography } from '@mui/material';
 import { useForm, FormProvider } from 'react-hook-form';
 import { FsTextInput } from '@fs/form';
 import { FsButton } from '@fs/core';
-import { useMutation } from 'react-query';
+import { useService } from '@fs/utils';
+import { useEffect } from 'react';
 
 const LogIn = () => {
   const methods = useForm();
@@ -10,7 +11,12 @@ const LogIn = () => {
   const onSubmit = (data: any) => {
     console.log(data);
   };
-  // co780b6hgv5nst { mutate } = useMutation();
+
+  const { mutate } = useService<'login', 'getList'>('login', 'getList');
+
+  useEffect(() => {
+    mutate();
+  }, []);
 
   return (
     <Container
