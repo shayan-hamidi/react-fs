@@ -1,4 +1,2 @@
-export * from "./Atom";
-export * from "./Organ";
-
-
+export * from './Atom';
+export * from './Organ';

@@ -1,11 +1,11 @@
-import { FsButton } from "@fs/core";
-import { Box } from "@mui/material";
+import { FsButton } from '@fs/core';
+import { Box } from '@mui/material';
 import {
-    ControllerRenderProps,
-    FieldValues,
-    UseFormSetError,
-} from "react-hook-form";
-import { Trans } from "react-i18next";
+  FieldValues,
+  UseFormSetError,
+  type ControllerRenderProps,
+} from 'react-hook-form';
+import { Trans } from 'react-i18next';
 
 type BeforeUploadProps = {
   setFileNames: Function;
@@ -43,8 +43,8 @@ const BeforeUpload = ({
     eventHandler(event);
     if (!multiple && event.dataTransfer.files?.length > 1) {
       setError(name, {
-        message: "تنها یک فایل قابل آپلود است.",
-        type: "pattern",
+        message: 'تنها یک فایل قابل آپلود است.',
+        type: 'pattern',
       });
     } else {
       handleFiles(event.dataTransfer.files);
@@ -58,12 +58,12 @@ const BeforeUpload = ({
       onDragEnter={eventHandler}
       onDragLeave={eventHandler}
       sx={{
-        border: "2px dashed",
-        borderRadius: "8px",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        padding: "20px",
+        border: '2px dashed',
+        borderRadius: '8px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: '20px',
       }}
     >
       <FsButton variant="contained" component="label">
@@ -75,7 +75,7 @@ const BeforeUpload = ({
           onChange={(e) => handleFiles(e.target.files)}
         />
         <Trans
-          i18nKey={i18nKey || "فایل/فایل ها را اینجا رها کنید یا انتخاب کنید"}
+          i18nKey={i18nKey || 'فایل/فایل ها را اینجا رها کنید یا انتخاب کنید'}
         />
       </FsButton>
     </Box>

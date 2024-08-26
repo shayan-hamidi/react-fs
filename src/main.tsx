@@ -5,10 +5,10 @@ import ReactDOM from 'react-dom/client';
 import { QueryClientProvider } from 'react-query';
 import App from './App.tsx';
 import './index.css';
-// import { StrictMode } from 'react';
+import { StrictMode } from 'react';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  // <StrictMode>
+  <StrictMode>
     <ThemeProvider theme={fsTheme}>
       <QueryClientProvider client={queryClient}>
         <ModalProvider>
@@ -16,5 +16,5 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         </ModalProvider>
       </QueryClientProvider>
     </ThemeProvider>
-  // </StrictMode>
+  </StrictMode>
 );

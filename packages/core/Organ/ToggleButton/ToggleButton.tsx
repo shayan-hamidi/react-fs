@@ -1,12 +1,12 @@
 import {
-    ToggleButton,
-    ToggleButtonGroup,
-    ToggleButtonGroupProps,
-    ToggleButtonProps,
-} from "@mui/material";
-import { useTranslation } from "react-i18next";
+  ToggleButton,
+  ToggleButtonGroup,
+  type ToggleButtonGroupProps,
+  type ToggleButtonProps,
+} from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
-type FsToggleButtonGroupProps = Omit<ToggleButtonGroupProps, "children"> & {
+type FsToggleButtonGroupProps = Omit<ToggleButtonGroupProps, 'children'> & {
   items: {
     value: string;
     label: string;

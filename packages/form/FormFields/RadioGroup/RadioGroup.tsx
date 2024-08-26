@@ -1,19 +1,23 @@
-import ErrorMessage from "../../ErrorMessage";
+import ErrorMessage from '../../ErrorMessage';
 import {
   Box,
   FormControlLabel,
   FormLabel,
   Radio,
   RadioGroup,
-  RadioGroupProps,
-} from "@mui/material";
-import { Controller, ControllerProps, useFormContext } from "react-hook-form";
-import { useTranslation } from "react-i18next";
-import { useExtractErrorInfo } from "../../useExtractErrorInfo";
+  type RadioGroupProps,
+} from '@mui/material';
+import {
+  Controller,
+  useFormContext,
+  type ControllerProps,
+} from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
+import { useExtractErrorInfo } from '../../useExtractErrorInfo';
 
-type FsRadioGroupProps = Omit<RadioGroupProps, "children"> & {
+type FsRadioGroupProps = Omit<RadioGroupProps, 'children'> & {
   i18nKey: string;
-  rules?: ControllerProps["rules"];
+  rules?: ControllerProps['rules'];
   name: string;
   list: { label: string; value: string | boolean }[];
   defaultValue?: string | number | boolean;
@@ -47,7 +51,7 @@ const FsRadioGroup = ({
             <RadioGroup {...field} {...rest}>
               {list.map(({ label, value }, index) => (
                 <FormControlLabel
-                  sx={{ width: "fit-content" }}
+                  sx={{ width: 'fit-content' }}
                   key={index}
                   value={value}
                   control={<Radio />}

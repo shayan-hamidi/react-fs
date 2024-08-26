@@ -1,4 +1,4 @@
-import { FsModal } from "@fs/core";
+import { FsModal } from '@fs/core';
 
 const Test2Modal = () => (
   <FsModal modalKey="test2Modal">

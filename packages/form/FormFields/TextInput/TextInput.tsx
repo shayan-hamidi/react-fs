@@ -1,14 +1,18 @@
-import ErrorMessage from "../../ErrorMessage";
-import { Box, TextField, TextFieldProps } from "@mui/material";
-import { Controller, ControllerProps, useFormContext } from "react-hook-form";
-import { useTranslation } from "react-i18next";
-import { useExtractErrorInfo } from "../../useExtractErrorInfo";
+import ErrorMessage from '../../ErrorMessage';
+import { Box, TextField, type TextFieldProps } from '@mui/material';
+import {
+  Controller,
+  useFormContext,
+  type ControllerProps,
+} from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
+import { useExtractErrorInfo } from '../../useExtractErrorInfo';
 
-type FsTextFieldProps = Omit<TextFieldProps, "label" | "name"> & {
+type FsTextFieldProps = Omit<TextFieldProps, 'label' | 'name'> & {
   i18nKey: string;
   name: string;
   defaultValue?: string | number;
-  rules?: ControllerProps["rules"];
+  rules?: ControllerProps['rules'];
 };
 
 const FsTextInput = ({
@@ -29,7 +33,7 @@ const FsTextInput = ({
     <Controller
       name={name}
       control={control}
-      defaultValue={defaultValue || ""}
+      defaultValue={defaultValue || ''}
       rules={rules}
       render={({ field }) => (
         <Box>

@@ -1,2 +1,2 @@
-export { default as truncateText } from "./truncateText";
-export * from "./truncateText";
+export { default as truncateText } from './truncateText';
+export * from './truncateText';

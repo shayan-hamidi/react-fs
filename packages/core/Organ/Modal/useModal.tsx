@@ -1,10 +1,10 @@
-import { useCallback, useContext } from "react";
-import { ModalContext } from "./ModalProvider";
+import { useCallback, useContext } from 'react';
+import { ModalContext } from './ModalProvider';
 
 export const useModal = (key: string) => {
   const context = useContext(ModalContext);
   if (!context) {
-    throw new Error("useModal must be used within a ModalProvider");
+    throw new Error('useModal must be used within a ModalProvider');
   }
 
   const { modals, openModal, closeModal } = context;

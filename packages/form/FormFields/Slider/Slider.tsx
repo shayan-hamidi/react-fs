@@ -1,12 +1,16 @@
-import ErrorMessage from "../../ErrorMessage";
-import { Box, Slider, SliderProps } from "@mui/material";
-import { Controller, ControllerProps, useFormContext } from "react-hook-form";
-import { useExtractErrorInfo } from "../../useExtractErrorInfo";
+import ErrorMessage from '../../ErrorMessage';
+import { Box, Slider, type SliderProps } from '@mui/material';
+import {
+  Controller,
+  useFormContext,
+  type ControllerProps,
+} from 'react-hook-form';
+import { useExtractErrorInfo } from '../../useExtractErrorInfo';
 
 type FsRangeSliderProps = SliderProps & {
   name: string;
   defaultValue?: string | number;
-  rules?: ControllerProps["rules"];
+  rules?: ControllerProps['rules'];
 };
 
 const FsRangeSlider = ({

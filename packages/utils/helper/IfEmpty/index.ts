@@ -1,2 +1,2 @@
-export { default as ifEmpty } from "./ifEmpty";
-export * from "./ifEmpty";
+export { default as ifEmpty } from './ifEmpty';
+export * from './ifEmpty';

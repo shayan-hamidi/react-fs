@@ -1,7 +1,7 @@
-import { Chip, ChipProps } from "@mui/material";
-import { useTranslation } from "react-i18next";
+import { Chip, type ChipProps } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
-type FsChipProps = Omit<ChipProps, "label"> & {
+type FsChipProps = Omit<ChipProps, 'label'> & {
   i18nkey: string;
 };
 

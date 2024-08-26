@@ -1,8 +1,7 @@
 import { FsModal, useModal } from '@fs/core';
 import { Box } from '@mui/material';
-import React from 'react';
 
-const Test1Modal: React.FC = () => {
+const Test1Modal = () => {
   const { data } = useModal('test1Modal');
 
   return (

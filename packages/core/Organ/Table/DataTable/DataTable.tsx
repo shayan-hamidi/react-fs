@@ -1,4 +1,4 @@
-import { DataGrid, DataGridProps } from "@mui/x-data-grid";
+import { DataGrid, type DataGridProps } from '@mui/x-data-grid';
 
 const DataTable = ({ ...rest }: DataGridProps) => {
   return (

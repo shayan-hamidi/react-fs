@@ -10,7 +10,7 @@ const validateNationalCode = (input: string): boolean => {
   const check = +input[9];
   const sum =
     input
-      .split("")
+      .split('')
       .slice(0, 9)
       .reduce(
         (previousValue, currentValue, currentIndex) =>

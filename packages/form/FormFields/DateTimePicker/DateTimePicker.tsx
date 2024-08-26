@@ -1,19 +1,23 @@
-import { Box } from "@mui/material";
-import { AdapterMomentJalaali } from "@mui/x-date-pickers/AdapterMomentJalaali";
+import { Box } from '@mui/material';
+import { AdapterMomentJalaali } from '@mui/x-date-pickers/AdapterMomentJalaali';
 import {
   DateTimePicker,
-  DateTimePickerProps,
-} from "@mui/x-date-pickers/DateTimePicker";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import moment, { type Moment } from "moment-jalaali";
-import { useExtractErrorInfo } from "../../useExtractErrorInfo";
-import { Controller, ControllerProps, useFormContext } from "react-hook-form";
-import { useTranslation } from "react-i18next";
-import ErrorMessage from "../../ErrorMessage";
+  type DateTimePickerProps,
+} from '@mui/x-date-pickers/DateTimePicker';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import moment, { type Moment } from 'moment-jalaali';
+import { useExtractErrorInfo } from '../../useExtractErrorInfo';
+import {
+  Controller,
+  useFormContext,
+  type ControllerProps,
+} from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
+import ErrorMessage from '../../ErrorMessage';
 
 type FsTimePickerProps = DateTimePickerProps<Moment> & {
   i18nKey: string;
-  rules?: ControllerProps["rules"];
+  rules?: ControllerProps['rules'];
   name: string;
   defaultValue?: Date;
 };
@@ -31,7 +35,7 @@ const FsTimePicker = ({
   } = useFormContext();
   const { t } = useTranslation();
   const { errorI18nKey } = useExtractErrorInfo(errors, name);
-  moment.loadPersian({ dialect: "persian-modern" });
+  moment.loadPersian({ dialect: 'persian-modern' });
   return (
     <Controller
       name={name}
@@ -40,7 +44,7 @@ const FsTimePicker = ({
       defaultValue={defaultValue || null}
       render={({ field }) => (
         <LocalizationProvider dateAdapter={AdapterMomentJalaali}>
-          <Box display={"flex"} flexDirection={"column"}>
+          <Box display={'flex'} flexDirection={'column'}>
             <DateTimePicker label={t(i18nKey)} {...field} {...rest} />
             <ErrorMessage i18nKey={errorI18nKey} />
           </Box>
