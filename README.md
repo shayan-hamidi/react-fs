@@ -73,9 +73,15 @@ root/
 │            └── TextInput
 │        ├── FormProvider
 │        ├── useExtractErrorInfo
-│        └── validators
-|             └── email.tsx        # A specific validator for email format
+│        └── validators           # form validators
 │    └── utils
+│        ├── http                 # http system as useService hook, axios instance, ...
+│            ├── getInstance
+│            ├── qureyClient
+│            └── useService
+│        ├── PageProvider                 # each page context (involve page services, i18n, entity name, ...)
+│            ├── Context
+│            └── Provider
 │        ├── theme                 # Theming utilities (colors, fonts, etc.)
 │        ├── breakpoints           # Media query breakpoints for responsive design
 │        ├── i18next               # Internationalization configuration and utilities
