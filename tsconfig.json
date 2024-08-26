@@ -26,8 +26,6 @@
       "src/*": ["src/*"],
       "@fs/core": ["./packages/core"],
       "@fs/form": ["./packages/form"],
-      "@fs/table": ["./packages/table"],
-      "@fs/helper": ["./packages/helper"],
       "@fs/utils": ["./packages/utils"]
     }
   },

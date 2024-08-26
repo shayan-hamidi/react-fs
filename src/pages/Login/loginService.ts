@@ -1,18 +1,15 @@
-import { AxiosInstance } from 'axios'
-const notificationBaseUrl = '/taxpayer/rest/notification'
+import { type AxiosInstance } from 'axios';
 
-const counterService = (instance: AxiosInstance) => ({
-    counter: {},
+const listBaseUrl = 'https://jsonplaceholder.typicode.com/posts';
 
-    notification: {
-        search: (filters: any) => {
-            return instance.get(`${notificationBaseUrl}/search`, {
-                params: { ...filters },
-            })
-        },
-        setAsRead: (id: string) => {
-            return instance.get(`${notificationBaseUrl}/set-as-read/${id}`)
-        },
+const loginService = (instance: AxiosInstance) => ({
+  login: {
+    getList: () => {
+      return instance.get(listBaseUrl);
     },
-})
-export default counterService
+  },
+});
+
+export type LoginServiceActions = ReturnType<typeof loginService>;
+
+export default loginService;

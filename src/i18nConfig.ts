@@ -1,20 +1,20 @@
-import { defaultI18nObject } from "@fs/utils";
+import { defaultI18nObject } from '@fs/utils';
 
 const i18nObject = defaultI18nObject;
 i18nObject.init({
-  fallbackLng: "fa",
+  fallbackLng: 'fa',
   // debug: process.env.NODE_ENV === "development",
   detection: {
-    caches: ["localStorage", "cookie"],
-    lookupLocalStorage: "lng",
-    lookupCookie: "lng",
+    caches: ['localStorage', 'cookie'],
+    lookupLocalStorage: 'lng',
+    lookupCookie: 'lng',
     cookieMinutes: 1000,
-    order: ["localStorage", "cookie"],
+    order: ['localStorage', 'cookie'],
   },
 
   react: {
-    bindI18n: "languageChanged loaded",
-    nsMode: "default",
+    bindI18n: 'languageChanged loaded',
+    nsMode: 'default',
     useSuspense: true,
   },
   interpolation: {
@@ -22,10 +22,10 @@ i18nObject.init({
   },
 });
 
-const addTranslationSchema = (locale: "fa" | "en", resources: any) => {
+const addTranslationSchema = (locale: 'fa' | 'en', resources: any) => {
   defaultI18nObject.addResourceBundle(
     locale,
-    "translation",
+    'translation',
     resources,
     true,
     true
