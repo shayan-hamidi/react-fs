@@ -22,13 +22,12 @@ export default {
     project: ['./tsconfig.json', './tsconfig.node.json'],
     tsconfigRootDir: __dirname,
   },
-}
+};
 ```
 
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
-
 
 # Project Architecture Report
 
@@ -59,7 +58,7 @@ Below is the detailed structure of the project, which illustrates the organizati
 root/
 │
 ├── packages/
-│    ├── core                       
+│    ├── core
 │        ├── Atom                  # Independ components
 │            ├── Button
 │            └── Chip
@@ -90,45 +89,46 @@ root/
 ├── public/
 │    └── react.svg                 # Static asset (SVG image of React logo)
 │
-├── src/                 
+├── src/
 │   ├── assets/
-|       ├── fonts/         
-│       └── images/      
+|       ├── fonts/
+│       └── images/
 │           └── pdf.svg          # Example of an image asset (PDF icon)
-│   ├── common/             
-|       ├── components/     
+│   ├── common/
+|       ├── components/
 │           └── NotFoundPage         # A common "404 Not Found" page component
-│       └── hooks/      
+│       └── hooks/
 │           └── useVersion           # Custom hook to manage versioning
-│                 
-│   ├── i18n/               
+│
+│   ├── i18n/
 │        ├── en.json                 # English translations
 │        └── fa.json                 # Farsi (Persian) translations
-│   ├── pages/               
-│       └── Login/    
+│   ├── pages/
+│       └── Login/
 │           ├── components/        # Components specific to the Login page
 │           ├── i18n/              # Translations specific to the Login page
 │           ├── index.tsx          # Main file for the Login page
 │           ├── SubPages/          # Directory for subpages under Login, if any
 │           └── loginService.ts    # Service functions related to Login
-│     
-│   ├── routes/                 
-│       └── AppRoutes.tsx        # Application routing configuration                          
-│   ├── App.css                  # Global CSS for the application  
-│   ├── App.tsx                  # Main application component             
-│   ├── i18nConfig.ts            # Configuration file for internationalization          
-│   ├── index.css                # Global CSS settings              
-│   ├── main.tsx                 # Entry point for the application             
-│   └── vite-env.d.ts            # TypeScript environment configuration for Vite    
-│          
-├── .eslintrc.cjs                # ESLint configuration file               
-├── .gitignore                   # Git ignore file to exclude specific files from version control              
-├── .prettierignore              # Files to ignore for Prettier formatting             
-├── .prettierrc.json             # Prettier configuration file             
-├── index.html                   # Main HTML file for the application             
-├── package.json                 # Project metadata and dependencies             
-├── README.md                    # Project documentation              
-├── tsconfig.json                # TypeScript configuration file               
-├── tsconfig.node.json           # TypeScript configuration for Node.js               
-├── vite.config.ts               # Configuration for Vite build tool               
+│
+│   ├── routes/
+│       └── AppRoutes.tsx        # Application routing configuration
+│   ├── App.css                  # Global CSS for the application
+│   ├── App.tsx                  # Main application component
+│   ├── i18nConfig.ts            # Configuration file for internationalization
+│   ├── index.css                # Global CSS settings
+│   ├── main.tsx                 # Entry point for the application
+│   └── vite-env.d.ts            # TypeScript environment configuration for Vite
+│
+├── .eslintrc.cjs                # ESLint configuration file
+├── .gitignore                   # Git ignore file to exclude specific files from version control
+├── .prettierignore              # Files to ignore for Prettier formatting
+├── .prettierrc.json             # Prettier configuration file
+├── index.html                   # Main HTML file for the application
+├── package.json                 # Project metadata and dependencies
+├── README.md                    # Project documentation
+├── tsconfig.json                # TypeScript configuration file
+├── tsconfig.node.json           # TypeScript configuration for Node.js
+├── vite.config.ts               # Configuration for Vite build tool
 └── yarn.lock                    # Yarn lock file for consistent dependency resolution
+```
