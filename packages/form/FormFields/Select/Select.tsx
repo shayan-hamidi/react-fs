@@ -1,22 +1,26 @@
-import ErrorMessage from "../../ErrorMessage";
+import ErrorMessage from '../../ErrorMessage';
 import {
   Box,
   FormControl,
   InputLabel,
   MenuItem,
   Select,
-  SelectProps,
-} from "@mui/material";
-import { Controller, ControllerProps, useFormContext } from "react-hook-form";
-import { useTranslation } from "react-i18next";
-import { useExtractErrorInfo } from "../../useExtractErrorInfo";
+  type SelectProps,
+} from '@mui/material';
+import {
+  Controller,
+  useFormContext,
+  type ControllerProps,
+} from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
+import { useExtractErrorInfo } from '../../useExtractErrorInfo';
 
 type TMenuItems = { value: number | string; label: string }[];
-type FsSelectProps = Omit<SelectProps, "label" | "children" | "name"> & {
+type FsSelectProps = Omit<SelectProps, 'label' | 'children' | 'name'> & {
   i18nKey: string;
   name: string;
   items: TMenuItems;
-  rules?: ControllerProps["rules"];
+  rules?: ControllerProps['rules'];
   defaultValue?: string | number | boolean;
 };
 
@@ -39,7 +43,7 @@ const FsSelect = ({
     <Controller
       name={name}
       control={control}
-      defaultValue={defaultValue || ""}
+      defaultValue={defaultValue || ''}
       rules={rules}
       render={({ field }) => (
         <Box>

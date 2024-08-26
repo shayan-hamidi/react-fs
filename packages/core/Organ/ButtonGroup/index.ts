@@ -1,2 +1,2 @@
-export { default as FsButtonGroup } from "./ButtonGroup";
-export * from "./ButtonGroup";
+export { default as FsButtonGroup } from './ButtonGroup';
+export * from './ButtonGroup';

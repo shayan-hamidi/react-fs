@@ -1,4 +1,4 @@
-import { AxiosInstance } from 'axios';
+import { type AxiosInstance } from 'axios';
 
 const listBaseUrl = 'https://jsonplaceholder.typicode.com/posts';
 

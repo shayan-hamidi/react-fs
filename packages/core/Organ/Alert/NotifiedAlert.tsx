@@ -1,6 +1,6 @@
-import { Alert, AlertProps, Box } from "@mui/material";
-import { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { Alert, Box, type AlertProps } from '@mui/material';
+import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 type FsNotifiedAlertProps = AlertProps & {
   i18nkey: string;
@@ -35,22 +35,22 @@ const FsNotifiedAlert = ({
   }, [visible]);
 
   if (!mounted) {
-    return null; // Remove the component from the DOM
+    return null;
   }
 
   return (
     <Box
       sx={{
-        zIndex: "1",
-        position: "fixed",
+        zIndex: '1',
+        position: 'fixed',
         top: 0,
-        left: "50%",
+        left: '50%',
       }}
-      className={`alert ${visible ? "alert-enter" : "alert-exit"}`}
+      className={`alert ${visible ? 'alert-enter' : 'alert-exit'}`}
     >
       <Alert
         sx={{
-          transform: "translate(-50%, 0)",
+          transform: 'translate(-50%, 0)',
         }}
         {...rest}
       >

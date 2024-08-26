@@ -4,7 +4,7 @@ import { FsTextInput } from '@fs/form';
 import { FsButton } from '@fs/core';
 import { useService } from '@fs/utils';
 import { useEffect } from 'react';
-import { LoginServiceActions } from '../loginService';
+import { type LoginServiceActions } from '../loginService';
 
 const LogIn = () => {
   const methods = useForm();

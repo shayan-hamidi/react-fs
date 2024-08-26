@@ -1,15 +1,15 @@
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
-    Accordion,
-    AccordionDetails,
-    AccordionDetailsProps,
-    AccordionProps,
-    AccordionSummary,
-    AccordionSummaryProps,
-} from "@mui/material";
-import { useTranslation } from "react-i18next";
+  Accordion,
+  AccordionDetails,
+  type AccordionDetailsProps,
+  type AccordionProps,
+  AccordionSummary,
+  type AccordionSummaryProps,
+} from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
-type FsAccordionProps = Omit<AccordionProps, "title"> & {
+type FsAccordionProps = Omit<AccordionProps, 'title'> & {
   titleKey: string;
   summaryProps?: AccordionSummaryProps;
   detailsProps?: AccordionDetailsProps;

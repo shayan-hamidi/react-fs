@@ -1,7 +1,7 @@
-import Tooltip, { TooltipProps } from "@mui/material/Tooltip";
-import { useTranslation } from "react-i18next";
+import Tooltip, { type TooltipProps } from '@mui/material/Tooltip';
+import { useTranslation } from 'react-i18next';
 
-type FsTooltipProps = Omit<TooltipProps, "title"> & {
+type FsTooltipProps = Omit<TooltipProps, 'title'> & {
   i18nKey: string;
 };
 

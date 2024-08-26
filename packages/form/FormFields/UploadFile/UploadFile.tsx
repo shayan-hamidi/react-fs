@@ -1,14 +1,18 @@
-import ErrorMessage from "../../ErrorMessage";
-import { Box } from "@mui/material";
-import { useEffect, useState } from "react";
-import { Controller, ControllerProps, useFormContext } from "react-hook-form";
-import { useExtractErrorInfo } from "../../useExtractErrorInfo";
-import AfterUpload from "./AfterUpload";
-import BeforeUpload from "./BeforeUpload";
+import ErrorMessage from '../../ErrorMessage';
+import { Box } from '@mui/material';
+import { useEffect, useState } from 'react';
+import {
+  Controller,
+  useFormContext,
+  type ControllerProps,
+} from 'react-hook-form';
+import { useExtractErrorInfo } from '../../useExtractErrorInfo';
+import AfterUpload from './AfterUpload';
+import BeforeUpload from './BeforeUpload';
 
 type FsUploadFileProps = {
   i18nKey?: string;
-  rules?: ControllerProps["rules"];
+  rules?: ControllerProps['rules'];
   name: string;
   accept?: string;
   multiple?: boolean;
@@ -51,7 +55,7 @@ const FsUploadFile = ({
       rules={rules}
       render={({ field }) => {
         return (
-          <Box display={"block"}>
+          <Box display={'block'}>
             {!(fileNames.length > 0) ? (
               <>
                 <BeforeUpload

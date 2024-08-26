@@ -1,7 +1,7 @@
-import React from "react";
-import { Box, Typography, Grid } from "@mui/material";
-import { keyframes } from "@emotion/react";
-import { styled } from "@mui/system";
+import React from 'react';
+import { Box, Typography, Grid } from '@mui/material';
+import { keyframes } from '@emotion/react';
+import { styled } from '@mui/system';
 
 type CoolMessageProps = {
   message: string;

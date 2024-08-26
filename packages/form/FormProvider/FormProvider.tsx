@@ -1,5 +1,9 @@
-import { FormHTMLAttributes, ReactNode } from "react";
-import { FieldValues, FormProvider, UseFormReturn } from "react-hook-form";
+import { type FormHTMLAttributes, type ReactNode } from 'react';
+import {
+  FormProvider,
+  type FieldValues,
+  type UseFormReturn,
+} from 'react-hook-form';
 
 type FsFormProviderProps = {
   children: ReactNode;

@@ -1,35 +1,35 @@
 @font-face {
-  font-family: "iransansxv";
-  src: url("../src/assets/fonts/iranSans/webfont/IRANSansXV.woff")
-      format("woff-variations"),
+  font-family: 'iransansxv';
+  src: url('../src/assets/fonts/iranSans/webfont/IRANSansXV.woff')
+      format('woff-variations'),
     /* will be the standard and works in Safari now */
-      url("../src/assets/fonts/iranSans/webfont/IRANSansXV.woff") format("woff");
+      url('../src/assets/fonts/iranSans/webfont/IRANSansXV.woff') format('woff');
   /* for the other supporting browsers */
   font-weight: 100 1000;
   font-display: fallback;
 }
 @font-face {
   font-family: iransansx;
-  src: url("../src/assets/fonts/iranSans/webfont/staticfonts/iransansx-regular.woff")
-    format("woff");
+  src: url('../src/assets/fonts/iranSans/webfont/staticfonts/iransansx-regular.woff')
+    format('woff');
 }
 @font-face {
   font-family: iransansx;
-  src: url("../src/assets/fonts/iranSans/webfont/staticfonts/iransansx-bold.woff")
-    format("woff");
+  src: url('../src/assets/fonts/iranSans/webfont/staticfonts/iransansx-bold.woff')
+    format('woff');
   font-weight: 700;
 }
 
 @supports (font-variation-settings: normal) {
   * {
-    font-family: "iransansxv", tahoma, serif !important;
+    font-family: 'iransansxv', tahoma, serif !important;
   }
 }
 * {
   font-family: iransansx, tahoma, serif;
-  -moz-font-feature-settings: "ss03" !important;
-  -webkit-font-feature-settings: "ss03" !important;
-  font-feature-settings: "ss03" !important;
+  -moz-font-feature-settings: 'ss03' !important;
+  -webkit-font-feature-settings: 'ss03' !important;
+  font-feature-settings: 'ss03' !important;
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;

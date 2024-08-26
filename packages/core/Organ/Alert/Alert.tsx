@@ -1,5 +1,5 @@
-import { Alert, AlertProps } from "@mui/material";
-import { useTranslation } from "react-i18next";
+import { Alert, type AlertProps } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
 type FsAlertProps = AlertProps & {
   i18nkey: string;

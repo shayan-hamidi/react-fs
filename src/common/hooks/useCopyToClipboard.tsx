@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 const useCopyToClipboard = () => {
   const [isCopied, setIsCopied] = useState(false);
@@ -10,11 +10,11 @@ const useCopyToClipboard = () => {
     }
   }, [isCopied]);
   const copyToClipboard = (text: string) => {
-    const textArea = document.createElement("textarea");
+    const textArea = document.createElement('textarea');
     textArea.value = text;
     document.body.appendChild(textArea);
     textArea.select();
-    document.execCommand("copy");
+    document.execCommand('copy');
     document.body.removeChild(textArea);
     setIsCopied(true);
   };

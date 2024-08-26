@@ -21,7 +21,7 @@ import {
   FsUploadFile,
 } from '@fs/form';
 import { Box } from '@mui/material';
-import { useState } from 'react';
+import { type MouseEvent, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import viteLogo from '../../../../public/vite.svg';
 import reactLogo from '../../../assets/react.svg';
@@ -30,7 +30,7 @@ const Home = () => {
   const [value, setValue] = useState('value2');
   const methods = useForm();
   const handleChange = (
-    _event: React.MouseEvent<HTMLElement>,
+    _event: MouseEvent<HTMLElement>,
     newAlignment: string
   ) => {
     setValue(newAlignment);

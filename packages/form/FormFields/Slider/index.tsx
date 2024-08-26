@@ -1,3 +1,2 @@
-export * from "./Slider";
-export { default as FsRangeSlider } from "./Slider";
-
+export * from './Slider';
+export { default as FsRangeSlider } from './Slider';

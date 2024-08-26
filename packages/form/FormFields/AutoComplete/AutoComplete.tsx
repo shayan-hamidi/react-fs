@@ -1,21 +1,25 @@
-import { Autocomplete, AutocompleteProps, Box } from "@mui/material";
-import { Controller, ControllerProps, useFormContext } from "react-hook-form";
-import { useTranslation } from "react-i18next";
-import { FsTextInput } from "../TextInput";
-import { useExtractErrorInfo } from "../../useExtractErrorInfo";
-import ErrorMessage from "../../ErrorMessage";
+import { Autocomplete, type AutocompleteProps, Box } from '@mui/material';
+import {
+  Controller,
+  useFormContext,
+  type ControllerProps,
+} from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
+import { FsTextInput } from '../TextInput';
+import { useExtractErrorInfo } from '../../useExtractErrorInfo';
+import ErrorMessage from '../../ErrorMessage';
 
 type TOptions = { value: string; label: string };
 
 type FsAutoCompleteProps<TMultiple extends boolean | undefined> = Omit<
   AutocompleteProps<TOptions, TMultiple, false, false>,
-  "renderInput" | "options"
+  'renderInput' | 'options'
 > & {
   i18nKey: string;
   name: string;
   options: TOptions[];
   multiple?: TMultiple;
-  rules?: ControllerProps["rules"];
+  rules?: ControllerProps['rules'];
 };
 
 function FsAutoComplete<TMultiple extends boolean | undefined>({

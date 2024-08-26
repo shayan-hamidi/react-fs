@@ -1,2 +1,2 @@
-export { default as FsButton } from "./Button";
-export * from "./Button";
+export { default as FsButton } from './Button';
+export * from './Button';

@@ -1,2 +1,2 @@
-export * from "./UploadFile";
-export { default as FsUploadFile } from "./UploadFile";
+export * from './UploadFile';
+export { default as FsUploadFile } from './UploadFile';

@@ -1,2 +1,2 @@
-export { default as FsChip } from "./Chip";
-export * from "./Chip";
+export { default as FsChip } from './Chip';
+export * from './Chip';

@@ -1,3 +1,2 @@
-export * from "./Typography";
-export { default as FsTypography } from "./Typography";
-
+export * from './Typography';
+export { default as FsTypography } from './Typography';

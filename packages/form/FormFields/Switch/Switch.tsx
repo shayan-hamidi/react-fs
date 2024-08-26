@@ -1,6 +1,6 @@
-import { FormControlLabel, Switch, SwitchProps } from "@mui/material";
-import { Controller, useFormContext } from "react-hook-form";
-import { useTranslation } from "react-i18next";
+import { FormControlLabel, Switch, type SwitchProps } from '@mui/material';
+import { Controller, useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 
 type FsSwitchProps = SwitchProps & {
   i18nKey: string;

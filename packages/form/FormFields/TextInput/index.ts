@@ -1,2 +1,2 @@
-export { default as FsTextInput } from "./TextInput";
-export * from "./TextInput";
+export { default as FsTextInput } from './TextInput';
+export * from './TextInput';

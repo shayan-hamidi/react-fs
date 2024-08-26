@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useCallback, useState } from "react";
+import { createContext, ReactNode, useCallback, useState } from 'react';
 
 type ModalState = {
   open: boolean;
@@ -42,4 +42,3 @@ export const ModalProvider = ({ children }: ModalProviderProps) => {
 };
 
 export { ModalContext };
-
