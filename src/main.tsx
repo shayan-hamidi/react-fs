@@ -1,17 +1,20 @@
 import { ModalProvider } from '@fs/core';
-import { fsTheme } from '@fs/utils';
+import { fsTheme, queryClient } from '@fs/utils';
 import { ThemeProvider } from '@mui/material/styles';
-import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { QueryClientProvider } from 'react-query';
 import App from './App.tsx';
 import './index.css';
+// import { StrictMode } from 'react';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
+  // <StrictMode>
     <ThemeProvider theme={fsTheme}>
-      <ModalProvider>
-        <App />
-      </ModalProvider>
+      <QueryClientProvider client={queryClient}>
+        <ModalProvider>
+          <App />
+        </ModalProvider>
+      </QueryClientProvider>
     </ThemeProvider>
-  </React.StrictMode>
+  // </StrictMode>
 );
