@@ -1,30 +1,21 @@
-import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import { lazy } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import { addTranslationSchema } from 'src/i18nConfig';
-import authTranslations from './i18n/fa.json';
+import { PageProvider } from "@fs/utils";
+import { lazy } from "react";
+import { Route, Routes } from "react-router-dom";
+import { addTranslationSchema } from "src/i18nConfig";
+import authTranslations from "./i18n/fa.json";
+import loginService from "./loginService";
 
-const Login = lazy(() => import('./components'));
+const Login = lazy(() => import("./components"));
 
 const LoginRoutes = () => {
-  addTranslationSchema('fa', authTranslations);
-  // const { instance } = getInstance()
-  // const counterServices = counterService(instance)
+  addTranslationSchema("fa", authTranslations);
 
   return (
-    // <EntityRoot entityName="counter" httpService={counterServices}>
-    <Routes>
-      <Route path="/" element={<Login />} />
-    </Routes>
-    // </EntityRoot>
+    <PageProvider entityName="login" httpService={[loginService]}>
+      <Routes>
+        <Route path="/" element={<Login />} />
+      </Routes>
+    </PageProvider>
   );
 };
 export default LoginRoutes;
-
-export const counterMenu: any = [
-  {
-    path: '/login',
-    intlMessageId: `sidebar.counter`,
-    icon: <HomeOutlinedIcon />,
-  },
-];

@@ -2,6 +2,9 @@ import { Container, Paper, Typography } from '@mui/material';
 import { useForm, FormProvider } from 'react-hook-form';
 import { FsTextInput } from '@fs/form';
 import { FsButton } from '@fs/core';
+import { useService } from '@fs/utils';
+import { useEffect } from 'react';
+import { LoginServiceActions } from '../loginService';
 
 const LogIn = () => {
   const methods = useForm();
@@ -9,6 +12,15 @@ const LogIn = () => {
   const onSubmit = (data: any) => {
     console.log(data);
   };
+
+  const { mutate } = useService<LoginServiceActions, 'login', 'getList'>(
+    'login',
+    'getList'
+  );
+
+  useEffect(() => {
+    mutate();
+  }, []);
 
   return (
     <Container
