@@ -1,11 +1,6 @@
 import { useMutation, UseMutationResult } from 'react-query';
 import { usePageContext } from '../PageProvider/Context';
 
-// Define the generic types for the service hook
-type ActionType<T> = T extends (...args: infer A) => infer R
-  ? (...args: A) => R
-  : never;
-
 const useService = <
   TService extends Record<string, Record<string, (...args: any[]) => any>>,
   TModuleName extends keyof TService,
@@ -14,17 +9,21 @@ const useService = <
   moduleName: TModuleName,
   actionName: TActionName
 ): UseMutationResult<
-  ReturnType<TService[TModuleName][TActionName]>,  
+  ReturnType<TService[TModuleName][TActionName]>,
   unknown,
-  Parameters<TService[TModuleName][TActionName]>[0]
+  Parameters<TService[TModuleName][TActionName]>[0] extends void
+    ? void
+    : Parameters<TService[TModuleName][TActionName]>[0]
 > => {
   const { httpService } = usePageContext();
 
-  if (!httpService || !httpService[moduleName]) {
+  const typedHttpService = httpService as TService | null;
+
+  if (!typedHttpService || !typedHttpService[moduleName]) {
     throw new Error(`Service for module ${String(moduleName)} is not defined.`);
   }
 
-  const action = httpService[moduleName][actionName];
+  const action = typedHttpService[moduleName][actionName];
   if (!action) {
     throw new Error(
       `Action ${String(actionName)} not found in module ${String(moduleName)}.`
@@ -32,7 +31,11 @@ const useService = <
   }
 
   return useMutation(
-    (params: Parameters<TService[TModuleName][TActionName]>[0]) => {
+    (
+      params: Parameters<TService[TModuleName][TActionName]>[0] extends void
+        ? void
+        : Parameters<TService[TModuleName][TActionName]>[0]
+    ) => {
       return action(params);
     }
   );

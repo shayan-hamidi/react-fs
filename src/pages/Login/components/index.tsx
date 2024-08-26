@@ -4,6 +4,7 @@ import { FsTextInput } from '@fs/form';
 import { FsButton } from '@fs/core';
 import { useService } from '@fs/utils';
 import { useEffect } from 'react';
+import { LoginServiceActions } from '../loginService';
 
 const LogIn = () => {
   const methods = useForm();
@@ -12,7 +13,10 @@ const LogIn = () => {
     console.log(data);
   };
 
-  const { mutate } = useService<'login', 'getList'>('login', 'getList');
+  const { mutate } = useService<LoginServiceActions, 'login', 'getList'>(
+    'login',
+    'getList'
+  );
 
   useEffect(() => {
     mutate();
