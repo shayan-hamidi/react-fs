@@ -1,6 +1,6 @@
 import { Container, Paper, Typography } from '@mui/material';
 import { useForm } from 'react-hook-form';
-import { FsFormProvider, FsTextInput } from '@fs/form';
+import { FsFormProvider, FsInput } from '@fs/form';
 import { FsButton } from '@fs/core';
 
 const SignUp = () => {
@@ -29,10 +29,10 @@ const SignUp = () => {
           methods={methods}
           name={'signUpForm'}
         >
-          <FsTextInput name="UserName" i18nKey="" />
-          <FsTextInput name="email" i18nKey="email" />
-          <FsTextInput name="password" i18nKey="password" />
-          <FsTextInput name="rePassword" i18nKey="rePassword" />
+          <FsInput name="UserName" i18nKey="" />
+          <FsInput name="email" i18nKey="email" />
+          <FsInput name="password" i18nKey="password" />
+          <FsInput name="rePassword" i18nKey="rePassword" />
           <FsButton
             type="submit"
             variant="contained"

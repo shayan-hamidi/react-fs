@@ -17,9 +17,13 @@ const FsFormProvider = ({
   name,
   formProps,
 }: FsFormProviderProps) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    formProps.onSubmit && formProps.onSubmit(event);
+  };
   return (
     <FormProvider {...methods}>
-      <form data-cy={name} {...formProps}>
+      <form {...formProps} data-cy={name} onSubmit={handleSubmit}>
         {children}
       </form>
     </FormProvider>

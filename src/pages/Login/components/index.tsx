@@ -1,6 +1,6 @@
 import { Container, Paper, Typography } from '@mui/material';
 import { useForm, FormProvider } from 'react-hook-form';
-import { FsTextInput } from '@fs/form';
+import { FsInput } from '@fs/form';
 import { FsButton } from '@fs/core';
 import { useService } from '@fs/utils';
 import { useEffect } from 'react';
@@ -38,8 +38,8 @@ const LogIn = () => {
         </Typography>
         <FormProvider {...methods}>
           <form onSubmit={methods.handleSubmit(onSubmit)}>
-            <FsTextInput name="UserName" i18nKey={'UserName'} />
-            <FsTextInput name="password" i18nKey={'password'} />
+            <FsInput name="UserName" i18nKey={'UserName'} />
+            <FsInput name="password" i18nKey={'password'} />
             <FsButton
               type="submit"
               variant="contained"

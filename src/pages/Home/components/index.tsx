@@ -16,9 +16,10 @@ import {
   FsRangeSlider,
   FsSelect,
   FsSwitch,
-  FsTextInput,
+  FsInput,
   FsTimePicker,
   FsUploadFile,
+  FsFormProvider,
 } from '@fs/form';
 import { Box } from '@mui/material';
 import { type MouseEvent, useState } from 'react';
@@ -93,7 +94,7 @@ const Home = () => {
             i18nKey="sssss"
           />
           <FsRangeSlider name="rangeSlider" />
-          <FsTextInput name="sdsd" i18nKey="dsdsds" />
+          <FsInput name="sdsd" i18nKey="dsdsds" />
           <FsUploadFile
             name="uploadFile"
             rules={{
@@ -133,6 +134,14 @@ const Home = () => {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <FsFormProvider
+        name="s"
+        formProps={{ onSubmit: methods.handleSubmit(onSubmit) }}
+        methods={methods}
+      >
+        <FsInput name="test" i18nKey="test" onlyNumbers />
+        <FsButton i18nKey="submit" type="submit" />
+      </FsFormProvider>
     </Box>
   );
 };
