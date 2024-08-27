@@ -1,48 +1,47 @@
-// import {
-//   FsAccordion,
-//   FsAlert,
-//   FsButton,
-//   FsChip,
-//   FsNotifiedAlert,
-//   FsToggleButtonGroup,
-//   FsTypography,
-// } from '@fs/core';
-// import {
-//   FsAutoComplete,
-//   FsCheckbox,
-//   FsDatePicker,
-//   FsDateTimePicker,
-//   FsRadioGroup,
-//   FsRangeSlider,
-//   FsSelect,
-//   FsSwitch,
-//   FsInput,
-//   FsTimePicker,
-//   FsUploadFile,
-// } from '@fs/form';
-import { FsButton } from '@fs/core';
-import { FsFormProvider, FsInput } from '@fs/form';
+import {
+  FsAccordion,
+  FsAlert,
+  FsButton,
+  FsChip,
+  FsNotifiedAlert,
+  FsToggleButtonGroup,
+  FsTypography,
+} from '@fs/core';
+import {
+  FsAutoComplete,
+  FsCheckbox,
+  FsDatePicker,
+  FsDateTimePicker,
+  FsRadioGroup,
+  FsRangeSlider,
+  FsSelect,
+  FsSwitch,
+  FsInput,
+  FsTimePicker,
+  FsUploadFile,
+  FsFormProvider,
+} from '@fs/form';
 import { Box } from '@mui/material';
-// import { type MouseEvent, useState } from 'react';
-import { useForm } from 'react-hook-form';
-// import viteLogo from '../../../../public/vite.svg';
-// import reactLogo from '../../../assets/react.svg';
+import { type MouseEvent, useState } from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
+import viteLogo from '../../../../public/vite.svg';
+import reactLogo from '../../../assets/react.svg';
 
 const Home = () => {
-  // const [value, setValue] = useState('value2');
+  const [value, setValue] = useState('value2');
   const methods = useForm();
-  // const handleChange = (
-  //   _event: MouseEvent<HTMLElement>,
-  //   newAlignment: string
-  // ) => {
-  //   setValue(newAlignment);
-  // };
+  const handleChange = (
+    _event: MouseEvent<HTMLElement>,
+    newAlignment: string
+  ) => {
+    setValue(newAlignment);
+  };
   const onSubmit = (data: any) => {
     console.log(data);
   };
   return (
     <Box p={4}>
-      {/* <FormProvider {...methods}>
+      <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)}>
           <FsNotifiedAlert i18nkey="new notification" severity="error" />
           <FsAlert i18nkey="new notification" severity="info" />
@@ -104,8 +103,8 @@ const Home = () => {
           />
           <FsButton i18nKey="ssssssss" type="submit" />
         </form>
-      </FormProvider> */}
-      {/* <FsAccordion
+      </FormProvider>
+      <FsAccordion
         children={<Box sx={{ background: 'Accordion detials' }}>sssss</Box>}
         titleKey={'Accordion Title'}
       ></FsAccordion>
@@ -134,7 +133,7 @@ const Home = () => {
       <h1>Vite + React</h1>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
-      </p> */}
+      </p>
       <FsFormProvider
         name="s"
         formProps={{ onSubmit: methods.handleSubmit(onSubmit) }}
