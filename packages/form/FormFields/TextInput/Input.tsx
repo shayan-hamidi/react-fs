@@ -7,19 +7,22 @@ import {
 } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useExtractErrorInfo } from '../../useExtractErrorInfo';
+import { inputOnChange, inputValue } from './utils';
 
 type FsTextFieldProps = Omit<TextFieldProps, 'label' | 'name'> & {
   i18nKey: string;
   name: string;
   defaultValue?: string | number;
   rules?: ControllerProps['rules'];
+  onlyNumbers?: boolean;
 };
 
-const FsTextInput = ({
+const FsInput = ({
   name,
   i18nKey,
   defaultValue,
   rules,
+  onlyNumbers,
   ...rest
 }: FsTextFieldProps) => {
   const {
@@ -37,11 +40,19 @@ const FsTextInput = ({
       rules={rules}
       render={({ field }) => (
         <Box>
-          <TextField {...field} label={t(i18nKey)} fullWidth {...rest} />
+          <TextField
+            {...field}
+            label={t(i18nKey)}
+            fullWidth
+            {...rest}
+            value={inputValue(field, onlyNumbers)}
+            onChange={(e) => inputOnChange(e, onlyNumbers, field)}
+          />
           <ErrorMessage i18nKey={errorI18nKey} />
         </Box>
       )}
     />
   );
 };
-export default FsTextInput;
+
+export default FsInput;

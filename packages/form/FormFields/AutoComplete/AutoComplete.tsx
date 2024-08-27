@@ -5,7 +5,7 @@ import {
   type ControllerProps,
 } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { FsTextInput } from '../TextInput';
+import { FsInput } from '../TextInput';
 import { useExtractErrorInfo } from '../../useExtractErrorInfo';
 import ErrorMessage from '../../ErrorMessage';
 
@@ -69,7 +69,7 @@ function FsAutoComplete<TMultiple extends boolean | undefined>({
             getOptionLabel={(option) => option.label}
             ref={ref}
             renderInput={(params) => (
-              <FsTextInput
+              <FsInput
                 {...params}
                 name={`input-${name}`}
                 i18nKey={t(i18nKey)}
