@@ -5,7 +5,7 @@ import {
   type ControllerProps,
 } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { FsInput } from '../TextInput';
+import { FsInput } from '../Input';
 import { useExtractErrorInfo } from '../../useExtractErrorInfo';
 import ErrorMessage from '../../ErrorMessage';
 
