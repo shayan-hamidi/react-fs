@@ -139,7 +139,7 @@ const Home = () => {
         formProps={{ onSubmit: methods.handleSubmit(onSubmit) }}
         methods={methods}
       >
-        <FsInput name="test" i18nKey="test" onlyNumbers />
+        <FsInput name="test" i18nKey="test"  maxLength={5} />
         <FsButton i18nKey="submit" type="submit" />
       </FsFormProvider>
     </Box>

@@ -11,9 +11,15 @@ const parseNumberValue = (value: string) => {
 const inputOnChange = (
   e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   onlyNumbers?: boolean,
-  field?: ControllerRenderProps<FieldValues, string>
+  field?: ControllerRenderProps<FieldValues, string>,
+  maxLength?: number
 ) => {
-  const rawValue = parseNumberValue(e.target.value);
+  let rawValue = parseNumberValue(e.target.value);
+
+  if (!!maxLength && rawValue.length > maxLength) {
+    rawValue = rawValue.substring(0, maxLength);
+  }
+
   if (!onlyNumbers || /^\d*$/.test(rawValue)) {
     field!.onChange(rawValue);
   }
