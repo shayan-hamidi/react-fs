@@ -20,6 +20,7 @@ import {
   FsTimePicker,
   FsUploadFile,
   FsFormProvider,
+  FsSmsVerification,
 } from '@fs/form';
 import { Box } from '@mui/material';
 import { type MouseEvent, useState } from 'react';
@@ -139,7 +140,8 @@ const Home = () => {
         formProps={{ onSubmit: methods.handleSubmit(onSubmit) }}
         methods={methods}
       >
-        <FsInput name="test" i18nKey="test"  maxLength={5} />
+        <FsInput name="test" i18nKey="test" maxLength={5} />
+        <FsSmsVerification name={'sms'} />
         <FsButton i18nKey="submit" type="submit" />
       </FsFormProvider>
     </Box>

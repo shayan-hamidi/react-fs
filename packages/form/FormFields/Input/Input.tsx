@@ -9,10 +9,7 @@ import { useTranslation } from 'react-i18next';
 import { useExtractErrorInfo } from '../../useExtractErrorInfo';
 import { inputOnChange, inputValue } from './utils';
 
-type FsTextFieldProps = Omit<
-  TextFieldProps,
-  'label' | 'name' | 'inputProps'
-> & {
+type FsInputProps = Omit<TextFieldProps, 'label' | 'name' | 'inputProps'> & {
   i18nKey: string;
   name: string;
   defaultValue?: string | number;
@@ -30,7 +27,7 @@ const FsInput = ({
   onlyNumbers,
   maxLength,
   ...rest
-}: FsTextFieldProps) => {
+}: FsInputProps) => {
   const {
     control,
     formState: { errors },
