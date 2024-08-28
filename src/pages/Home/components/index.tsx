@@ -1,9 +1,13 @@
 import {
   FsAccordion,
   FsAlert,
+  FsBarChart,
   FsButton,
   FsChip,
+  FsLineChart,
   FsNotifiedAlert,
+  FsPieChart,
+  FsScatterChart,
   FsToggleButtonGroup,
   FsTypography,
 } from '@fs/core';
@@ -22,7 +26,7 @@ import {
   FsFormProvider,
   FsSmsVerification,
 } from '@fs/form';
-import { Box } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import { type MouseEvent, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import viteLogo from '../../../../public/vite.svg';
@@ -31,6 +35,36 @@ import reactLogo from '../../../assets/react.svg';
 const Home = () => {
   const [value, setValue] = useState('value2');
   const methods = useForm();
+  const data = [
+    {
+      id: 'data-0',
+      x1: 329.39,
+      x2: 391.29,
+      y1: 443.28,
+      y2: 153.9,
+    },
+    {
+      id: 'data-1',
+      x1: 96.94,
+      x2: 139.6,
+      y1: 110.5,
+      y2: 217.8,
+    },
+    {
+      id: 'data-2',
+      x1: 336.35,
+      x2: 282.34,
+      y1: 175.23,
+      y2: 286.32,
+    },
+    {
+      id: 'data-3',
+      x1: 159.44,
+      x2: 384.85,
+      y1: 195.97,
+      y2: 325.12,
+    },
+  ];
   const handleChange = (
     _event: MouseEvent<HTMLElement>,
     newAlignment: string
@@ -144,6 +178,66 @@ const Home = () => {
         <FsSmsVerification name={'sms'} />
         <FsButton i18nKey="submit" type="submit" />
       </FsFormProvider>
+      <Grid container>
+        <Grid item>
+          <FsBarChart
+            xAxis={[
+              {
+                id: 'barCategories',
+                data: ['bar A', 'bar B', 'bar C'],
+                scaleType: 'band',
+              },
+            ]}
+            series={[
+              {
+                data: [2, 5, 3],
+              },
+            ]}
+            height={300}
+          />
+        </Grid>
+        <Grid item>
+          <FsLineChart
+            xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+            series={[
+              {
+                data: [2, 5.5, 2, 8.5, 1.5, 5],
+              },
+            ]}
+          />
+        </Grid>
+        <Grid item>
+          <FsPieChart
+            series={[
+              {
+                data: [
+                  { id: 0, value: 10, label: 'series A' },
+                  { id: 1, value: 15, label: 'series B' },
+                  { id: 2, value: 20, label: 'series C' },
+                ],
+              },
+            ]}
+            width={400}
+            height={200}
+          />
+        </Grid>
+        <Grid item>
+          <FsScatterChart
+            width={600}
+            height={300}
+            series={[
+              {
+                label: 'Series A',
+                data: data.map((v) => ({ x: v.x1, y: v.y1, id: v.id })),
+              },
+              {
+                label: 'Series B',
+                data: data.map((v) => ({ x: v.x1, y: v.y2, id: v.id })),
+              },
+            ]}
+          />
+        </Grid>
+      </Grid>
     </Box>
   );
 };

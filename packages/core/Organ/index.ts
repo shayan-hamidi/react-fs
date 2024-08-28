@@ -4,3 +4,4 @@ export * from './ButtonGroup';
 export * from './Modal';
 export * from './Table';
 export * from './ToggleButton';
+export * from './Charts';
