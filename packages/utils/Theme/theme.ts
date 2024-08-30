@@ -12,6 +12,7 @@ declare module '@mui/material/styles' {
 }
 
 const fsTheme = createTheme({
+  direction: 'rtl',
   palette: {
     primary: {
       main: '#1976d2',

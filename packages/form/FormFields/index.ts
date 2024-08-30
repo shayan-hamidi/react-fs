@@ -6,6 +6,7 @@ export * from './RadioGroup';
 export * from './Select';
 export * from './Slider';
 export * from './Switch';
-export * from './TextInput';
+export * from './Input';
 export * from './TimePicker';
 export * from './UploadFile';
+export * from './SmsVerification';

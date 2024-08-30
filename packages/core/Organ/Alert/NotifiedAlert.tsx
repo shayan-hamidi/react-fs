@@ -22,13 +22,13 @@ const FsNotifiedAlert = ({
     }, delay);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [delay]);
 
   useEffect(() => {
     if (!visible) {
       const timer = setTimeout(() => {
         setMounted(false);
-      }, delay);
+      }, 300);
 
       return () => clearTimeout(timer);
     }
@@ -40,17 +40,15 @@ const FsNotifiedAlert = ({
 
   return (
     <Box
-      sx={{
-        zIndex: '1',
-        position: 'fixed',
-        top: 0,
-        left: '50%',
-      }}
+      zIndex={1}
+      position={'fixed'}
+      top={'5px'}
+      left={'50%'}
       className={`alert ${visible ? 'alert-enter' : 'alert-exit'}`}
     >
       <Alert
         sx={{
-          transform: 'translate(-50%, 0)',
+          transform: 'translateX(-50%)',
         }}
         {...rest}
       >
