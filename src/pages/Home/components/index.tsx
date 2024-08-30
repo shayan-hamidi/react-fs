@@ -10,21 +10,22 @@ import {
   FsScatterChart,
   FsToggleButtonGroup,
   FsTypography,
+  useAlert,
 } from '@fs/core';
 import {
   FsAutoComplete,
   FsCheckbox,
   FsDatePicker,
   FsDateTimePicker,
+  FsFormProvider,
+  FsInput,
   FsRadioGroup,
   FsRangeSlider,
   FsSelect,
+  FsSmsVerification,
   FsSwitch,
-  FsInput,
   FsTimePicker,
   FsUploadFile,
-  FsFormProvider,
-  FsSmsVerification,
 } from '@fs/form';
 import { Box, Grid } from '@mui/material';
 import { type MouseEvent, useState } from 'react';
@@ -35,6 +36,7 @@ import reactLogo from '../../../assets/react.svg';
 const Home = () => {
   const [value, setValue] = useState('value2');
   const methods = useForm();
+  const { triggerAlert } = useAlert();
   const data = [
     {
       id: 'data-0',
@@ -73,6 +75,13 @@ const Home = () => {
   };
   const onSubmit = (data: any) => {
     console.log(data);
+    triggerAlert('1', 2000, { severity: 'warning' });
+    setTimeout(() => {
+      triggerAlert('2', 2000, { severity: 'error' });
+    }, 2000);
+    setTimeout(() => {
+      triggerAlert('3', 2000, { severity: 'info' });
+    }, 4000);
   };
   return (
     <Box p={4}>
