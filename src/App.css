@@ -16,10 +16,272 @@
   }
 }
 
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes bounceIn {
+  0%,
+  20%,
+  40%,
+  60%,
+  80%,
+  100% {
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  0% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  20% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+  40% {
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+  60% {
+    opacity: 1;
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+  80% {
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes rotateScale {
+  0% {
+    transform: scale(0.5) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(180deg);
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes progress {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: black;
+  }
+}
+
+@keyframes expand {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 500px;
+    opacity: 1;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes borderGlow {
+  0% {
+    box-shadow: 0 0 3px #3498db, 0 0 3px #3498db, 0 0 6px #3498db,
+      0 0 40px #3498db;
+  }
+  50% {
+    box-shadow: 0 0 6px #3498db, 0 0 6px #3498db, 0 0 12px #3498db,
+      0 0 80px #3498db;
+  }
+  100% {
+    box-shadow: 0 0 3px #3498db, 0 0 3px #3498db, 0 0 6px #3498db,
+      0 0 40px #3498db;
+  }
+}
+
 .alert-enter {
   animation: slideIn 0.5s forwards;
 }
 
 .alert-exit {
   animation: slideOut 0.5s forwards;
+}
+
+.shake {
+  animation: shake 0.5s ease-in-out infinite;
+}
+
+.pulse {
+  display: inline-block;
+  animation: pulse 1.5s infinite;
+}
+
+.bounce-in {
+  animation: bounceIn 0.75s forwards infinite;
+}
+
+.rotate-scale {
+  animation: rotateScale 1s ease-in-out infinite;
+}
+
+.wiggle {
+  animation: wiggle 0.3s ease-in-out infinite;
+}
+
+.fade-in-out {
+  animation: fadeInOut 2s ease-in-out infinite;
+}
+
+.border-glow {
+  border: 2px solid #3498db;
+  padding: 20px;
+  border-radius: 10px;
+  animation: borderGlow 2s infinite;
+}
+
+.typing-effect {
+  overflow: hidden;
+  border-right: 0.15em solid black;
+  white-space: nowrap;
+  letter-spacing: 0.15em;
+  animation: progress 3.5s steps(40, end), blink 0.75s step-end infinite;
+}
+
+/* Flip Card Styles start */
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  perspective: 1000px;
+  margin: 50px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #2980b9;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flip-card-back {
+  background-color: #e74c3c;
+  color: white;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Expand and Collapse Styles */
+.expand-collapse {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+  opacity: 0;
+  margin-top: 10px;
+}
+
+.expand-collapse.active {
+  max-height: 500px;
+  opacity: 1;
+  animation: expand 0.5s ease-out forwards;
+}
+/* Flip Card Styles end */
+.progress-bar {
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar .progress {
+  width: 0;
+  height: 20px;
+  background-color: #76c7c0;
+  border-radius: 10px;
+  animation: progress 2s ease-in-out forwards;
 }
