@@ -27,9 +27,9 @@ import {
   FsTimePicker,
   FsUploadFile,
 } from '@fs/form';
-import { Box, Grid } from '@mui/material';
+import { Box, Grid, Paper, Typography } from '@mui/material';
 import { type MouseEvent, useState } from 'react';
-import { FormProvider, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import viteLogo from '../../../../public/vite.svg';
 import reactLogo from '../../../assets/react.svg';
 
@@ -84,213 +84,281 @@ const Home = () => {
       triggerAlert('3', 2000, { severity: 'info' });
     }, 4000);
   };
+
   return (
-    <Box p={4}>
-      <Box
-        className="pulse"
-        sx={{ width: '60px', background: 'red' }}
-        display={'block'}
+    <Box p={4} sx={{ backgroundColor: '#f7f7f7', minHeight: '100vh' }}>
+      {/* Section for Animations */}
+      <Typography variant="h4" gutterBottom sx={{ color: '#333', mb: 3 }}>
+        Animations Showcase
+      </Typography>
+      <Grid container spacing={2}>
+        <Grid item xs={12} sm={6} md={4}>
+          <Paper elevation={3} sx={{ p: 2 }}>
+            <Typography variant="h6">Pulse Animation</Typography>
+            <Box
+              className="pulse"
+              sx={{
+                width: '100px',
+                display: 'flex',
+                justifyContent: 'center',
+                background: 'lightBlue',
+                mt: 2,
+              }}
+            >
+              animation
+            </Box>
+          </Paper>
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          <Paper elevation={3} sx={{ p: 2 }}>
+            <Typography variant="h6">Hover Glow Animation</Typography>
+            <Box
+              className="hover-glow"
+              sx={{
+                width: '100px',
+                display: 'flex',
+                justifyContent: 'center',
+                background: 'lightBlue',
+                mt: 2,
+              }}
+            >
+              animation
+            </Box>
+          </Paper>
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          <Paper elevation={3} sx={{ p: 2 }}>
+            <Typography variant="h6">Bounce In Animation</Typography>
+            <Box
+              className="bounce-in"
+              sx={{
+                width: '100px',
+                display: 'flex',
+                justifyContent: 'center',
+                background: 'lightBlue',
+                mt: 2,
+              }}
+            >
+              animation
+            </Box>
+          </Paper>
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          <Paper elevation={3} sx={{ p: 2 }}>
+            <Typography variant="h6">Rotate Scale Animation</Typography>
+            <Box
+              className="rotate-scale"
+              sx={{
+                width: '100px',
+                display: 'flex',
+                justifyContent: 'center',
+                background: 'lightBlue',
+                mt: 2,
+              }}
+            >
+              animation
+            </Box>
+          </Paper>
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          <Paper elevation={3} sx={{ p: 2 }}>
+            <Typography variant="h6">Wiggle Animation</Typography>
+            <Box
+              className="wiggle"
+              sx={{
+                width: '100px',
+                display: 'flex',
+                justifyContent: 'center',
+                background: 'lightBlue',
+                mt: 2,
+              }}
+            >
+              animation
+            </Box>
+          </Paper>
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          <Paper elevation={3} sx={{ p: 2 }}>
+            <Typography variant="h6">Fade In Out Animation</Typography>
+            <Box
+              className="fade-in-out"
+              sx={{
+                width: '100px',
+                display: 'flex',
+                justifyContent: 'center',
+                background: 'lightBlue',
+                mt: 2,
+              }}
+            >
+              animation
+            </Box>
+          </Paper>
+        </Grid>
+      </Grid>
+
+      {/* Flip Card Section */}
+      <Typography
+        variant="h4"
+        gutterBottom
+        sx={{ color: '#333', mt: 5, mb: 3 }}
       >
-        Shayan
-      </Box>
-      <FsTypography
-        className="pulse"
-        i18nKey="Shayan"
-        display={'block'}
-        width={'fit-content'}
-      />
-      <Box
-        className="hover-glow"
-        sx={{ width: '60px', background: 'red' }}
-        display={'block'}
-      >
-        Shayan
-      </Box>
-      <Box
-        className="bounce-in"
-        sx={{ width: '60px', background: 'red' }}
-        display={'block'}
-      >
-        Shayan
-      </Box>
-      <Box
-        className="rotate-scale"
-        sx={{ width: '60px', background: 'red' }}
-        display={'block'}
-      >
-        Shayan
-      </Box>
-      <Box
-        className="wiggle"
-        sx={{ width: '60px', background: 'red' }}
-        display={'block'}
-      >
-        Shayan
-      </Box>
-      <Box
-        className="fade-in-out"
-        sx={{ width: '60px', background: 'red' }}
-        display={'block'}
-      >
-        Shayan
-      </Box>
-      <Box
-        className="gradient-border"
-        sx={{ width: '600px' }}
-        mt={2}
-        mb={4}
-        display={'block'}
-      >
-        Shayan
-      </Box>
-      <Box
-        className="dashed-border"
-        sx={{ width: '600px' }}
-        mt={2}
-        mb={4}
-        display={'block'}
-      >
-        Shayan
-      </Box>
-      <FsTypography
-        className="typing-effect"
-        i18nKey="Shayan is testing typing-effect animation, Shayan is testing typing-effect animation, Shayan is testing typing-effect animation"
-        display={'block'}
-        width={'fit-content'}
-      />
-      <Box className="flip-card">
-        <Box className="flip-card-inner">
-          <Box className="flip-card-front">
-            <FsTypography i18nKey="Front Side" component={'h2'} />
-          </Box>
-          <Box className="flip-card-back">
-            <FsTypography i18nKey="Back Side" component={'h2'} />
-            <FsButton onClick={() => setFlipCardActive(true)}>
-              More Info
-            </FsButton>
-            <Box className={`expand-collapse ${flipCardActive && 'active'}`}>
-              <FsTypography
-                i18nKey="This is additional information that expands and collapses when
-                you click the button."
-              />
+        Flip Card with Expand/Collapse
+      </Typography>
+      <Paper elevation={3} sx={{ p: 4, mb: 4 }}>
+        <Box className="flip-card" sx={{ width: '300px', margin: 'auto' }}>
+          <Box className="flip-card-inner">
+            <Box className="flip-card-front" sx={{ p: 2, textAlign: 'center' }}>
+              <FsTypography i18nKey="Front Side" component={'h2'} />
+            </Box>
+            <Box
+              className="flip-card-back"
+              sx={{
+                p: 2,
+                textAlign: 'center',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+              }}
+            >
+              <FsTypography i18nKey="Back Side" component={'h2'} />
+              <FsButton onClick={() => setFlipCardActive(true)}>
+                More Info
+              </FsButton>
+              <Box
+                className={`expand-collapse ${flipCardActive && 'active'}`}
+                sx={{ mt: 2 }}
+              >
+                <FsTypography
+                  i18nKey="This is additional information that expands and collapses when
+                  you click the button."
+                />
+              </Box>
             </Box>
           </Box>
         </Box>
-      </Box>
-      <Box
-        className="shake"
-        sx={{ width: '60px', background: 'red' }}
-        display={'block'}
+      </Paper>
+
+      {/* Form Components Section */}
+      <Typography
+        variant="h4"
+        gutterBottom
+        sx={{ color: '#333', mt: 5, mb: 3 }}
       >
-        Shayan
-      </Box>
-      <div className="progress-bar">
-        <div className="progress"></div>
-      </div>
-      <FormProvider {...methods}>
-        <form onSubmit={methods.handleSubmit(onSubmit)}>
-          <FsNotifiedAlert i18nkey="new notification" severity="error" />
-          <FsAlert i18nkey="new notification" severity="info" />
-          <FsChip i18nkey="Chip" />
-          <FsRadioGroup
-            name="radio"
-            i18nKey="radiolabel"
-            list={[
-              { label: '11', value: '1' },
-              { label: '22', value: '2' },
-              { label: '33', value: '3' },
-            ]}
-          />
-          <FsDatePicker
-            name="datePicker"
-            i18nKey="تقویم"
-            rules={{
-              required: 'پر کردن فیلد اجباری است.',
-            }}
-          />
-          <FsTimePicker
-            name="timePicker"
-            i18nKey="ساعت"
-            rules={{
-              required: 'پر کردن فیلد اجباری است.',
-            }}
-          />
-          <FsDateTimePicker
-            name="dateTimePicker"
-            i18nKey="تقویم - ساعت"
-            rules={{
-              required: 'پر کردن فیلد اجباری است.',
-            }}
-          />
-          <FsSwitch name="ssss" i18nKey="lable" />
-          <FsSelect
-            name="assssss"
-            i18nKey="ss"
-            items={[{ label: 'shine', value: 'asdjkaojd' }]}
-          />
-          <FsCheckbox name="checkbox" i18nKey="saasd" />
-          <FsAutoComplete
-            name="autoComplete"
-            options={[
-              { value: '1', label: '11' },
-              { value: '2', label: '22' },
-              { value: '3', label: '33' },
-              { value: '4', label: '44' },
-            ]}
-            i18nKey="sssss"
-          />
-          <FsRangeSlider name="rangeSlider" />
-          <FsInput name="sdsd" i18nKey="dsdsds" />
-          <FsUploadFile
-            name="uploadFile"
-            rules={{
-              required: 'پر کردن فیلد اجباری است.',
-            }}
-          />
-          <FsButton i18nKey="ssssssss" type="submit" />
-        </form>
-      </FormProvider>
-      <FsAccordion
-        children={<Box sx={{ background: 'Accordion detials' }}>sssss</Box>}
-        titleKey={'Accordion Title'}
-      ></FsAccordion>
-      <FsButton i18nKey="tooltipppp" tooltipProps={{ i18nKey: 'ssss' }} />
-      <FsToggleButtonGroup
-        color="primary"
-        value={value}
-        exclusive
-        onChange={handleChange}
-        items={[
-          { label: 'label', value: 'value' },
-          { label: 'label2', value: 'value2' },
-        ]}
-      />
-      <FsTypography component="h3" i18nKey="header3" variant="h3" />
-      <FsTypography component="p" i18nKey="paragraph1" variant="body1" />
-      <FsTypography component="span" i18nKey="span1" variant="caption" />
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+        Form Components
+      </Typography>
       <FsFormProvider
-        name="s"
-        formProps={{ onSubmit: methods.handleSubmit(onSubmit) }}
+        name="form"
         methods={methods}
+        formProps={{ onSubmit: methods.handleSubmit(onSubmit) }}
       >
-        <FsInput name="test" i18nKey="test" maxLength={5} />
-        <FsSmsVerification name={'sms'} />
-        <FsButton i18nKey="submit" type="submit" />
+        <Paper elevation={3} sx={{ p: 4, mb: 4 }}>
+          <Grid container spacing={3}>
+            <Grid item xs={12}>
+              <FsNotifiedAlert i18nkey="new notification" severity="error" />
+            </Grid>
+            <Grid item xs={12}>
+              <FsAlert i18nkey="new notification" severity="info" />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <FsChip i18nkey="Chip" />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <FsRadioGroup
+                name="radio"
+                i18nKey="radiolabel"
+                list={[
+                  { label: '11', value: '1' },
+                  { label: '22', value: '2' },
+                  { label: '33', value: '3' },
+                ]}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <FsSmsVerification numInputs={6} name="sms" />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <FsDatePicker
+                name="datePicker"
+                i18nKey="تقویم"
+                rules={{
+                  required: 'پر کردن فیلد اجباری است.',
+                }}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <FsTimePicker
+                name="timePicker"
+                i18nKey="ساعت"
+                rules={{
+                  required: 'پر کردن فیلد اجباری است.',
+                }}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <FsDateTimePicker
+                name="dateTimePicker"
+                i18nKey="تقویم - ساعت"
+                rules={{
+                  required: 'پر کردن فیلد اجباری است.',
+                }}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <FsSwitch name="ssss" i18nKey="lable" />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <FsSelect
+                name="assssss"
+                i18nKey="ss"
+                items={[{ label: 'shine', value: 'asdjkaojd' }]}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <FsCheckbox name="checkbox" i18nKey="saasd" />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <FsAutoComplete
+                name="autoComplete"
+                options={[
+                  { value: '1', label: '11' },
+                  { value: '2', label: '22' },
+                  { value: '3', label: '33' },
+                  { value: '4', label: '44' },
+                ]}
+                i18nKey="sssss"
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <FsRangeSlider name="rangeSlider" />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <FsInput name="sdsd" i18nKey="dsdsds" />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <FsUploadFile
+                name="uploadFile"
+                rules={{
+                  required: 'پر کردن فیلد اجباری است.',
+                }}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <FsButton i18nKey="ssssssss" type="submit" />
+            </Grid>
+          </Grid>
+        </Paper>
       </FsFormProvider>
-      <Grid container>
-        <Grid item>
+
+      {/* Data Visualization Section */}
+      <Typography
+        variant="h4"
+        gutterBottom
+        sx={{ color: '#333', mt: 5, mb: 3 }}
+      >
+        Data Visualization
+      </Typography>
+      <Grid container spacing={3}>
+        <Grid item xs={12} md={6}>
           <FsBarChart
             xAxis={[
               {
@@ -307,7 +375,7 @@ const Home = () => {
             height={300}
           />
         </Grid>
-        <Grid item>
+        <Grid item xs={12} md={6}>
           <FsLineChart
             xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
             series={[
@@ -317,7 +385,7 @@ const Home = () => {
             ]}
           />
         </Grid>
-        <Grid item>
+        <Grid item xs={12} md={6}>
           <FsPieChart
             series={[
               {
@@ -332,7 +400,7 @@ const Home = () => {
             height={200}
           />
         </Grid>
-        <Grid item>
+        <Grid item xs={12} md={6}>
           <FsScatterChart
             width={600}
             height={300}
@@ -347,6 +415,62 @@ const Home = () => {
               },
             ]}
           />
+        </Grid>
+      </Grid>
+
+      {/* Miscellaneous Section */}
+      <Typography
+        variant="h4"
+        gutterBottom
+        sx={{ color: '#333', mt: 5, mb: 3 }}
+      >
+        Miscellaneous Components
+      </Typography>
+      <Grid container spacing={3}>
+        <Grid item xs={12}>
+          <FsAccordion
+            titleKey={'Accordion Title'}
+            children={<Box sx={{ background: 'Accordion detials' }}>sssss</Box>}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <FsButton i18nKey="tooltipppp" tooltipProps={{ i18nKey: 'ssss' }} />
+        </Grid>
+        <Grid item xs={12}>
+          <FsToggleButtonGroup
+            color="primary"
+            value={value}
+            exclusive
+            onChange={handleChange}
+            items={[
+              { label: 'label', value: 'value' },
+              { label: 'label2', value: 'value2' },
+            ]}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <FsTypography component="h3" i18nKey="header3" variant="h3" />
+        </Grid>
+        <Grid item xs={12}>
+          <FsTypography component="p" i18nKey="paragraph1" variant="body1" />
+        </Grid>
+        <Grid item xs={12}>
+          <FsTypography component="span" i18nKey="span1" variant="caption" />
+        </Grid>
+        <Grid item xs={12}>
+          <Box>
+            <a href="https://vitejs.dev" target="_blank">
+              <img src={viteLogo} className="logo" alt="Vite logo" />
+            </a>
+            <a href="https://react.dev" target="_blank">
+              <img src={reactLogo} className="logo react" alt="React logo" />
+            </a>
+          </Box>
+        </Grid>
+        <Grid item xs={12}>
+          <Typography className="read-the-docs">
+            Click on the Vite and React logos to learn more
+          </Typography>
         </Grid>
       </Grid>
     </Box>
