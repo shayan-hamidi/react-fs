@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography, Grid } from '@mui/material';
-import { keyframes } from '@emotion/react';
+import keyframes from '@emotion/styled';
 import { styled } from '@mui/system';
 
 type CoolMessageProps = {
