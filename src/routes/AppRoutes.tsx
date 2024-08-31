@@ -1,14 +1,13 @@
-import { Box, CircularProgress } from '@mui/material';
+import { Box } from '@mui/material';
 import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 const SignUpRoutes = lazy(() => import('src/pages/Signup'));
 const LoginRoutes = lazy(() => import('src/pages/Login'));
 const HomeRoutes = lazy(() => import('src/pages/Home'));
-const NotFoundPage = lazy(
-  () => import('src/common/components/NotFoundPage/NotFoundPage')
-);
+const NotFoundPage = lazy(() => import('src/common/components/NotFoundPage'));
 const ErrorPage = lazy(() => import('src/pages/error.tsx'));
+const Loading = lazy(() => import('src/common/components/Loading'));
 
 const AppRoutes = () => {
   return (
@@ -23,7 +22,7 @@ const AppRoutes = () => {
                 justifyContent={'center'}
                 alignItems={'center'}
               >
-                Loading <CircularProgress sx={{ margin: '0px 10px' }} />
+                <Loading />
               </Box>
             }
           >
