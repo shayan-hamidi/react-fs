@@ -35,6 +35,7 @@ import reactLogo from '../../../assets/react.svg';
 
 const Home = () => {
   const [value, setValue] = useState('value2');
+  const [flipCardActive, setFlipCardActive] = useState(false);
   const methods = useForm();
   const { triggerAlert } = useAlert();
   const data = [
@@ -85,6 +86,107 @@ const Home = () => {
   };
   return (
     <Box p={4}>
+      <Box
+        className="pulse"
+        sx={{ width: '60px', background: 'red' }}
+        display={'block'}
+      >
+        Shayan
+      </Box>
+      <FsTypography
+        className="pulse"
+        i18nKey="Shayan"
+        display={'block'}
+        width={'fit-content'}
+      />
+      <Box
+        className="hover-glow"
+        sx={{ width: '60px', background: 'red' }}
+        display={'block'}
+      >
+        Shayan
+      </Box>
+      <Box
+        className="bounce-in"
+        sx={{ width: '60px', background: 'red' }}
+        display={'block'}
+      >
+        Shayan
+      </Box>
+      <Box
+        className="rotate-scale"
+        sx={{ width: '60px', background: 'red' }}
+        display={'block'}
+      >
+        Shayan
+      </Box>
+      <Box
+        className="wiggle"
+        sx={{ width: '60px', background: 'red' }}
+        display={'block'}
+      >
+        Shayan
+      </Box>
+      <Box
+        className="fade-in-out"
+        sx={{ width: '60px', background: 'red' }}
+        display={'block'}
+      >
+        Shayan
+      </Box>
+      <Box
+        className="gradient-border"
+        sx={{ width: '600px' }}
+        mt={2}
+        mb={4}
+        display={'block'}
+      >
+        Shayan
+      </Box>
+      <Box
+        className="dashed-border"
+        sx={{ width: '600px' }}
+        mt={2}
+        mb={4}
+        display={'block'}
+      >
+        Shayan
+      </Box>
+      <FsTypography
+        className="typing-effect"
+        i18nKey="Shayan is testing typing-effect animation, Shayan is testing typing-effect animation, Shayan is testing typing-effect animation"
+        display={'block'}
+        width={'fit-content'}
+      />
+      <Box className="flip-card">
+        <Box className="flip-card-inner">
+          <Box className="flip-card-front">
+            <FsTypography i18nKey="Front Side" component={'h2'} />
+          </Box>
+          <Box className="flip-card-back">
+            <FsTypography i18nKey="Back Side" component={'h2'} />
+            <FsButton onClick={() => setFlipCardActive(true)}>
+              More Info
+            </FsButton>
+            <Box className={`expand-collapse ${flipCardActive && 'active'}`}>
+              <FsTypography
+                i18nKey="This is additional information that expands and collapses when
+                you click the button."
+              />
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+      <Box
+        className="shake"
+        sx={{ width: '60px', background: 'red' }}
+        display={'block'}
+      >
+        Shayan
+      </Box>
+      <div className="progress-bar">
+        <div className="progress"></div>
+      </div>
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)}>
           <FsNotifiedAlert i18nkey="new notification" severity="error" />
