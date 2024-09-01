@@ -92,13 +92,12 @@ const Home = () => {
         Animations Showcase
       </Typography>
       <Grid container spacing={2}>
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item xs={12} sm={6} md={4} lg={2}>
           <Paper elevation={3} sx={{ p: 2 }}>
             <Typography variant="h6">Pulse Animation</Typography>
             <Box
               className="pulse"
               sx={{
-                width: '100px',
                 display: 'flex',
                 justifyContent: 'center',
                 background: 'lightBlue',
@@ -109,13 +108,12 @@ const Home = () => {
             </Box>
           </Paper>
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item xs={12} sm={6} md={4} lg={2}>
           <Paper elevation={3} sx={{ p: 2 }}>
-            <Typography variant="h6">Hover Glow Animation</Typography>
+            <Typography variant="h6">Heart Beat Animation</Typography>
             <Box
-              className="hover-glow"
+              className="heartbeat"
               sx={{
-                width: '100px',
                 display: 'flex',
                 justifyContent: 'center',
                 background: 'lightBlue',
@@ -126,13 +124,12 @@ const Home = () => {
             </Box>
           </Paper>
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item xs={12} sm={6} md={4} lg={2}>
           <Paper elevation={3} sx={{ p: 2 }}>
             <Typography variant="h6">Bounce In Animation</Typography>
             <Box
               className="bounce-in"
               sx={{
-                width: '100px',
                 display: 'flex',
                 justifyContent: 'center',
                 background: 'lightBlue',
@@ -143,13 +140,12 @@ const Home = () => {
             </Box>
           </Paper>
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item xs={12} sm={6} md={4} lg={2}>
           <Paper elevation={3} sx={{ p: 2 }}>
             <Typography variant="h6">Rotate Scale Animation</Typography>
             <Box
               className="rotate-scale"
               sx={{
-                width: '100px',
                 display: 'flex',
                 justifyContent: 'center',
                 background: 'lightBlue',
@@ -160,13 +156,12 @@ const Home = () => {
             </Box>
           </Paper>
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item xs={12} sm={6} md={4} lg={2}>
           <Paper elevation={3} sx={{ p: 2 }}>
             <Typography variant="h6">Wiggle Animation</Typography>
             <Box
               className="wiggle"
               sx={{
-                width: '100px',
                 display: 'flex',
                 justifyContent: 'center',
                 background: 'lightBlue',
@@ -177,13 +172,12 @@ const Home = () => {
             </Box>
           </Paper>
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item xs={12} sm={6} md={4} lg={2}>
           <Paper elevation={3} sx={{ p: 2 }}>
             <Typography variant="h6">Fade In Out Animation</Typography>
             <Box
               className="fade-in-out"
               sx={{
-                width: '100px',
                 display: 'flex',
                 justifyContent: 'center',
                 background: 'lightBlue',
@@ -191,6 +185,81 @@ const Home = () => {
               }}
             >
               animation
+            </Box>
+          </Paper>
+        </Grid>
+        <Grid item xs={12} sm={6} md={4} lg={2}>
+          <Paper elevation={3} sx={{ p: 2 }}>
+            <Typography variant="h6">Border On Hover Animation</Typography>
+            <Box
+              className="border-on-hover"
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                mt: 2,
+              }}
+            >
+              animation
+            </Box>
+          </Paper>
+        </Grid>
+        <Grid item xs={12} sm={6} md={4} lg={2}>
+          <Paper elevation={3} sx={{ p: 2 }}>
+            <Typography variant="h6">Spinner Border Animation</Typography>
+            <Box
+              className="spinner-border"
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                mt: 2,
+              }}
+            >
+              <FsTypography
+                i18nKey="animation"
+                display={'flex'}
+                justifyContent={'center'}
+                alignItems={'center'}
+              />
+            </Box>
+          </Paper>
+        </Grid>
+        <Grid item xs={12} sm={6} md={4} lg={2}>
+          <Paper elevation={3} sx={{ p: 2 }}>
+            <Typography variant="h6">Gradient Border Animation</Typography>
+            <Box
+              className="gradient-border"
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                mt: 2,
+              }}
+            >
+              <FsTypography
+                i18nKey="animation"
+                display={'flex'}
+                justifyContent={'center'}
+                alignItems={'center'}
+              />
+            </Box>
+          </Paper>
+        </Grid>
+        <Grid item xs={12} sm={6} md={4} lg={2}>
+          <Paper elevation={3} sx={{ p: 2 }}>
+            <Typography variant="h6">Gradient Border Animation</Typography>
+            <Box
+              className="pulse-border"
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                mt: 2,
+              }}
+            >
+              <FsTypography
+                i18nKey="animation"
+                display={'flex'}
+                justifyContent={'center'}
+                alignItems={'center'}
+              />
             </Box>
           </Paper>
         </Grid>
@@ -274,7 +343,7 @@ const Home = () => {
               />
             </Grid>
             <Grid item xs={12} sm={6}>
-              <FsSmsVerification numInputs={6} name="sms" />
+              <FsSmsVerification numInputs={6} name="smsCode" />
             </Grid>
             <Grid item xs={12} sm={6}>
               <FsDatePicker
@@ -343,7 +412,7 @@ const Home = () => {
               />
             </Grid>
             <Grid item xs={12}>
-              <FsButton i18nKey="ssssssss" type="submit" />
+              <FsButton i18nKey="submit" type="submit" />
             </Grid>
           </Grid>
         </Paper>

@@ -160,6 +160,60 @@
   }
 }
 
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1.1);
+  }
+  40% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1.1);
+  }
+  80% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes gradientBorder {
+  0% {
+    border-image-source: linear-gradient(45deg, #e1f14e, #0800e7);
+  }
+  50% {
+    border-image-source: linear-gradient(135deg, #e1f14e, #0800e7);
+  }
+  100% {
+    border-image-source: linear-gradient(45deg, #e1f14e, #0800e7);
+  }
+}
+
+@keyframes spinBorder {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulseBorder {
+  0% {
+    border-width: 5px;
+  }
+  50% {
+    border-width: 9px;
+  }
+  100% {
+    border-width: 5px;
+  }
+}
+
 .alert-enter {
   animation: slideIn 0.5s forwards;
 }
@@ -271,6 +325,7 @@
   animation: expand 0.5s ease-out forwards;
 }
 /* Flip Card Styles end */
+
 .progress-bar {
   width: 100%;
   background-color: #e0e0e0;
@@ -284,4 +339,84 @@
   background-color: #76c7c0;
   border-radius: 10px;
   animation: progress 2s ease-in-out forwards;
+}
+
+.heartbeat {
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/* ----------pulse-border---------- */
+.pulse-border {
+  width: 100px;
+  height: 100px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background-image: linear-gradient(white, white),
+    linear-gradient(to right, #ff6ec4, #7873f5);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  animation: pulseBorder 2s infinite;
+}
+/* ----------border-on-hover---------- */
+.border-on-hover {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 24px;
+  color: #000;
+  text-decoration: none;
+  background-color: #fff;
+  border: 2px solid transparent;
+}
+
+.border-on-hover:before,
+.border-on-hover:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: lightblue;
+  transition: all 0.5s;
+}
+
+.border-on-hover:after {
+  top: 100%;
+  left: 0;
+  transition: width 0.5s ease, left 0.5s ease 0.25s;
+}
+
+.border-on-hover:before {
+  bottom: 100%;
+  right: 0;
+  transition: width 0.5s ease, right 0.5s ease 0.25s;
+}
+
+.border-on-hover:hover:before,
+.border-on-hover:hover:after {
+  width: 100%;
+}
+
+.border-on-hover:hover:before {
+  right: 0;
+}
+
+.border-on-hover:hover:after {
+  left: 0;
+}
+/* ----------spinner-border---------- */
+.spinner-border {
+  width: 100px;
+  height: 100px;
+  border: 2px solid #3498db;
+  border-radius: 50%;
+  animation: spinBorder 3s linear infinite;
+}
+/* ----------gradient-border---------- */
+.gradient-border {
+  width: 100px;
+  height: 100px;
+  border: 2px solid;
+  border-image: linear-gradient(45deg, #e1f14e, #0800e7) 1;
+  border-radius: 10px;
+  animation: gradientBorder 2s ease infinite;
 }
