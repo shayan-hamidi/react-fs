@@ -6,7 +6,10 @@ export const handleChange =
     setValue: UseFormSetValue<any>,
     numInputs: number,
     refs: React.MutableRefObject<(HTMLInputElement | null)[]>,
-    name: string
+    name: string,
+    getValues: UseFormGetValues<any>,
+    clearErrors: Function,
+    setError: Function
   ) =>
   (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value.replace(/\D/g, '');
@@ -15,6 +18,16 @@ export const handleChange =
     if (value && index < numInputs - 1) {
       refs.current[index + 1]?.focus();
     }
+    if (!!(getValues(name) || []).every((i: any) => i)) {
+      clearErrors(name);
+    } 
+    // if {
+    //   console.count()
+    //   setError(name, {
+    //     message: 'پر کردن فیلد اجباری است.',
+    //   });
+    // }
+    console.log((getValues(name) || []))
   };
 
 export const handleKeyDown =

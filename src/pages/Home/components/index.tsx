@@ -343,7 +343,13 @@ const Home = () => {
               />
             </Grid>
             <Grid item xs={12} sm={6}>
-              <FsSmsVerification numInputs={6} name="smsCode" />
+              <FsSmsVerification
+                numInputs={6}
+                name="smsCode"
+                rules={{
+                  required: 'پر کردن فیلد اجباری است.',
+                }}
+              />
             </Grid>
             <Grid item xs={12} sm={6}>
               <FsDatePicker
