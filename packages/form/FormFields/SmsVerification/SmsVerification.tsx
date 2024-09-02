@@ -18,7 +18,12 @@ const FsSmsVerification = ({
   const refs = useRef<(HTMLInputElement | null)[]>(Array(numInputs).fill(null));
 
   return (
-    <Box display={'flex'} gap={2}>
+    <Box
+      display={'flex'}
+      justifyContent={'center'}
+      gap={2}
+      sx={{ direction: 'rtl' }}
+    >
       {Array.from({ length: numInputs }, (_, index) => (
         <Controller
           key={index}
