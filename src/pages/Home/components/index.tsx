@@ -35,7 +35,7 @@ import reactLogo from '../../../assets/react.svg';
 
 const Home = () => {
   const [value, setValue] = useState('value2');
-  const [flipCardActive, setFlipCardActive] = useState(false);
+  // const [flipCardActive, setFlipCardActive] = useState(false);
   const methods = useForm();
   const { triggerAlert } = useAlert();
   const data = [
@@ -88,10 +88,10 @@ const Home = () => {
   return (
     <Box p={4} sx={{ backgroundColor: '#f7f7f7', minHeight: '100vh' }}>
       {/* Section for Animations */}
-      <Typography variant="h4" gutterBottom sx={{ color: '#333', mb: 3 }}>
+      {/* <Typography variant="h4" gutterBottom sx={{ color: '#333', mb: 3 }}>
         Animations Showcase
-      </Typography>
-      <Grid container spacing={2}>
+      </Typography> */}
+      {/* <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={4} lg={2}>
           <Paper elevation={3} sx={{ p: 2 }}>
             <Typography variant="h6">Pulse Animation</Typography>
@@ -263,10 +263,10 @@ const Home = () => {
             </Box>
           </Paper>
         </Grid>
-      </Grid>
+      </Grid> */}
 
       {/* Flip Card Section */}
-      <Typography
+      {/* <Typography
         variant="h4"
         gutterBottom
         sx={{ color: '#333', mt: 5, mb: 3 }}
@@ -305,16 +305,16 @@ const Home = () => {
             </Box>
           </Box>
         </Box>
-      </Paper>
+      </Paper> */}
 
       {/* Form Components Section */}
-      <Typography
+      {/* <Typography
         variant="h4"
         gutterBottom
         sx={{ color: '#333', mt: 5, mb: 3 }}
       >
         Form Components
-      </Typography>
+      </Typography> */}
       <FsFormProvider
         name="form"
         methods={methods}
@@ -343,7 +343,13 @@ const Home = () => {
               />
             </Grid>
             <Grid item xs={12} sm={6}>
-              <FsSmsVerification numInputs={6} name="smsCode" />
+              <FsSmsVerification
+                numInputs={6}
+                name="smsCode"
+                rules={{
+                  required: 'پر کردن فیلد اجباری است.',
+                }}
+              />
             </Grid>
             <Grid item xs={12} sm={6}>
               <FsDatePicker
