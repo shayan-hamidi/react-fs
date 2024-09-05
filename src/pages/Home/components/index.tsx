@@ -4,6 +4,7 @@ import {
   FsBarChart,
   FsButton,
   FsChip,
+  FsHorizontalStepper,
   FsLineChart,
   FsNotifiedAlert,
   FsPieChart,
@@ -501,11 +502,14 @@ const Home = () => {
       >
         Miscellaneous Components
       </Typography>
-      <Grid container spacing={3}>
+      <Grid container spacing={3} mt={1}>
+        <Grid item xs={12} sx={{ background: 'white' }}>
+          <FsHorizontalStepper steps={['مرحله یک', 'مرحله دو', 'مرحله سه']} />
+        </Grid>
         <Grid item xs={12}>
           <FsAccordion
             titleKey={'Accordion Title'}
-            children={<Box sx={{ background: 'Accordion detials' }}>sssss</Box>}
+            children={<Box>Accordion detials</Box>}
           />
         </Grid>
         <Grid item xs={12}>
