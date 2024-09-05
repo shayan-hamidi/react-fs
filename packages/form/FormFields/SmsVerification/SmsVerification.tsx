@@ -76,7 +76,7 @@ const FsSmsVerification = ({
           />
         ))}
       </Box>
-      {((!value && isSubmitted) || hasError) && (
+      {isSubmitted && (!value || hasError) && (
         <ErrorMessage i18nKey={String(rules?.required)} />
       )}
     </>

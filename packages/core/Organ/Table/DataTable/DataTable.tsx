@@ -1,17 +1,22 @@
 import { DataGrid, type DataGridProps } from '@mui/x-data-grid';
+import useTable from './useTable';
 
-const DataTable = ({ ...rest }: DataGridProps) => {
+type FsDataGridTableProps = DataGridProps & { hasRow?: boolean };
+
+const FsDataTable = (props: FsDataGridTableProps) => {
+  const { columns, ...rest } = props;
+
+  const { serializedColumns } = useTable(props);
   return (
     <DataGrid
-      {...rest}
+      columns={serializedColumns}
       initialState={{
         pagination: {
           paginationModel: { page: 0, pageSize: 5 },
         },
       }}
-      pageSizeOptions={[5, 10]}
-      checkboxSelection
+      {...rest}
     />
   );
 };
-export default DataTable;
+export default FsDataTable;
