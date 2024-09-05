@@ -120,10 +120,12 @@ root/
 │   ├── main.tsx                 # Entry point for the application
 │   └── vite-env.d.ts            # TypeScript environment configuration for Vite
 │
+├── .dockerignore                # Ignore files in docker
 ├── .eslintrc.cjs                # ESLint configuration file
 ├── .gitignore                   # Git ignore file to exclude specific files from version control
 ├── .prettierignore              # Files to ignore for Prettier formatting
 ├── .prettierrc.json             # Prettier configuration file
+├── Dockerfile                   # Docker file config
 ├── index.html                   # Main HTML file for the application
 ├── package.json                 # Project metadata and dependencies
 ├── README.md                    # Project documentation
