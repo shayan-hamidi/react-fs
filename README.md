@@ -50,6 +50,23 @@ Within the monorepo, the code is organized into self-contained **modules**. Each
 - **Scalability**: New features can be added in new modules without impacting existing code, enabling the application to scale efficiently.
 - **Consistency**: A single repository ensures that coding standards, tooling, and dependencies are consistent across the entire project.
 
+## Dockerizing the Application
+
+To run the application using Docker, follow these steps:
+
+1. **Build the Docker image**:
+
+    ```bash
+    docker build -t my-react-app .
+    ```
+
+2. **Run the Docker container**:
+
+    ```bash
+    docker run -p 3000:3000 my-react-app
+    ```
+
+This will build the application into a Docker image and then run it on port 3000 of your local machine.
 ## Folder Structure
 
 Below is the detailed structure of the project, which illustrates the organization of the code into different packages and modules:
