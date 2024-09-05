@@ -1,16 +1,16 @@
 import {
-    Box,
-    Step,
-    StepButton,
-    Stepper,
-    type StepperProps,
+  Box,
+  Step,
+  StepButton,
+  Stepper,
+  type StepperProps,
 } from '@mui/material';
 import { useMemo, useState } from 'react';
 import { FsButton, FsTypography } from '../../Atom';
 
 type FsHorizontalStepperProps = StepperProps & { steps: string[] };
 
-function FsHorizontalStepper({ steps }: FsHorizontalStepperProps) {
+const FsHorizontalStepper = ({ steps }: FsHorizontalStepperProps) => {
   const [activeStep, setActiveStep] = useState(0);
   const [completed, setCompleted] = useState<{
     [k: number]: boolean;
@@ -120,6 +120,6 @@ function FsHorizontalStepper({ steps }: FsHorizontalStepperProps) {
       </Box>
     </Box>
   );
-}
+};
 
 export default FsHorizontalStepper;

@@ -11,6 +11,7 @@ import {
   FsScatterChart,
   FsToggleButtonGroup,
   FsTypography,
+  FsVerticalStepper,
   useAlert,
 } from '@fs/core';
 import {
@@ -503,8 +504,26 @@ const Home = () => {
         Miscellaneous Components
       </Typography>
       <Grid container spacing={3} mt={1}>
-        <Grid item xs={12} sx={{ background: 'white' }}>
+        <Grid item xs={12}>
           <FsHorizontalStepper steps={['مرحله یک', 'مرحله دو', 'مرحله سه']} />
+        </Grid>
+        <Grid item xs={12}>
+          <FsVerticalStepper
+            steps={[
+              {
+                label: 'عنوان مرحله اول',
+                description: `جزئیات مرحله اول`,
+              },
+              {
+                label: 'عنوان مرحله دوم',
+                description: `جزئیات مرحله دوم`,
+              },
+              {
+                label: 'عنوان مرحله سوم',
+                description: `جزئیات مرحله سوم`,
+              },
+            ]}
+          />
         </Grid>
         <Grid item xs={12}>
           <FsAccordion
