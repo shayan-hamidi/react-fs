@@ -9,6 +9,7 @@ import {
   FsNotifiedAlert,
   FsPieChart,
   FsScatterChart,
+  FsTable,
   FsToggleButtonGroup,
   FsTypography,
   FsVerticalStepper,
@@ -30,6 +31,7 @@ import {
   FsUploadFile,
 } from '@fs/form';
 import { Box, Grid, Paper, Typography } from '@mui/material';
+import { type GridColDef } from '@mui/x-data-grid';
 import { type MouseEvent, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import viteLogo from '../../../../public/vite.svg';
@@ -39,6 +41,42 @@ const Home = () => {
   const [value, setValue] = useState('value2');
   const [flipCardActive, setFlipCardActive] = useState(false);
   const methods = useForm();
+  const rows = [
+    { id: 1, lastName: 'اسنو', firstName: 'جان', age: 14 },
+    { id: 2, lastName: 'لنیستر', firstName: 'سرسی', age: 31 },
+    { id: 3, lastName: 'لنیستر', firstName: 'جیمی', age: 31 },
+    { id: 4, lastName: 'استارک', firstName: 'آریا', age: 11 },
+    { id: 5, lastName: 'تارگرین', firstName: 'دنریس', age: 22 },
+    { id: 7, lastName: 'کلیفورد', firstName: 'فررا', age: 44 },
+    { id: 8, lastName: 'فرانس', firstName: 'راسینی', age: 36 },
+    { id: 9, lastName: 'بولتون', firstName: 'رمزی', age: 65 },
+  ];
+  const columns: GridColDef<(typeof rows)[number]>[] = [
+    {
+      field: 'firstName',
+      headerName: 'نام',
+      editable: true,
+    },
+    {
+      field: 'lastName',
+      headerName: 'نام خانوادگی',
+      editable: true,
+    },
+    {
+      field: 'age',
+      headerName: 'سن',
+      type: 'number',
+      editable: true,
+    },
+    {
+      field: 'fullName',
+      headerName: 'نام کامل',
+      description: 'قابل طبقه بندی نیست',
+      sortable: false,
+      valueGetter: (_value, row) =>
+        `${row.firstName || ''} ${row.lastName || ''}`,
+    },
+  ];
   const { triggerAlert } = useAlert();
   const data = [
     {
@@ -107,6 +145,22 @@ const Home = () => {
               }}
             >
               animation
+            </Box>
+          </Paper>
+        </Grid>
+        <Grid item xs={12} sm={6} md={4} lg={2}>
+          <Paper elevation={3} sx={{ p: 2 }}>
+            <Typography variant="h6">Typing Effect Animation</Typography>
+            <Box
+              className="typing-effect"
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                background: 'lightBlue',
+                mt: 2,
+              }}
+            >
+              Typing Effect Animation
             </Box>
           </Paper>
         </Grid>
@@ -530,6 +584,9 @@ const Home = () => {
             titleKey={'Accordion Title'}
             children={<Box>Accordion detials</Box>}
           />
+        </Grid>
+        <Grid item xs={12}>
+          <FsTable columns={columns} rows={rows} hasRow />
         </Grid>
         <Grid item xs={12}>
           <FsButton i18nKey="tooltipppp" tooltipProps={{ i18nKey: 'ssss' }} />
