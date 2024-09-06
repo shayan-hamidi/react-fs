@@ -1,4 +1,3 @@
-import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { addTranslationSchema } from 'src/i18nConfig';
@@ -20,11 +19,3 @@ const SignUpRoutes = () => {
   );
 };
 export default SignUpRoutes;
-
-export const counterMenu: any = [
-  {
-    path: '/signup',
-    intlMessageId: `sidebar.signup`,
-    icon: <HomeOutlinedIcon />,
-  },
-];
