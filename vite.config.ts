@@ -1,15 +1,18 @@
-import { sentryVitePlugin } from "@sentry/vite-plugin";
+import { sentryVitePlugin } from '@sentry/vite-plugin';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import { defineConfig } from 'vite';
 import checker from 'vite-plugin-checker';
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), checker({ typescript: true }), sentryVitePlugin({
-    org: "shine-h0",
-    project: "react-fs"
-  })],
+  plugins: [
+    react(),
+    checker({ typescript: true }),
+    sentryVitePlugin({
+      org: process.env.VITE_SENTRY_ORG,
+      project: process.env.VITE_SENTRY_PROJECT,
+    }),
+  ],
   resolve: {
     alias: [
       { find: 'src', replacement: path.resolve(__dirname, './src/') },
@@ -29,7 +32,7 @@ export default defineConfig({
   },
   build: {
     target: 'es2022',
-    minify: true, //HINT: should be true for production, false for debugging
+    minify: true,
     sourcemap: true,
   },
   server: {
