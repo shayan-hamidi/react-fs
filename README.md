@@ -50,6 +50,49 @@ Within the monorepo, the code is organized into self-contained **modules**. Each
 - **Scalability**: New features can be added in new modules without impacting existing code, enabling the application to scale efficiently.
 - **Consistency**: A single repository ensures that coding standards, tooling, and dependencies are consistent across the entire project.
 
+## Development
+
+To set up the project for development, follow these steps:
+
+1. **Install dependencies**:
+
+    Using npm:
+
+    ```bash
+    npm install
+    ```
+
+    Or using Yarn:
+
+    ```bash
+    yarn
+    ```
+
+2. **Start the development server**:
+
+    Using npm:
+
+    ```bash
+    npm run dev
+    ```
+
+    Or using Yarn:
+
+    ```bash
+    yarn dev
+    ```
+
+This will start the development server and you can access the application on `http://localhost:3000`.
+
+## Sentry Usage
+
+To enable Sentry monitoring for the application:
+
+1. **Add the .env file**:
+
+   Copy the `.env.example` file into a new `.env` file and fill in your Sentry account details, including the project-specific `SENTRY_DSN` and other relevant keys.Sentry starts monitoring after running development server.
+
+
 ## Dockerizing the Application
 
 To run the application using Docker, follow these steps:
