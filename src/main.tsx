@@ -1,7 +1,6 @@
 import { CacheProvider } from '@emotion/react';
 import { AlertProvider, ModalProvider } from '@fs/core';
-import { cacheRtl, fsTheme, queryClient } from '@fs/utils';
-import { ThemeProvider } from '@mui/material/styles';
+import { cacheRtl, queryClient, FsThemeContextProvider } from '@fs/utils';
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import { QueryClientProvider } from 'react-query';
@@ -13,7 +12,7 @@ initializeSentry();
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <CacheProvider value={cacheRtl}>
-      <ThemeProvider theme={fsTheme}>
+      <FsThemeContextProvider>
         <QueryClientProvider client={queryClient}>
           <AlertProvider>
             <ModalProvider>
@@ -21,7 +20,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
             </ModalProvider>
           </AlertProvider>
         </QueryClientProvider>
-      </ThemeProvider>
+      </FsThemeContextProvider>
     </CacheProvider>
   </StrictMode>
 );
