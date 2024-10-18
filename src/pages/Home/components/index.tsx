@@ -36,11 +36,23 @@ import { type MouseEvent, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import viteLogo from '../../../../public/vite.svg';
 import reactLogo from '../../../assets/react.svg';
+import { useThemeContext } from '@fs/utils';
 
 const Home = () => {
   const [value, setValue] = useState('value2');
   const [flipCardActive, setFlipCardActive] = useState(false);
   const methods = useForm();
+  const { setThemeName } = useThemeContext();
+  const themeList = [
+    { label: 'desert-light', value: 'desert-light' },
+    { label: 'desert-dark', value: 'desert-dark' },
+    { label: 'space-light', value: 'space-light' },
+    { label: 'space-dark', value: 'space-dark' },
+    { label: 'forest-light', value: 'forest-light' },
+    { label: 'forest-dark', value: 'forest-dark' },
+    { label: 'default-light', value: 'default-light' },
+    { label: 'default-dark', value: 'default-dark' },
+  ];
   const rows = [
     { id: 1, lastName: 'اسنو', firstName: 'جان', age: 14 },
     { id: 2, lastName: 'لنیستر', firstName: 'سرسی', age: 31 },
@@ -124,7 +136,25 @@ const Home = () => {
       triggerAlert('3', 2000, { severity: 'info' });
     }, 4000);
   };
+  const switchTheme = (
+    value:
+      | 'default-dark'
+      | 'default-light'
+      | 'forest-dark'
+      | 'forest-light'
+      | 'space-dark'
+      | 'space-light'
+      | 'desert-dark'
+      | 'desert-light'
+  ) => {
+    const splitedValue: any = value.split('-');
+    const themeName: 'default' | 'desert' | 'forest' | 'space' =
+      splitedValue[0];
+    const themeMode: 'light' | 'dark' = splitedValue[1];
+    setThemeName(themeName, themeMode);
+  };
 
+  const themeFormMethods = useForm();
   return (
     <Box p={4} sx={{ backgroundColor: '#f7f7f7', minHeight: '100vh' }}>
       {/* Section for Animations */}
@@ -628,6 +658,35 @@ const Home = () => {
           </Typography>
         </Grid>
       </Grid>
+      <Typography
+        variant="h4"
+        gutterBottom
+        sx={{ color: '#333', mt: 5, mb: 3 }}
+      >
+        Theme Switcher
+      </Typography>
+      <Box sx={{ background: (theme) => theme.palette.background.default }}>
+        <FsFormProvider name="theme-form" methods={themeFormMethods}>
+          <FsSelect
+            name="theme"
+            items={themeList}
+            i18nKey="theme"
+            onChange={(e) =>
+              switchTheme(
+                e.target.value as
+                  | 'default-dark'
+                  | 'default-light'
+                  | 'forest-dark'
+                  | 'forest-light'
+                  | 'space-dark'
+                  | 'space-light'
+                  | 'desert-dark'
+                  | 'desert-light'
+              )
+            }
+          />
+        </FsFormProvider>
+      </Box>
     </Box>
   );
 };

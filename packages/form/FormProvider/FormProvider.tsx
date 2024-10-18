@@ -7,7 +7,7 @@ import {
 
 type FsFormProviderProps = {
   children: ReactNode;
-  formProps: FormHTMLAttributes<HTMLFormElement>;
+  formProps?: FormHTMLAttributes<HTMLFormElement>;
   methods: UseFormReturn<FieldValues, any, undefined>;
   name: string;
 };
@@ -19,11 +19,16 @@ const FsFormProvider = ({
 }: FsFormProviderProps) => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    formProps.onSubmit && formProps.onSubmit(event);
+    formProps && formProps.onSubmit && formProps.onSubmit(event);
   };
   return (
     <FormProvider {...methods}>
-      <form {...formProps} data-cy={name} onSubmit={handleSubmit}>
+      <form
+        {...formProps}
+        data-cy={name}
+        onSubmit={handleSubmit}
+        style={{ width: '100%' }}
+      >
         {children}
       </form>
     </FormProvider>
