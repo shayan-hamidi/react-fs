@@ -32,7 +32,7 @@ import {
 } from '@fs/form';
 import { Box, Grid, Paper, Typography } from '@mui/material';
 import { type GridColDef } from '@mui/x-data-grid';
-import { type MouseEvent, useState } from 'react';
+import { type MouseEvent, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import viteLogo from '../../../../public/vite.svg';
 import reactLogo from '../../../assets/react.svg';
@@ -43,15 +43,15 @@ const Home = () => {
   const [flipCardActive, setFlipCardActive] = useState(false);
   const methods = useForm();
   const { setThemeName } = useThemeContext();
+  const [mode, setMode] = useState<'light' | 'dark'>('light');
+  const [themeType, setThemeType] = useState<
+    'default' | 'forest' | 'space' | 'desert'
+  >('default');
   const themeList = [
-    { label: 'desert-light', value: 'desert-light' },
-    { label: 'desert-dark', value: 'desert-dark' },
-    { label: 'space-light', value: 'space-light' },
-    { label: 'space-dark', value: 'space-dark' },
-    { label: 'forest-light', value: 'forest-light' },
-    { label: 'forest-dark', value: 'forest-dark' },
-    { label: 'default-light', value: 'default-light' },
-    { label: 'default-dark', value: 'default-dark' },
+    { label: 'desert', value: 'desert' },
+    { label: 'default', value: 'default' },
+    { label: 'space', value: 'space' },
+    { label: 'forest', value: 'forest' },
   ];
   const rows = [
     { id: 1, lastName: 'اسنو', firstName: 'جان', age: 14 },
@@ -136,23 +136,16 @@ const Home = () => {
       triggerAlert('3', 2000, { severity: 'info' });
     }, 4000);
   };
-  const switchTheme = (
-    value:
-      | 'default-dark'
-      | 'default-light'
-      | 'forest-dark'
-      | 'forest-light'
-      | 'space-dark'
-      | 'space-light'
-      | 'desert-dark'
-      | 'desert-light'
-  ) => {
-    const splitedValue: any = value.split('-');
-    const themeName: 'default' | 'desert' | 'forest' | 'space' =
-      splitedValue[0];
-    const themeMode: 'light' | 'dark' = splitedValue[1];
-    setThemeName(themeName, themeMode);
+  const updateMode = (e: boolean) => {
+    if (!e) {
+      setMode('light');
+    } else {
+      setMode('dark');
+    }
   };
+  useEffect(() => {
+    setThemeName(themeType, mode);
+  }, [mode, themeType]);
 
   const themeFormMethods = useForm();
   return (
@@ -470,7 +463,8 @@ const Home = () => {
             <Grid item xs={12} sm={6}>
               <FsSelect
                 name="assssss"
-                i18nKey="ss"
+                i18nKey="shayan"
+                size="small"
                 items={[{ label: 'shine', value: 'asdjkaojd' }]}
               />
             </Grid>
@@ -665,28 +659,36 @@ const Home = () => {
       >
         Theme Switcher
       </Typography>
-      <Box sx={{ background: (theme) => theme.palette.background.default }}>
+      <Paper sx={{ background: (theme) => theme.palette.background.default }}>
         <FsFormProvider name="theme-form" methods={themeFormMethods}>
-          <FsSelect
-            name="theme"
-            items={themeList}
-            i18nKey="theme"
-            onChange={(e) =>
-              switchTheme(
-                e.target.value as
-                  | 'default-dark'
-                  | 'default-light'
-                  | 'forest-dark'
-                  | 'forest-light'
-                  | 'space-dark'
-                  | 'space-light'
-                  | 'desert-dark'
-                  | 'desert-light'
-              )
-            }
-          />
+          <Box
+            display={'flex'}
+            justifyContent={'space-between'}
+            alignItems={'center'}
+            gap={5}
+          >
+            <Box sx={{ width: '100%' }}>
+              <FsSelect
+                name="theme"
+                items={themeList}
+                i18nKey="theme"
+                onChange={(e) =>
+                  setThemeType(
+                    e.target.value as 'default' | 'forest' | 'space' | 'desert'
+                  )
+                }
+              />
+            </Box>
+            <FsSwitch
+              name="mode"
+              i18nKey="mode"
+              onChange={(e) =>
+                updateMode(e.target.checked as unknown as boolean)
+              }
+            />
+          </Box>
         </FsFormProvider>
-      </Box>
+      </Paper>
     </Box>
   );
 };
