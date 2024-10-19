@@ -360,7 +360,7 @@ const Home = () => {
         Flip Card with Expand/Collapse
       </Typography>
       <Paper elevation={3} sx={{ p: 4, mb: 4 }}>
-        <Box className="flip-card" sx={{ width: '300px', margin: 'auto' }}>
+        <Box className="flip-card" sx={{ width: '18.75rem', margin: 'auto' }}>
           <Box className="flip-card-inner">
             <Box className="flip-card-front" sx={{ p: 2, textAlign: 'center' }}>
               <FsTypography i18nKey="Front Side" component={'h2'} />

@@ -58,12 +58,12 @@ const BeforeUpload = ({
       onDragEnter={eventHandler}
       onDragLeave={eventHandler}
       sx={{
-        border: '2px dashed',
-        borderRadius: '8px',
+        border: '0.125rem dashed',
+        borderRadius: '0.5rem',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        padding: '20px',
+        padding: '1.25rem',
       }}
     >
       <FsButton variant="contained" component="label">

@@ -42,7 +42,7 @@ const FsNotifiedAlert = ({
     <Box
       zIndex={1}
       position={'fixed'}
-      top={'5px'}
+      top={'0.7rem'}
       left={'50%'}
       className={`alert ${visible ? 'alert-enter' : 'alert-exit'}`}
     >

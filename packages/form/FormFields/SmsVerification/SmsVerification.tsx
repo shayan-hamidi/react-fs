@@ -60,7 +60,7 @@ const FsSmsVerification = ({
                 inputProps={{
                   maxLength: 1,
                   pattern: '\\d*',
-                  style: { width: '22px', height: '18px' },
+                  style: { width: '1.4rem', height: '1rem' },
                 }}
                 onChange={handleChange(index, setValue, numInputs, refs, name)}
                 onKeyDown={handleKeyDown(
