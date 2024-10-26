@@ -27,5 +27,16 @@
   "FORGOT_PASSWORD": "Forgot Password",
   "SEARCH_RESULTS": "Search Result",
   "CART": "Cart",
-  "LOGOUT": "Logout"
+  "LOGOUT": "Logout",
+  "STEPS_ARE_COMPLETED": "All steps are completed",
+  "RESET": "Reset",
+  "STEP": "Step",
+  "FINISH": "Finish",
+  "CONTINUE": "Continue",
+  "COMPLETE_STEP": "کامل کردن مرحله",
+  "STEP_NUMBER": "Step {{number}}",
+  "STEP_COMPLETED": "Step {{number}} completed",
+  "ROW": "Row",
+  "UPLOAD_FS_HINT": "Drag and drop file(s) here or select",
+  "UPLOAD_NOT_MULTIPLE_ERROR_MSG": "You can upload just one file."
 }

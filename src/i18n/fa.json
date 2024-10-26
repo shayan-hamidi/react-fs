@@ -27,5 +27,16 @@
   "FORGOT_PASSWORD": "فراموشی گذرواژه",
   "SEARCH_RESULTS": "نتایج جستجو",
   "CART": "سبد خرید",
-  "LOGOUT": "خروج"
+  "LOGOUT": "خروج",
+  "STEPS_ARE_COMPLETED": "تمام مراحل تکمیل شدند",
+  "RESET": "تنظیم مجدد",
+  "STEP": "مرحله",
+  "FINISH": "اتمام",
+  "CONTINUE": "ادامه",
+  "COMPLETE_STEP": "کامل کردن مرحله",
+  "STEP_NUMBER": "مرحله {{number}}",
+  "STEP_COMPLETED": "مرحله {{number}} تکمیل شد",
+  "ROW": "ردیف",
+  "UPLOAD_FS_HINT": "فایل/فایل ها را اینجا رها کنید یا انتخاب کنید",
+  "UPLOAD_NOT_MULTIPLE_ERROR_MSG": "تنها یک فایل قابل آپلود است."
 }

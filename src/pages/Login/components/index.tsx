@@ -45,7 +45,7 @@ const LogIn = () => {
               variant="contained"
               color="primary"
               fullWidth
-              i18nKey="settings"
+              i18nKey="LOGIN"
             />
           </form>
         </FormProvider>
