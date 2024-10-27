@@ -6,7 +6,7 @@ import React, {
   useMemo,
   useEffect,
 } from 'react';
-import { ThemeProvider, Theme } from '@mui/material/styles';
+import { ThemeProvider, Theme, type Direction } from '@mui/material/styles';
 import { themes } from './theme';
 import { useTranslation } from 'react-i18next';
 import { CacheProvider } from '@emotion/react';
@@ -73,10 +73,10 @@ const FsThemeContextProvider: React.FC<FsThemeContextProviderProps> = ({
     localStorage.setItem('lng', lang);
   };
 
-  const direction = language === 'fa' ? 'rtl' : 'ltr';
+  const direction: Direction = language === 'fa' ? 'rtl' : 'ltr';
 
   // Update the theme to include direction
-  const theme: any = useMemo(() => {
+  const theme = useMemo(() => {
     const baseTheme = themes[themeName][mode];
     return {
       ...baseTheme,
