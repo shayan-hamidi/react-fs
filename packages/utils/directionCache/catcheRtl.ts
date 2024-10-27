@@ -1,11 +1,12 @@
 import createCache from '@emotion/cache';
-import { prefixer } from 'stylis';
-import rtlPlugin from 'stylis-plugin-rtl';
-
-const cacheRtl = createCache({
-  key: 'muirtl',
-  stylisPlugins: [prefixer, rtlPlugin],
+// Cache for LTR
+export const cacheLtr = createCache({
+  key: 'muiltr',
+  prepend: true,
 });
-
-export { cacheRtl };
-
+// Cache for RTL
+export const cacheRtl = createCache({
+  key: 'muirtl',
+  stylisPlugins: [],
+  prepend: true,
+});

@@ -1,10 +1,7 @@
-export default function generateDefaultI18nConfig(loadPath: string) {
+export default function generateDefaultI18nConfig() {
   return {
     lng: 'fa',
     fallbackLng: 'fa',
-    backend: {
-      loadPath,
-    },
     detection: {
       caches: ['localStorage', 'cookie'],
       lookupLocalStorage: 'lng',
@@ -13,10 +10,9 @@ export default function generateDefaultI18nConfig(loadPath: string) {
       order: ['localStorage', 'cookie'],
     },
     react: {
-      wait: true,
       bindI18n: 'languageChanged loaded',
       nsMode: 'default',
-      useSuspense: false,
+      useSuspense: true,
     },
     interpolation: {
       escapeValue: false,

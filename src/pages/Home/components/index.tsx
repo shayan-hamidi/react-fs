@@ -36,13 +36,13 @@ import { type MouseEvent, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import viteLogo from '../../../../public/vite.svg';
 import reactLogo from '../../../assets/react.svg';
-import { useThemeContext } from '@fs/utils';
+import { useFsTheme } from '@fs/utils';
 
 const Home = () => {
   const [value, setValue] = useState('value2');
   const [flipCardActive, setFlipCardActive] = useState(false);
   const methods = useForm();
-  const { setThemeName } = useThemeContext();
+  const { setLanguage, setThemeName } = useFsTheme();
   const [mode, setMode] = useState<'light' | 'dark'>('light');
   const [themeType, setThemeType] = useState<
     'default' | 'forest' | 'space' | 'desert'
@@ -661,13 +661,8 @@ const Home = () => {
       </Typography>
       <Paper sx={{ background: (theme) => theme.palette.background.default }}>
         <FsFormProvider name="theme-form" methods={themeFormMethods}>
-          <Box
-            display={'flex'}
-            justifyContent={'space-between'}
-            alignItems={'center'}
-            gap={5}
-          >
-            <Box sx={{ width: '100%' }}>
+          <Grid container display={'flex'} alignItems={'center'}>
+            <Grid item xs={12} md={4}>
               <FsSelect
                 name="theme"
                 items={themeList}
@@ -678,15 +673,24 @@ const Home = () => {
                   )
                 }
               />
-            </Box>
-            <FsSwitch
-              name="mode"
-              i18nKey="mode"
-              onChange={(e) =>
-                updateMode(e.target.checked as unknown as boolean)
-              }
-            />
-          </Box>
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <FsSwitch
+                name="mode"
+                i18nKey="mode"
+                onChange={(e) =>
+                  updateMode(e.target.checked as unknown as boolean)
+                }
+              />
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <FsSwitch
+                name="changLng"
+                i18nKey="changeLng"
+                onChange={(e) => setLanguage(!e.target.checked ? 'fa' : 'en')}
+              />
+            </Grid>
+          </Grid>
         </FsFormProvider>
       </Paper>
     </Box>
