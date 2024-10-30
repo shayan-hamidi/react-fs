@@ -13,7 +13,6 @@ declare module '@mui/material/styles' {
 
 // Default light and dark theme
 const defaultLightTheme = createTheme({
-  direction: 'rtl',
   palette: {
     mode: 'light',
     primary: { main: '#1976d2' },
@@ -28,7 +27,6 @@ const defaultLightTheme = createTheme({
 });
 
 const defaultDarkTheme = createTheme({
-  direction: 'rtl',
   palette: {
     mode: 'dark',
     primary: { main: '#90caf9' },
@@ -44,7 +42,6 @@ const defaultDarkTheme = createTheme({
 
 // Desert theme
 const desertLightTheme = createTheme({
-  direction: 'rtl',
   palette: {
     mode: 'light',
     primary: { main: '#d4a373' },
@@ -56,7 +53,6 @@ const desertLightTheme = createTheme({
 });
 
 const desertDarkTheme = createTheme({
-  direction: 'rtl',
   palette: {
     mode: 'dark',
     primary: { main: '#d4a373' },
@@ -69,7 +65,6 @@ const desertDarkTheme = createTheme({
 
 // Forest theme
 const forestLightTheme = createTheme({
-  direction: 'rtl',
   palette: {
     mode: 'light',
     primary: { main: '#388e3c' },
@@ -81,7 +76,6 @@ const forestLightTheme = createTheme({
 });
 
 const forestDarkTheme = createTheme({
-  direction: 'rtl',
   palette: {
     mode: 'dark',
     primary: { main: '#81c784' },
@@ -94,7 +88,6 @@ const forestDarkTheme = createTheme({
 
 // Space theme
 const spaceLightTheme = createTheme({
-  direction: 'rtl',
   palette: {
     mode: 'light',
     primary: { main: '#0d47a1' },
@@ -106,7 +99,6 @@ const spaceLightTheme = createTheme({
 });
 
 const spaceDarkTheme = createTheme({
-  direction: 'rtl',
   palette: {
     mode: 'dark',
     primary: { main: '#1e88e5' },

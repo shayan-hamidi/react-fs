@@ -58,7 +58,6 @@ const FsHorizontalStepper = ({ steps }: FsHorizontalStepperProps) => {
     setActiveStep(0);
     setCompleted({});
   };
-
   return (
     <Box width={'100%'}>
       <Stepper nonLinear activeStep={activeStep}>
@@ -73,16 +72,19 @@ const FsHorizontalStepper = ({ steps }: FsHorizontalStepperProps) => {
       <Box>
         {allStepsCompleted ? (
           <>
-            <FsTypography i18nKey="تمام مراحل تکمیل شد" mt={2} mb={1} />
+            <FsTypography i18nKey="STEPS_ARE_COMPLETED" mt={2} mb={1} />
             <Box display={'flex'} pt={2}>
               <Box flex={'1 1 auto'} />
-              <FsButton i18nKey="تنظیم مجدد" onClick={handleReset} />
+              <FsButton i18nKey="RESET" onClick={handleReset} />
             </Box>
           </>
         ) : (
           <>
             <FsTypography
-              i18nKey={`مرحله ${activeStep + 1}`}
+              i18nKey={{
+                key: 'STEP_NUMBER',
+                values: { number: activeStep + 1 },
+              }}
               mt={2}
               mb={1}
               py={1}
@@ -93,14 +95,17 @@ const FsHorizontalStepper = ({ steps }: FsHorizontalStepperProps) => {
                 disabled={activeStep === 0}
                 onClick={handleBack}
                 sx={{ mr: 1 }}
-                i18nKey="قبلی"
+                i18nKey="PREVIOUS"
               />
               <Box flex={'1 1 auto'} />
-              <FsButton i18nKey="بعدی" onClick={handleNext} sx={{ mr: 1 }} />
+              <FsButton i18nKey="NEXT" onClick={handleNext} sx={{ mr: 1 }} />
               {activeStep !== steps.length &&
                 (completed[activeStep] ? (
                   <FsTypography
-                    i18nKey={`مرحله ${activeStep + 1} تکمیل شد`}
+                    i18nKey={{
+                      key: 'STEP_COMPLETED',
+                      values: { number: activeStep + 1 },
+                    }}
                     variant="caption"
                     display={'inline-block'}
                   />
@@ -108,8 +113,8 @@ const FsHorizontalStepper = ({ steps }: FsHorizontalStepperProps) => {
                   <FsButton
                     i18nKey={
                       completedSteps === totalSteps - 1
-                        ? 'اتمام'
-                        : 'کامل کردن مرحله'
+                        ? 'FINISH'
+                        : 'COMPLETE_STEP'
                     }
                     onClick={handleComplete}
                   />

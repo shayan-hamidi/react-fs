@@ -8,8 +8,6 @@ const Home = lazy(() => import('./components'));
 
 const HomeRoutes = () => {
   addTranslationSchema('fa', authTranslations);
-  // const { instance } = getInstance()
-  // const counterServices = counterService(instance)
   return (
     <PageProvider entityName="home" httpService={[]}>
       <Routes>

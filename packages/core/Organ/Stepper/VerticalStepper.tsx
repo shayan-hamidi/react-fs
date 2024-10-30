@@ -1,11 +1,11 @@
 import {
-    Box,
-    Paper,
-    Step,
-    StepContent,
-    StepLabel,
-    Stepper,
-    type StepperProps,
+  Box,
+  Paper,
+  Step,
+  StepContent,
+  StepLabel,
+  Stepper,
+  type StepperProps,
 } from '@mui/material';
 import { useState } from 'react';
 import { FsButton, FsTypography } from '../../Atom';
@@ -41,13 +41,13 @@ const FsVerticalLinearStepper = ({ steps }: FsVerticalLinearStepperProps) => {
                   variant="contained"
                   onClick={handleNext}
                   sx={{ mt: 1, mr: 1 }}
-                  i18nKey={index === steps.length - 1 ? 'اتمام' : 'ادامه'}
+                  i18nKey={index === steps.length - 1 ? 'FINISH' : 'ادامه'}
                 />
                 <FsButton
                   disabled={index === 0}
                   onClick={handleBack}
                   sx={{ mt: 1, mr: 1 }}
-                  i18nKey={'قبلی'}
+                  i18nKey={'PREVIOUS'}
                 />
               </Box>
             </StepContent>
@@ -56,9 +56,9 @@ const FsVerticalLinearStepper = ({ steps }: FsVerticalLinearStepperProps) => {
       </Stepper>
       {activeStep === steps.length && (
         <Paper square elevation={0} sx={{ p: 3 }}>
-          <FsTypography i18nKey="مراحل تکمیل شدند" />
+          <FsTypography i18nKey="STEPS_ARE_COMPLETED" />
           <FsButton
-            i18nKey="تنظیم مجدد"
+            i18nKey="RESET"
             onClick={handleReset}
             sx={{ mt: 1, mr: 1 }}
           />

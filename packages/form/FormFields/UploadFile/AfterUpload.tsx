@@ -63,18 +63,18 @@ const AfterUpload = ({ fileNames, removeFile }: AfterUploadProps) => {
   return (
     <Box
       sx={{
-        border: '2px dashed',
-        borderRadius: '8px',
+        border: '0.125rem dashed',
+        borderRadius: '0.5rem',
         display: 'flex',
         justifyContent: 'center',
-        padding: '20px',
+        padding: '1.25rem',
       }}
     >
       <Box
         display={'flex'}
         flexDirection={'column'}
         gap={1.5}
-        maxHeight={'200px'}
+        maxHeight={'12.5rem'}
         overflow={'auto'}
       >
         {fileNames.map((name, index) => (

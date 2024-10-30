@@ -48,14 +48,38 @@ const FsSelect = ({
       render={({ field }) => (
         <Box>
           <FormControl fullWidth>
-            <InputLabel id={name}>{t(i18nKey)}</InputLabel>
-            <Select {...field} labelId={name} label={t(i18nKey)} {...rest}>
-              {items.map(({ label, value }) => (
-                <MenuItem key={value} value={value}>
-                  {t(label)}
-                </MenuItem>
-              ))}
-            </Select>
+            <Box
+              display={'flex'}
+              justifyContent={'center'}
+              alignItems={'center'}
+            >
+              <InputLabel
+                id={name}
+                size={rest.size === 'small' ? 'small' : 'normal'}
+              >
+                {t(i18nKey)}
+              </InputLabel>
+              <Select
+                fullWidth
+                {...field}
+                labelId={name}
+                label={t(i18nKey)}
+                {...rest}
+                sx={{
+                  '& .MuiInputLabel-outlined': {
+                    backgroundColor: 'red',
+                    color: 'blue',
+                    fontSize: '200px',
+                  },
+                }}
+              >
+                {items.map(({ label, value }) => (
+                  <MenuItem key={value} value={value}>
+                    {t(label)}
+                  </MenuItem>
+                ))}
+              </Select>
+            </Box>
           </FormControl>
           <ErrorMessage i18nKey={errorI18nKey} />
         </Box>

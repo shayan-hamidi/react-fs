@@ -20,7 +20,7 @@ const SignUp = () => {
         height: '100vh',
       }}
     >
-      <Paper elevation={3} style={{ padding: '20px', textAlign: 'center' }}>
+      <Paper elevation={3} style={{ padding: '1.25rem', textAlign: 'center' }}>
         <Typography variant="h5" gutterBottom>
           Sign Up
         </Typography>
