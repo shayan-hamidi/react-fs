@@ -1,11 +1,11 @@
-import { FsButton } from '@fs/core';
+import { FsButton, FsTypography } from '@fs/core';
 import { Box } from '@mui/material';
 import {
   FieldValues,
   UseFormSetError,
   type ControllerRenderProps,
 } from 'react-hook-form';
-import { Trans } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 type BeforeUploadProps = {
   setFileNames: Function;
@@ -26,6 +26,7 @@ const BeforeUpload = ({
   name,
   setError,
 }: BeforeUploadProps) => {
+  const { t } = useTranslation();
   const eventHandler = (event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
     event.stopPropagation();
@@ -43,7 +44,7 @@ const BeforeUpload = ({
     eventHandler(event);
     if (!multiple && event.dataTransfer.files?.length > 1) {
       setError(name, {
-        message: 'تنها یک فایل قابل آپلود است.',
+        message: t('UPLOAD_NOT_MULTIPLE_ERROR_MSG'),
         type: 'pattern',
       });
     } else {
@@ -58,12 +59,12 @@ const BeforeUpload = ({
       onDragEnter={eventHandler}
       onDragLeave={eventHandler}
       sx={{
-        border: '2px dashed',
-        borderRadius: '8px',
+        border: '0.125rem dashed',
+        borderRadius: '0.5rem',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        padding: '20px',
+        padding: '1.25rem',
       }}
     >
       <FsButton variant="contained" component="label">
@@ -74,9 +75,7 @@ const BeforeUpload = ({
           multiple={multiple}
           onChange={(e) => handleFiles(e.target.files)}
         />
-        <Trans
-          i18nKey={i18nKey || 'فایل/فایل ها را اینجا رها کنید یا انتخاب کنید'}
-        />
+        <FsTypography i18nKey={i18nKey || 'UPLOAD_FS_HINT'} />
       </FsButton>
     </Box>
   );

@@ -122,7 +122,7 @@
     opacity: 0;
   }
   to {
-    max-height: 500px;
+    max-height: 31.25rem;
     opacity: 1;
   }
 }
@@ -132,13 +132,13 @@
     transform: translateX(0);
   }
   25% {
-    transform: translateX(-5px);
+    transform: translateX(-0.3125rem);
   }
   50% {
-    transform: translateX(5px);
+    transform: translateX(0.3125rem);
   }
   75% {
-    transform: translateX(-5px);
+    transform: translateX(-0.3125rem);
   }
   100% {
     transform: translateX(0);
@@ -147,16 +147,16 @@
 
 @keyframes borderGlow {
   0% {
-    box-shadow: 0 0 3px #3498db, 0 0 3px #3498db, 0 0 6px #3498db,
-      0 0 40px #3498db;
+    box-shadow: 0 0 0.1875rem #3498db, 0 0 0.1875rem #3498db,
+      0 0 0.375rem #3498db, 0 0 2.5rem #3498db;
   }
   50% {
-    box-shadow: 0 0 6px #3498db, 0 0 6px #3498db, 0 0 12px #3498db,
-      0 0 80px #3498db;
+    box-shadow: 0 0 0.375rem #3498db, 0 0 0.375rem #3498db, 0 0 0.75rem #3498db,
+      0 0 5rem #3498db;
   }
   100% {
-    box-shadow: 0 0 3px #3498db, 0 0 3px #3498db, 0 0 6px #3498db,
-      0 0 40px #3498db;
+    box-shadow: 0 0 0.1875rem #3498db, 0 0 0.1875rem #3498db,
+      0 0 0.375rem #3498db, 0 0 2.5rem #3498db;
   }
 }
 
@@ -204,13 +204,13 @@
 
 @keyframes pulseBorder {
   0% {
-    border-width: 5px;
+    border-width: 0.3125rem;
   }
   50% {
-    border-width: 9px;
+    border-width: 0.5625rem;
   }
   100% {
-    border-width: 5px;
+    border-width: 0.3125rem;
   }
 }
 
@@ -248,9 +248,9 @@
 }
 
 .border-glow {
-  border: 2px solid #3498db;
-  padding: 20px;
-  border-radius: 10px;
+  border: 0.125rem solid #3498db;
+  padding: 1.25rem;
+  border-radius: 0.625rem;
   animation: borderGlow 2s infinite;
 }
 
@@ -265,10 +265,10 @@
 /* Flip Card Styles start */
 .flip-card {
   background-color: transparent;
-  width: 300px;
-  height: 200px;
-  perspective: 1000px;
-  margin: 50px;
+  width: 18.75rem;
+  height: 12.5rem;
+  perspective: 62.5rem;
+  margin: 3.125rem;
 }
 
 .flip-card-inner {
@@ -316,11 +316,11 @@
   max-height: 0;
   transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
   opacity: 0;
-  margin-top: 10px;
+  margin-top: 0.625rem;
 }
 
 .expand-collapse.active {
-  max-height: 500px;
+  max-height: 31.25rem;
   opacity: 1;
   animation: expand 0.5s ease-out forwards;
 }
@@ -329,15 +329,15 @@
 .progress-bar {
   width: 100%;
   background-color: #e0e0e0;
-  border-radius: 10px;
+  border-radius: 0.625rem;
   overflow: hidden;
 }
 
 .progress-bar .progress {
   width: 0;
-  height: 20px;
+  height: 1.25rem;
   background-color: #76c7c0;
-  border-radius: 10px;
+  border-radius: 0.625rem;
   animation: progress 2s ease-in-out forwards;
 }
 
@@ -347,10 +347,10 @@
 
 /* ----------pulse-border---------- */
 .pulse-border {
-  width: 100px;
-  height: 100px;
-  border: 1px solid transparent;
-  border-radius: 10px;
+  width: 6.25rem;
+  height: 6.25rem;
+  border: 0.0625rem solid transparent;
+  border-radius: 0.625rem;
   background-image: linear-gradient(white, white),
     linear-gradient(to right, #ff6ec4, #7873f5);
   background-origin: border-box;
@@ -361,12 +361,12 @@
 .border-on-hover {
   position: relative;
   display: inline-block;
-  padding: 10px 20px;
-  font-size: 24px;
+  padding: 0.625rem 1.25rem;
+  font-size: 1.5rem;
   color: #000;
   text-decoration: none;
   background-color: #fff;
-  border: 2px solid transparent;
+  border: 0.125rem solid transparent;
 }
 
 .border-on-hover:before,
@@ -374,7 +374,7 @@
   content: '';
   position: absolute;
   width: 0;
-  height: 2px;
+  height: 0.125rem;
   background-color: lightblue;
   transition: all 0.5s;
 }
@@ -405,18 +405,18 @@
 }
 /* ----------spinner-border---------- */
 .spinner-border {
-  width: 100px;
-  height: 100px;
-  border: 2px solid #3498db;
+  width: 6.25rem;
+  height: 6.25rem;
+  border: 0.125rem solid #3498db;
   border-radius: 50%;
   animation: spinBorder 3s linear infinite;
 }
 /* ----------gradient-border---------- */
 .gradient-border {
-  width: 100px;
-  height: 100px;
-  border: 2px solid;
+  width: 6.25rem;
+  height: 6.25rem;
+  border: 0.125rem solid;
   border-image: linear-gradient(45deg, #e1f14e, #0800e7) 1;
-  border-radius: 10px;
+  border-radius: 0.625rem;
   animation: gradientBorder 2s ease infinite;
 }

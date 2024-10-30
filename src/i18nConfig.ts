@@ -1,35 +1,18 @@
-import { defaultI18nObject } from '@fs/utils';
+import { defaultI18n, generateDefaultI18nConfig } from '@fs/utils';
+const config = generateDefaultI18nConfig();
 
-const i18nObject = defaultI18nObject;
-i18nObject.init({
-  fallbackLng: 'fa',
-  // debug: process.env.NODE_ENV === "development",
-  detection: {
-    caches: ['localStorage', 'cookie'],
-    lookupLocalStorage: 'lng',
-    lookupCookie: 'lng',
-    cookieMinutes: 1000,
-    order: ['localStorage', 'cookie'],
-  },
-
-  react: {
-    bindI18n: 'languageChanged loaded',
-    nsMode: 'default',
-    useSuspense: true,
-  },
-  interpolation: {
-    escapeValue: false,
-  },
-});
+// Initialize i18n with the configuration
+defaultI18n
+  .init(config as object)
+  .then(() => {
+    console.log('i18n initialized');
+  })
+  .catch((err) => {
+    console.error('i18n initialization failed:', err);
+  });
 
 const addTranslationSchema = (locale: 'fa' | 'en', resources: any) => {
-  defaultI18nObject.addResourceBundle(
-    locale,
-    'translation',
-    resources,
-    true,
-    true
-  );
+  defaultI18n.addResourceBundle(locale, 'translation', resources, true, true);
 };
 
-export { i18nObject, addTranslationSchema };
+export { defaultI18n, addTranslationSchema };
