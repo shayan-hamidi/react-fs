@@ -17,6 +17,7 @@ import {
 } from '@fs/core';
 import {
   FsAutoComplete,
+  FsCaptcha,
   FsCheckbox,
   FsDatePicker,
   FsDateTimePicker,
@@ -39,6 +40,7 @@ import reactLogo from '../../../assets/react.svg';
 import { useFsTheme } from '@fs/utils';
 
 const Home = () => {
+  const [_captchaGuid, setCaptchaGuid] = useState('');
   const [value, setValue] = useState('value2');
   const [flipCardActive, setFlipCardActive] = useState(false);
   const methods = useForm();
@@ -495,6 +497,16 @@ const Home = () => {
                 rules={{
                   required: 'پر کردن فیلد اجباری است.',
                 }}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <FsCaptcha
+                name="captchaString"
+                i18nKey="کپچا"
+                rules={{
+                  required: 'پر کردن فیلد اجباری است.',
+                }}
+                setCaptchaGuid={setCaptchaGuid}
               />
             </Grid>
             <Grid item xs={12}>

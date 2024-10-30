@@ -38,5 +38,6 @@
   "STEP_COMPLETED": "مرحله {{number}} تکمیل شد",
   "ROW": "ردیف",
   "UPLOAD_FS_HINT": "فایل/فایل ها را اینجا رها کنید یا انتخاب کنید",
-  "UPLOAD_NOT_MULTIPLE_ERROR_MSG": "تنها یک فایل قابل آپلود است."
+  "UPLOAD_NOT_MULTIPLE_ERROR_MSG": "تنها یک فایل قابل آپلود است.",
+  "REFRESH_CAPTCHA": "بازیابی مجدد کپچا"
 }
