@@ -38,5 +38,6 @@
   "STEP_COMPLETED": "Step {{number}} completed",
   "ROW": "Row",
   "UPLOAD_FS_HINT": "Drag and drop file(s) here or select",
-  "UPLOAD_NOT_MULTIPLE_ERROR_MSG": "You can upload just one file."
+  "UPLOAD_NOT_MULTIPLE_ERROR_MSG": "You can upload just one file.",
+  "REFRESH_CAPTCHA": "Reset Captcha"
 }

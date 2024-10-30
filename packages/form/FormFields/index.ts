@@ -9,4 +9,5 @@ export * from './Switch';
 export * from './Input';
 export * from './TimePicker';
 export * from './UploadFile';
+export * from './Captcha';
 export * from './SmsVerification';

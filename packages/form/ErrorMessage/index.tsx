@@ -8,6 +8,9 @@ const ErrorMessage = ({ i18nKey }: { i18nKey: string }) => (
     color={'error'}
     pt={1}
     pb={1.5}
+    display={'block'}
+    width={'100%'}
+    textAlign={'justify'}
   />
 );
 export default ErrorMessage;

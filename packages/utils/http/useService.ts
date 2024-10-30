@@ -1,5 +1,10 @@
 import { useMutation, UseMutationResult } from 'react-query';
 import { usePageContext } from '../PageProvider/Context';
+import type { AxiosResponse } from 'axios';
+
+type ExtractPromiseAndAxios<T> = T extends Promise<AxiosResponse<infer S, any>>
+  ? S
+  : T;
 
 const useService = <
   TService extends Record<string, Record<string, (...args: any[]) => any>>,
@@ -8,13 +13,7 @@ const useService = <
 >(
   moduleName: TModuleName,
   actionName: TActionName
-): UseMutationResult<
-  ReturnType<TService[TModuleName][TActionName]>,
-  unknown,
-  Parameters<TService[TModuleName][TActionName]>[0] extends void
-    ? void
-    : Parameters<TService[TModuleName][TActionName]>[0]
-> => {
+) => {
   const { httpService } = usePageContext();
 
   const typedHttpService = httpService as TService | null;
@@ -31,14 +30,23 @@ const useService = <
   }
 
   return useMutation(
-    (
+    async (
       params: Parameters<TService[TModuleName][TActionName]>[0] extends void
         ? void
         : Parameters<TService[TModuleName][TActionName]>[0]
     ) => {
-      return action(params);
+      const givenData = await action(params);
+      return givenData?.data?.data;
     }
-  );
+  ) as UseMutationResult<
+    ExtractPromiseAndAxios<ReturnType<TService[TModuleName][TActionName]>>,
+    unknown,
+    ExtractPromiseAndAxios<
+      Parameters<TService[TModuleName][TActionName]>[0] extends void
+        ? void
+        : Parameters<TService[TModuleName][TActionName]>[0]
+    >
+  >;
 };
 
 export default useService;
