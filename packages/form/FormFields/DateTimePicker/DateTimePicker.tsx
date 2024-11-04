@@ -15,11 +15,14 @@ import {
 import { useTranslation } from 'react-i18next';
 import ErrorMessage from '../../ErrorMessage';
 
-type FsTimePickerProps = DateTimePickerProps<Moment> & {
+type FsTimePickerProps = Omit<
+  DateTimePickerProps<Moment>,
+  'value' | 'onChange'
+> & {
   i18nKey: string;
   rules?: ControllerProps['rules'];
   name: string;
-  defaultValue?: Date;
+  defaultValue?: string;
 };
 
 const FsTimePicker = ({
@@ -36,21 +39,35 @@ const FsTimePicker = ({
   const { t } = useTranslation();
   const { errorI18nKey } = useExtractErrorInfo(errors, name);
   moment.loadPersian({ dialect: 'persian-modern' });
+
+  const formattedDate = (date: Moment | null) =>
+    date ? date.format('jYYYY-MM-DDTHH:mm:ss') : '';
+
   return (
     <Controller
       name={name}
       control={control}
       rules={rules}
-      defaultValue={defaultValue || null}
-      render={({ field }) => (
-        <LocalizationProvider dateAdapter={AdapterMomentJalaali}>
-          <Box display={'flex'} flexDirection={'column'}>
-            <DateTimePicker label={t(i18nKey)} {...field} {...rest} />
-            <ErrorMessage i18nKey={errorI18nKey} />
-          </Box>
-        </LocalizationProvider>
-      )}
+      defaultValue={defaultValue || ''}
+      render={({ field }) => {
+        return (
+          <LocalizationProvider dateAdapter={AdapterMomentJalaali}>
+            <Box display={'flex'} flexDirection={'column'}>
+              <DateTimePicker
+                label={t(i18nKey)}
+                {...rest}
+                onChange={(date) => {
+                  field.onChange(formattedDate(date));
+                }}
+                ampm={false}
+              />
+              <ErrorMessage i18nKey={errorI18nKey} />
+            </Box>
+          </LocalizationProvider>
+        );
+      }}
     />
   );
 };
+
 export default FsTimePicker;

@@ -1,10 +1,10 @@
-import { Button, type ButtonProps, type TooltipProps } from '@mui/material';
+import { Button, type ButtonProps } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { FsTooltip } from '../Tooltip';
+import { FsTooltip, type FsTooltipProps } from '../Tooltip';
 
 type FsButtonProps = ButtonProps & {
   i18nKey?: string;
-  tooltipProps?: Omit<TooltipProps, 'title' | 'children'> & {
+  tooltipProps?: Omit<FsTooltipProps, 'children'> & {
     i18nKey: string;
   };
 };

@@ -1,2 +1,2 @@
-export * from './catcheRtl';
+export * from './directionCache';
 
