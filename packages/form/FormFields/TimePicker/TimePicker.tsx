@@ -15,11 +15,11 @@ import { Box } from '@mui/material';
 import ErrorMessage from '../../ErrorMessage';
 import { useExtractErrorInfo } from '../../useExtractErrorInfo';
 
-type FsTimePickerProps = TimePickerProps<Moment> & {
+type FsTimePickerProps = Omit<TimePickerProps<Moment>, 'value' | 'onChange'> & {
   i18nKey: string;
   rules?: ControllerProps['rules'];
   name: string;
-  defaultValue?: Date;
+  defaultValue?: string;
 };
 
 const FsTimePicker = ({
@@ -36,21 +36,35 @@ const FsTimePicker = ({
   const { t } = useTranslation();
   const { errorI18nKey } = useExtractErrorInfo(errors, name);
   moment.loadPersian({ dialect: 'persian-modern' });
+
+  const formattedTime = (time: Moment | null) =>
+    time ? time.format('HH:mm:ss') : '';
+
   return (
     <Controller
       name={name}
       control={control}
       rules={rules}
-      defaultValue={defaultValue || null}
-      render={({ field }) => (
-        <LocalizationProvider dateAdapter={AdapterMomentJalaali}>
-          <Box display={'flex'} flexDirection={'column'}>
-            <TimePicker label={t(i18nKey)} {...field} {...rest} />
-            <ErrorMessage i18nKey={errorI18nKey} />
-          </Box>
-        </LocalizationProvider>
-      )}
+      defaultValue={defaultValue || ''}
+      render={({ field }) => {
+        return (
+          <LocalizationProvider dateAdapter={AdapterMomentJalaali}>
+            <Box display={'flex'} flexDirection={'column'}>
+              <TimePicker
+                label={t(i18nKey)}
+                {...rest}
+                onChange={(time) => {
+                  field.onChange(formattedTime(time));
+                }}
+                format="HH:mm:ss"
+              />
+              <ErrorMessage i18nKey={errorI18nKey} />
+            </Box>
+          </LocalizationProvider>
+        );
+      }}
     />
   );
 };
+
 export default FsTimePicker;
