@@ -8,8 +8,12 @@ import {
 import { useTranslation } from 'react-i18next';
 import { useExtractErrorInfo } from '../../useExtractErrorInfo';
 import { inputOnChange, inputValue } from './utils';
+import ClearButton from '../../ClearButton';
 
-type FsInputProps = Omit<TextFieldProps, 'label' | 'name' | 'inputProps'> & {
+export type FsInputProps = Omit<
+  TextFieldProps,
+  'label' | 'name' | 'inputProps'
+> & {
   i18nKey: string;
   name: string;
   defaultValue?: string | number;
@@ -17,6 +21,8 @@ type FsInputProps = Omit<TextFieldProps, 'label' | 'name' | 'inputProps'> & {
   onlyNumbers?: boolean;
   maxLength?: number;
   inputProps?: Omit<TextFieldProps['inputProps'], 'min' | 'max'>;
+  separator?: boolean;
+  clearButton?: boolean;
 };
 
 const FsInput = ({
@@ -26,6 +32,8 @@ const FsInput = ({
   rules,
   onlyNumbers,
   maxLength,
+  clearButton = true,
+  separator = true,
   ...rest
 }: FsInputProps) => {
   const {
@@ -42,13 +50,16 @@ const FsInput = ({
       defaultValue={defaultValue || ''}
       rules={rules}
       render={({ field }) => (
-        <Box>
+        <Box position={'relative'}>
+          {clearButton && field.value && (
+            <ClearButton field={field} iconButtonSx={{ right: 4 }} />
+          )}
           <TextField
             {...field}
             label={t(i18nKey)}
             fullWidth
             {...rest}
-            value={inputValue(field, onlyNumbers)}
+            value={inputValue(field, onlyNumbers, separator)}
             onChange={(e) => inputOnChange(e, onlyNumbers, field, maxLength)}
           />
           <ErrorMessage i18nKey={errorI18nKey} />

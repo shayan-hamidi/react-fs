@@ -7,7 +7,12 @@ import checker from 'vite-plugin-checker';
 export default defineConfig({
   plugins: [
     react(),
-    checker({ typescript: true }),
+    checker({
+      typescript: true,
+      overlay: {
+        initialIsOpen: false,
+      },
+    }),
     sentryVitePlugin({
       org: process.env.VITE_SENTRY_ORG,
       project: process.env.VITE_SENTRY_PROJECT,
@@ -37,5 +42,11 @@ export default defineConfig({
   },
   server: {
     port: 3000,
+    proxy: {
+      '/api': {
+        target: process.env.VITE_PROXY,
+        changeOrigin: true,
+      },
+    },
   },
 });

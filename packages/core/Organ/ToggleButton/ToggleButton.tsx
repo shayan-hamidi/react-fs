@@ -4,26 +4,36 @@ import {
   type ToggleButtonGroupProps,
   type ToggleButtonProps,
 } from '@mui/material';
-import { useTranslation } from 'react-i18next';
+import { FsTypography } from '../../Atom/Typography';
 
 type FsToggleButtonGroupProps = Omit<ToggleButtonGroupProps, 'children'> & {
   items: {
     value: string;
     label: string;
-    toggleButtonProps?: ToggleButtonProps;
+    disabled?: boolean;
+    startIcon?: JSX.Element;
+    endIcon?: JSX.Element;
+    toggleButtonProps?: Omit<ToggleButtonProps, 'disabled'>;
   }[];
 };
 
 const FsToggleButtonGroup = ({ items, ...rest }: FsToggleButtonGroupProps) => {
-  const { t } = useTranslation();
-
   return (
-    <ToggleButtonGroup {...rest}>
-      {items.map(({ value, label, toggleButtonProps }) => (
-        <ToggleButton key={value} value={value} {...toggleButtonProps}>
-          {t(label)}
-        </ToggleButton>
-      ))}
+    <ToggleButtonGroup {...rest} color="primary">
+      {items.map(
+        ({ value, label, toggleButtonProps, endIcon, startIcon, disabled }) => (
+          <ToggleButton
+            key={value}
+            value={value}
+            disabled={disabled}
+            {...toggleButtonProps}
+          >
+            {startIcon && startIcon}
+            <FsTypography i18nKey={label} mx={1} />
+            {endIcon && endIcon}
+          </ToggleButton>
+        )
+      )}
     </ToggleButtonGroup>
   );
 };

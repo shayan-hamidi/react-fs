@@ -6,4 +6,6 @@ export * from './Modal';
 export * from './Stepper';
 export * from './Table';
 export * from './ToggleButton';
+export * from './Pagination';
+export * from './NavigationMenu';
 

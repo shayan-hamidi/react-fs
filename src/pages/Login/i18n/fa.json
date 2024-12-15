@@ -1,5 +1,7 @@
 {
-  "login": {
-    "LOGIN": "ورود"
+  "_LOGIN": {
+    "USER_NAME": "نام کاربری",
+    "PASSWORD": "رمز عبور",
+    "CAPTCHA": "کپچا"
   }
 }

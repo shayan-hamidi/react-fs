@@ -1,6 +1,13 @@
-import { type AlertProps } from '@mui/material';
-import { createContext, ReactNode, useCallback, useState } from 'react';
+import { AlertProps } from '@mui/material';
+import {
+  createContext,
+  ReactNode,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
 import FsNotifiedAlert from './NotifiedAlert';
+import { setTriggerAlert } from './AlertService';
 
 type AlertState = {
   id: string;
@@ -22,7 +29,9 @@ type AlertContextProps = {
   ) => void;
 };
 
-const AlertContext = createContext<AlertContextProps | undefined>(undefined);
+export const AlertContext = createContext<AlertContextProps | undefined>(
+  undefined
+);
 
 type AlertProviderProps = {
   children: ReactNode;
@@ -63,6 +72,11 @@ export const AlertProvider = ({ children }: AlertProviderProps) => {
     }, 300);
   }, []);
 
+  // Register the triggerAlert function with the alertService
+  useEffect(() => {
+    setTriggerAlert(triggerAlert);
+  }, [triggerAlert]);
+
   return (
     <AlertContext.Provider value={{ alerts, triggerAlert }}>
       {children}
@@ -77,6 +91,3 @@ export const AlertProvider = ({ children }: AlertProviderProps) => {
     </AlertContext.Provider>
   );
 };
-
-export { AlertContext };
-

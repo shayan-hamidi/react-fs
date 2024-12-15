@@ -14,6 +14,7 @@ import {
 } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import ErrorMessage from '../../ErrorMessage';
+import ClearButton from '../../ClearButton';
 
 type FsTimePickerProps = Omit<
   DateTimePickerProps<Moment>,
@@ -23,6 +24,7 @@ type FsTimePickerProps = Omit<
   rules?: ControllerProps['rules'];
   name: string;
   defaultValue?: string;
+  clearButton?: boolean;
 };
 
 const FsTimePicker = ({
@@ -30,6 +32,7 @@ const FsTimePicker = ({
   name,
   i18nKey,
   defaultValue,
+  clearButton = true,
   ...rest
 }: FsTimePickerProps) => {
   const {
@@ -41,7 +44,7 @@ const FsTimePicker = ({
   moment.loadPersian({ dialect: 'persian-modern' });
 
   const formattedDate = (date: Moment | null) =>
-    date ? date.format('jYYYY-MM-DDTHH:mm:ss') : '';
+    date ? date.format('YYYY-MM-DDTHH:mm:ss') : '';
 
   return (
     <Controller
@@ -52,15 +55,22 @@ const FsTimePicker = ({
       render={({ field }) => {
         return (
           <LocalizationProvider dateAdapter={AdapterMomentJalaali}>
-            <Box display={'flex'} flexDirection={'column'}>
+            <Box
+              display={'flex'}
+              flexDirection={'column'}
+              position={'relative'}
+            >
               <DateTimePicker
                 label={t(i18nKey)}
                 {...rest}
+                {...field}
+                value={field.value ? moment(field.value) : undefined}
                 onChange={(date) => {
                   field.onChange(formattedDate(date));
                 }}
                 ampm={false}
               />
+              {clearButton && field.value && <ClearButton field={field} />}
               <ErrorMessage i18nKey={errorI18nKey} />
             </Box>
           </LocalizationProvider>

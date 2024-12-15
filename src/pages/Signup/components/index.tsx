@@ -6,9 +6,7 @@ import { FsButton } from '@fs/core';
 const SignUp = () => {
   const methods = useForm();
 
-  const onSubmit = (data: any) => {
-    console.log(data);
-  };
+  const onSubmit = () => {};
 
   return (
     <Container

@@ -14,12 +14,14 @@ import { useTranslation } from 'react-i18next';
 import { Box } from '@mui/material';
 import ErrorMessage from '../../ErrorMessage';
 import { useExtractErrorInfo } from '../../useExtractErrorInfo';
+import ClearButton from '../../ClearButton';
 
 type FsTimePickerProps = Omit<TimePickerProps<Moment>, 'value' | 'onChange'> & {
   i18nKey: string;
   rules?: ControllerProps['rules'];
   name: string;
   defaultValue?: string;
+  clearButton?: boolean;
 };
 
 const FsTimePicker = ({
@@ -27,6 +29,7 @@ const FsTimePicker = ({
   name,
   i18nKey,
   defaultValue,
+  clearButton = true,
   ...rest
 }: FsTimePickerProps) => {
   const {
@@ -49,10 +52,19 @@ const FsTimePicker = ({
       render={({ field }) => {
         return (
           <LocalizationProvider dateAdapter={AdapterMomentJalaali}>
-            <Box display={'flex'} flexDirection={'column'}>
+            <Box
+              display={'flex'}
+              flexDirection={'column'}
+              position={'relative'}
+            >
+              {clearButton && field.value && <ClearButton field={field} />}
               <TimePicker
                 label={t(i18nKey)}
                 {...rest}
+                {...field}
+                value={
+                  field.value ? moment(field.value, 'HH:mm:ss') : undefined
+                }
                 onChange={(time) => {
                   field.onChange(formattedTime(time));
                 }}

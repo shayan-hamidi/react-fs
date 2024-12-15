@@ -14,12 +14,14 @@ import { useTranslation } from 'react-i18next';
 import { useExtractErrorInfo } from '../../useExtractErrorInfo';
 import { Box } from '@mui/material';
 import ErrorMessage from '../../ErrorMessage';
+import ClearButton from '../../ClearButton';
 
 type FsDatePickerProps = Omit<DatePickerProps<Moment>, 'value' | 'onChange'> & {
   i18nKey: string;
   rules?: ControllerProps['rules'];
   name: string;
   defaultValue?: string;
+  clearButton?: boolean;
 };
 
 const FsDatePicker = ({
@@ -27,6 +29,7 @@ const FsDatePicker = ({
   name,
   i18nKey,
   defaultValue,
+  clearButton = true,
   ...rest
 }: FsDatePickerProps) => {
   const {
@@ -38,7 +41,7 @@ const FsDatePicker = ({
   moment.loadPersian({ dialect: 'persian-modern' });
 
   const formattedDate = (date: Moment | null) => {
-    return date ? date.format('jYYYY-MM-DD') : '';
+    return date ? date.format('YYYY-MM-DD') : '';
   };
 
   return (
@@ -50,10 +53,29 @@ const FsDatePicker = ({
       render={({ field }) => {
         return (
           <LocalizationProvider dateAdapter={AdapterMomentJalaali}>
-            <Box display={'flex'} flexDirection={'column'}>
+            <Box
+              display={'flex'}
+              flexDirection={'column'}
+              position={'relative'}
+            >
+              {clearButton && field.value && <ClearButton field={field} />}
               <DatePicker
+                slotProps={{
+                  calendarHeader: {
+                    sx: {
+                      '.MuiIconButton-edgeStart,.MuiIconButton-edgeEnd': {
+                        rotate:
+                          import.meta.env.MODE !== 'development'
+                            ? '180deg'
+                            : undefined,
+                      },
+                    },
+                  },
+                }}
                 label={t(i18nKey)}
                 {...rest}
+                {...field}
+                value={field.value ? moment(field.value) : undefined}
                 onChange={(date) => {
                   field.onChange(formattedDate(date));
                 }}

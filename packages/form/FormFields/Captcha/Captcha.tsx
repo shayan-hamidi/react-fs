@@ -40,6 +40,7 @@ const Captcha = ({ i18nKey, name, rules }: FsCaptchaProps) => {
       i18nKey={i18nKey}
       rules={rules}
       onlyNumbers={true}
+      separator={false}
       maxLength={4}
       InputProps={{
         startAdornment: (
@@ -57,7 +58,7 @@ const Captcha = ({ i18nKey, name, rules }: FsCaptchaProps) => {
                   src={captcha}
                   alt={'captcha Image'}
                   style={{
-                    height: '3.4rem',
+                    height: '100%',
                   }}
                 />
               )}
