@@ -37,7 +37,6 @@ import { type GridColDef } from '@mui/x-data-grid';
 import { ClearIcon } from '@mui/x-date-pickers/icons';
 import { type MouseEvent, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import Table from './TableServer';
 
 const Home = () => {
   const [value, setValue] = useState('value2');
@@ -134,7 +133,6 @@ const Home = () => {
           borderRadius: 3,
         })}
       >
-        <Table />
         {/* Section for Description */}
         <FsTypography
           i18nKey={'Description'}
