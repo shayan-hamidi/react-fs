@@ -1,4 +1,4 @@
-import { Modal, type ModalProps } from '@mui/material';
+import { Modal, Paper, type ModalProps } from '@mui/material';
 import { useContext } from 'react';
 import { ModalContext } from './ModalProvider';
 
@@ -26,7 +26,26 @@ const FsModal = ({ children, modalKey, ...rest }: FsModalProps) => {
       closeAfterTransition
       {...rest}
     >
-      {children}
+      <Paper
+        sx={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          width: {
+            xs: '80%',
+            sm: 400,
+            md: 500,
+            lg: 600,
+            xl: 700,
+          },
+          maxWidth: '100%',
+          px: 3,
+          py: 1,
+        }}
+      >
+        {children}
+      </Paper>
     </Modal>
   );
 };

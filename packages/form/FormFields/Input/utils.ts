@@ -27,8 +27,11 @@ const inputOnChange = (
 
 const inputValue = (
   field: ControllerRenderProps<FieldValues, string>,
-  onlyNumbers?: boolean
+  onlyNumbers?: boolean,
+  separator?: boolean
 ) =>
-  onlyNumbers ? formatNumberWithSeparator(field.value.toString()) : field.value;
+  onlyNumbers && separator
+    ? formatNumberWithSeparator(field.value.toString())
+    : field.value;
 
 export { formatNumberWithSeparator, inputOnChange, inputValue };

@@ -4,3 +4,6 @@ export * from './Capitalize';
 export * from './LocalStorage';
 export * from './GenerateUniqueId';
 export * from './Scroll';
+export * from './FarsiDate';
+export * from './AddCommaPattern';
+export * from './maskPhoneNumber';

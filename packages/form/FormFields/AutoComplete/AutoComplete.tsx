@@ -1,23 +1,29 @@
-import { Autocomplete, type AutocompleteProps, Box } from '@mui/material';
+import {
+  Autocomplete,
+  type AutocompleteProps,
+  Box,
+  TextField,
+} from '@mui/material';
 import {
   Controller,
   useFormContext,
   type ControllerProps,
 } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { FsInput } from '../Input';
 import { useExtractErrorInfo } from '../../useExtractErrorInfo';
 import ErrorMessage from '../../ErrorMessage';
+import ClearButton from '../../ClearButton';
 
 type TOptions = { value: string; label: string };
 
 type FsAutoCompleteProps<TMultiple extends boolean | undefined> = Omit<
-  AutocompleteProps<TOptions, TMultiple, false, false>,
+  AutocompleteProps<TOptions, TMultiple, true, false>,
   'renderInput' | 'options'
 > & {
   i18nKey: string;
   name: string;
   options: TOptions[];
+  clearButton?: boolean;
   multiple?: TMultiple;
   rules?: ControllerProps['rules'];
 };
@@ -28,6 +34,7 @@ function FsAutoComplete<TMultiple extends boolean | undefined>({
   options,
   multiple,
   rules,
+  clearButton = true,
   ...rest
 }: FsAutoCompleteProps<TMultiple>) {
   const { t } = useTranslation();
@@ -43,22 +50,24 @@ function FsAutoComplete<TMultiple extends boolean | undefined>({
       control={control}
       rules={rules}
       defaultValue={multiple ? [] : undefined}
-      render={({ field: { onChange, value, ref } }) => (
-        <Box>
+      render={({ field }) => (
+        <Box position={'relative'}>
+          {clearButton && field.value && <ClearButton field={field} />}
           <Autocomplete
             {...rest}
+            disableClearable
             multiple={multiple}
             options={options}
             value={
               multiple
-                ? value &&
-                  options.filter((option) => value.includes(option.value))
-                : value
-                ? options.find((option) => option.value === value)
+                ? field.value &&
+                  options.filter((option) => field.value.includes(option.value))
+                : field.value
+                ? options.find((option) => option.value === field.value)
                 : null
             }
             onChange={(_event, newValue) => {
-              onChange(
+              field.onChange(
                 multiple
                   ? (newValue as TOptions[]).map((item) => item.value)
                   : newValue
@@ -67,12 +76,12 @@ function FsAutoComplete<TMultiple extends boolean | undefined>({
               );
             }}
             getOptionLabel={(option) => option.label}
-            ref={ref}
+            ref={field.ref}
             renderInput={(params) => (
-              <FsInput
+              <TextField
                 {...params}
                 name={`input-${name}`}
-                i18nKey={t(i18nKey)}
+                label={t(i18nKey)}
               />
             )}
           />

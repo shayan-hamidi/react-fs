@@ -14,6 +14,7 @@ import {
 } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useExtractErrorInfo } from '../../useExtractErrorInfo';
+import ClearButton from '../../ClearButton';
 
 type TMenuItems = { value: number | string; label: string }[];
 type FsSelectProps = Omit<SelectProps, 'label' | 'children' | 'name'> & {
@@ -22,6 +23,7 @@ type FsSelectProps = Omit<SelectProps, 'label' | 'children' | 'name'> & {
   items: TMenuItems;
   rules?: ControllerProps['rules'];
   defaultValue?: string | number | boolean;
+  clearButton?: boolean;
 };
 
 const FsSelect = ({
@@ -30,6 +32,7 @@ const FsSelect = ({
   items,
   rules,
   defaultValue,
+  clearButton = true,
   ...rest
 }: FsSelectProps) => {
   const {
@@ -38,7 +41,6 @@ const FsSelect = ({
   } = useFormContext();
   const { t } = useTranslation();
   const { errorI18nKey } = useExtractErrorInfo(errors, name);
-
   return (
     <Controller
       name={name}
@@ -55,7 +57,13 @@ const FsSelect = ({
             >
               <InputLabel
                 id={name}
-                size={rest.size === 'small' ? 'small' : 'normal'}
+                size={
+                  !rest.size
+                    ? undefined
+                    : rest.size === 'small'
+                    ? 'small'
+                    : 'normal'
+                }
               >
                 {t(i18nKey)}
               </InputLabel>
@@ -69,7 +77,7 @@ const FsSelect = ({
                   '& .MuiInputLabel-outlined': {
                     backgroundColor: 'red',
                     color: 'blue',
-                    fontSize: '200px',
+                    fontSize: '12.5rem',
                   },
                 }}
               >
@@ -79,6 +87,7 @@ const FsSelect = ({
                   </MenuItem>
                 ))}
               </Select>
+              {clearButton && field.value && <ClearButton field={field} />}
             </Box>
           </FormControl>
           <ErrorMessage i18nKey={errorI18nKey} />

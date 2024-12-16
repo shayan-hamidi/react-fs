@@ -1,20 +1,23 @@
 import { PageProvider } from '@fs/utils';
-import { lazy } from 'react';
-import { Route, Routes } from 'react-router-dom';
 import { addTranslationSchema } from 'src/i18nConfig';
+import type { AppRouteObject } from 'src/routes/type';
+import HomeLayout from './components';
+import homeService from './homeService';
 import authTranslations from './i18n/fa.json';
+import { HomeChildrenRoute } from './subPages';
 
-const Home = lazy(() => import('./components'));
-
-const HomeRoutes = () => {
-  addTranslationSchema('fa', authTranslations);
-  return (
-    <PageProvider entityName="home" httpService={[]}>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
+addTranslationSchema('fa', authTranslations);
+const HomeRoutes: AppRouteObject = {
+  path: '/',
+  handle: {
+    title: 'صفحه اصلی',
+  },
+  element: (
+    <PageProvider entityName="home" httpService={[homeService]}>
+      <HomeLayout />
     </PageProvider>
-  );
+  ),
+  children: [...HomeChildrenRoute],
 };
 
 export default HomeRoutes;

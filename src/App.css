@@ -256,10 +256,9 @@
 
 .typing-effect {
   overflow: hidden;
-  border-right: 0.15em solid black;
   white-space: nowrap;
   letter-spacing: 0.15em;
-  animation: progress 3.5s steps(40, end), blink 0.75s step-end infinite;
+  animation: progress 2.5s steps(40, end), blink 0.75s step-end infinite;
 }
 
 /* Flip Card Styles start */

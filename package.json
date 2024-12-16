@@ -1,7 +1,7 @@
 {
   "name": "react-fs",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "start": "vite",
@@ -27,6 +27,7 @@
     "axios": "^1.7.2",
     "i18next": "^23.11.5",
     "i18next-browser-languagedetector": "^7.1.0",
+    "js-cookie": "^3.0.5",
     "lottie-react": "^2.4.0",
     "path": "^0.12.7",
     "react": "^19.0.0-beta-26f2496093-20240514",
@@ -43,6 +44,7 @@
     "vite-tsconfig-paths": "^4.0.3"
   },
   "devDependencies": {
+    "@types/js-cookie": "^3.0.6",
     "@types/node": "^20.12.13",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
@@ -56,5 +58,8 @@
     "moment-jalaali": "^0.10.1",
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-musl": "4.25.0"
   }
 }

@@ -1,57 +1,107 @@
-import { Container, Paper, Typography } from '@mui/material';
-import { useForm, FormProvider } from 'react-hook-form';
-import { FsInput } from '@fs/form';
-import { FsButton } from '@fs/core';
-import { useService } from '@fs/utils';
-import { useEffect } from 'react';
-import { type LoginServiceActions } from '../loginService';
+import { FsButton, FsTypography, useAlert } from '@fs/core';
+import { FsCaptcha, FsFormProvider, FsInput } from '@fs/form';
+import { Box, Container, Grid, Paper } from '@mui/material';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+import backgroundLogin from 'src/assets/images/background-login.jpg';
+import logo from 'src/assets/images/logo.png';
+import { Footer } from 'src/common/components/Layout';
 
-const LogIn = () => {
+const Login = () => {
+  const [_captchaGuid, setCaptchaGuid] = useState('');
+
+  const { triggerAlert } = useAlert();
   const methods = useForm();
-
-  const onSubmit = (data: any) => {
-    console.log(data);
+  const navigate = useNavigate();
+  const { t } = useTranslation();
+  const onSubmit = () => {
+    navigate('/');
+    triggerAlert('ورود با موفقیت انجام شد', 2000);
   };
 
-  const { mutate } = useService<LoginServiceActions, 'login', 'getList'>(
-    'login',
-    'getList'
-  );
-
-  useEffect(() => {
-    mutate();
-  }, []);
-
   return (
-    <Container
-      maxWidth="sm"
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+    <Box
+      sx={{
+        backgroundImage: `url(${backgroundLogin})`,
+        backgroundSize: '100% 50vh',
+        backgroundPosition: 'top',
+        backgroundRepeat: 'no-repeat',
         height: '100vh',
+        overflow: 'hidden',
+        display: 'flex',
+        flexDirection: 'column',
       }}
     >
-      <Paper elevation={3} style={{ padding: '1.25rem', textAlign: 'center' }}>
-        <Typography variant="h5" gutterBottom>
-          Log In
-        </Typography>
-        <FormProvider {...methods}>
-          <form onSubmit={methods.handleSubmit(onSubmit)}>
-            <FsInput name="UserName" i18nKey={'UserName'} />
-            <FsInput name="password" i18nKey={'password'} />
-            <FsButton
-              type="submit"
-              variant="contained"
-              color="primary"
-              fullWidth
-              i18nKey="LOGIN"
-            />
-          </form>
-        </FormProvider>
-      </Paper>
-    </Container>
+      <Container
+        sx={{
+          flexGrow: '1',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+        maxWidth="sm"
+      >
+        <Paper
+          elevation={5}
+          style={{
+            padding: '1.25rem',
+            textAlign: 'center',
+            borderRadius: '0.75rem',
+          }}
+        >
+          <img src={logo} alt="site logo" />
+          <FsTypography
+            i18nKey={'LOGIN_IN_SYSTEM'}
+            color={'primary'}
+            fontWeight={'bold'}
+            variant="h5"
+            mb={2}
+          />
+          <FsFormProvider
+            formProps={{ onSubmit: methods.handleSubmit(onSubmit) }}
+            methods={methods}
+            name={'logInForm'}
+          >
+            <Grid container gap={1}>
+              <Grid item xs={12}>
+                <FsInput
+                  name="userName"
+                  i18nKey="_LOGIN.USER_NAME"
+                  rules={{ required: t('FEILD_REQUIRED_MSG') }}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <FsInput
+                  name="password"
+                  i18nKey="_LOGIN.PASSWORD"
+                  rules={{ required: t('FEILD_REQUIRED_MSG') }}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <FsCaptcha
+                  name="captchaString"
+                  i18nKey="_LOGIN.CAPTCHA"
+                  rules={{ required: t('FEILD_REQUIRED_MSG') }}
+                  setCaptchaGuid={setCaptchaGuid}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <FsButton
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                  fullWidth
+                  i18nKey="LOGIN"
+                />
+              </Grid>
+            </Grid>
+          </FsFormProvider>
+        </Paper>
+      </Container>
+      <Footer />
+    </Box>
   );
 };
-
-export default LogIn;
+export default Login;
