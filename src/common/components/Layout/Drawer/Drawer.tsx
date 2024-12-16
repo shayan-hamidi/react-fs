@@ -67,6 +67,7 @@ const Drawer = ({ dependency }: DrawerProps) => {
           src={logo}
           alt="logo"
           style={{ filter: mode === 'dark' ? 'invert(1)' : undefined }}
+          width={'20%'}
         />
       </Box>
       {/* navigationItems */}

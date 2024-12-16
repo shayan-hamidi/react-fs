@@ -142,11 +142,11 @@ const Home = () => {
         />
         <Grid container spacing={2}>
           <Grid item xs={6}>
-            <FsDescription title="نام خانوادگی ">ربیعی</FsDescription>
+            <FsDescription title="نام ">شایان</FsDescription>
           </Grid>
           {/* or */}
           <Grid item xs={6}>
-            <FsDescription title="نام خانوادگی " text="ربیعی" />
+            <FsDescription title="نام خانوادگی " text="حمیدی" />
           </Grid>
         </Grid>
         {/* Section for Pagination */}
