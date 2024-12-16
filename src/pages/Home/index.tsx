@@ -5,7 +5,6 @@ import HomeLayout from './components';
 import homeService from './homeService';
 import authTranslations from './i18n/fa.json';
 import { HomeChildrenRoute } from './subPages';
-import { FsUserPermissionContextProvider } from 'src/common/contexts/UserPermissionContext';
 
 addTranslationSchema('fa', authTranslations);
 const HomeRoutes: AppRouteObject = {
@@ -14,11 +13,9 @@ const HomeRoutes: AppRouteObject = {
     title: 'صفحه اصلی',
   },
   element: (
-    <FsUserPermissionContextProvider>
-      <PageProvider entityName="home" httpService={[homeService]}>
-        <HomeLayout />
-      </PageProvider>
-    </FsUserPermissionContextProvider>
+    <PageProvider entityName="home" httpService={[homeService]}>
+      <HomeLayout />
+    </PageProvider>
   ),
   children: [...HomeChildrenRoute],
 };

@@ -1,6 +1,5 @@
 import { FsButton, FsTypography, useAlert } from '@fs/core';
 import { FsCaptcha, FsFormProvider, FsInput } from '@fs/form';
-import { useService } from '@fs/utils';
 import { Box, Container, Grid, Paper } from '@mui/material';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -9,31 +8,17 @@ import { useNavigate } from 'react-router-dom';
 import backgroundLogin from 'src/assets/images/background-login.jpg';
 import logo from 'src/assets/images/logo.png';
 import { Footer } from 'src/common/components/Layout';
-import type { LoginServiceActions } from '../loginService';
 
 const Login = () => {
-  const [captchaGuid, setCaptchaGuid] = useState('');
+  const [_captchaGuid, setCaptchaGuid] = useState('');
 
   const { triggerAlert } = useAlert();
   const methods = useForm();
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const { mutate, isLoading } = useService<
-    LoginServiceActions,
-    'login',
-    'login'
-  >('login', 'login');
-
-  const onSubmit = (data: any) => {
-    mutate(
-      { ...data, captchaGuid },
-      {
-        onSuccess() {
-          navigate('/');
-          triggerAlert('ورود با موفقیت انجام شد', 2000);
-        },
-      }
-    );
+  const onSubmit = () => {
+    navigate('/');
+    triggerAlert('ورود با موفقیت انجام شد', 2000);
   };
 
   return (
@@ -104,7 +89,6 @@ const Login = () => {
               </Grid>
               <Grid item xs={12}>
                 <FsButton
-                  loading={isLoading}
                   type="submit"
                   variant="contained"
                   color="primary"

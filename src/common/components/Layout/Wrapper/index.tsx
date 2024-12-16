@@ -8,7 +8,6 @@ import Loading from '../Loading';
 import Toolbar from '../Toolbar';
 import { CustomBoxScroll } from '../CustomScrollBox';
 import MainHeader from '../MainHeader';
-import { useUserPermission } from 'src/common/contexts/UserPermissionContext';
 
 const drawerWidth = 17.5;
 const drawerCloseWidth = 8.2;
@@ -18,7 +17,6 @@ const duration = '.3s';
 export default function WrapperLayout({ children }: PropsWithChildren) {
   const theme = useTheme();
   const isUpMd = useMediaQuery(theme.breakpoints.up('md'));
-  const { isLoading } = useUserPermission();
   const [open, setOpen] = useState(isUpMd);
   const [clicked, setClicked] = useState(true);
 
@@ -74,14 +72,10 @@ export default function WrapperLayout({ children }: PropsWithChildren) {
             }}
           >
             <Suspense fallback={<Loading />}>
-              {isLoading ? (
-                <Loading />
-              ) : (
-                <PageInfoContext>
-                  <MainHeader />
-                  {children}
-                </PageInfoContext>
-              )}
+              <PageInfoContext>
+                <MainHeader />
+                {children}
+              </PageInfoContext>
             </Suspense>
           </CustomBoxScroll>
         </Box>

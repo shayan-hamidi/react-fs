@@ -1,6 +1,5 @@
 import { FsTypography } from '@fs/core';
 import { Divider, Grid, Paper } from '@mui/material';
-import FooterIcon from 'src/assets/images/footer-icon.png';
 import moment from 'moment-jalaali';
 import { useEffect, useState } from 'react';
 import { useVersion } from 'src/common/hooks/useVersion';
@@ -45,7 +44,6 @@ export const Footer = () => {
       >
         <Grid item>
           <Grid container columnGap={2} alignItems={'center'}>
-            <img style={{ width: '2.5rem' }} src={FooterIcon} />
             <FsTypography
               sx={{ fontSize: '.7rem' }}
               i18nKey={'تمامی حقوق این سایت متعلق به سازمان استاندارد می باشد.'}
