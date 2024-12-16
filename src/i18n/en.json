@@ -39,5 +39,6 @@
   "ROW": "Row",
   "UPLOAD_FS_HINT": "Drag and drop file(s) here or select",
   "UPLOAD_NOT_MULTIPLE_ERROR_MSG": "You can upload just one file.",
+  "FEILD_REQUIRED_MSG": "Field is required.",
   "REFRESH_CAPTCHA": "Reset Captcha"
 }

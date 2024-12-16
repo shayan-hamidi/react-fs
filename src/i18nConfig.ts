@@ -4,9 +4,7 @@ const config = generateDefaultI18nConfig();
 // Initialize i18n with the configuration
 defaultI18n
   .init(config as object)
-  .then(() => {
-    console.log('i18n initialized');
-  })
+  .then(() => {})
   .catch((err) => {
     console.error('i18n initialization failed:', err);
   });

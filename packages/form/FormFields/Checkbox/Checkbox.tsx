@@ -43,7 +43,7 @@ const FsCheckbox = ({
         return (
           <Box>
             <FormControlLabel
-              control={<Checkbox {...field} {...rest} />}
+              control={<Checkbox checked={field.value} {...field} {...rest} />}
               label={t(i18nKey)}
               sx={{ display: 'block' }}
             />

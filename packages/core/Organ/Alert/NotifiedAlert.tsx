@@ -1,4 +1,4 @@
-import { Alert, Box, type AlertProps } from '@mui/material';
+import { Alert, Box, useTheme, type AlertProps } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -15,6 +15,11 @@ const FsNotifiedAlert = ({
   const [visible, setVisible] = useState(true);
   const [mounted, setMounted] = useState(true);
   const { t } = useTranslation();
+  const theme = useTheme();
+
+  const getBorderStyles = () => {
+    return `1px solid ${theme.palette[rest.severity || 'success'][700]}`;
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -40,7 +45,7 @@ const FsNotifiedAlert = ({
 
   return (
     <Box
-      zIndex={1}
+      zIndex={1400}
       position={'fixed'}
       top={'0.7rem'}
       left={'50%'}
@@ -49,6 +54,9 @@ const FsNotifiedAlert = ({
       <Alert
         sx={{
           transform: 'translateX(-50%)',
+          fontWeight: 'bold',
+          fontSize: 13,
+          border: getBorderStyles(),
         }}
         {...rest}
       >

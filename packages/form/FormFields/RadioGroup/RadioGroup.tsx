@@ -5,6 +5,7 @@ import {
   FormLabel,
   Radio,
   RadioGroup,
+  type SxProps,
   type RadioGroupProps,
 } from '@mui/material';
 import {
@@ -16,17 +17,19 @@ import { useTranslation } from 'react-i18next';
 import { useExtractErrorInfo } from '../../useExtractErrorInfo';
 
 type FsRadioGroupProps = Omit<RadioGroupProps, 'children'> & {
-  i18nKey: string;
+  i18nKey?: string;
   rules?: ControllerProps['rules'];
   name: string;
-  list: { label: string; value: string | boolean }[];
+  list: { label: string; value: string | boolean; disabled?: boolean }[];
   defaultValue?: string | number | boolean;
+  containerStyles?: SxProps;
 };
 
 const FsRadioGroup = ({
   name,
   rules,
-  i18nKey,
+  i18nKey = '',
+  containerStyles,
   list,
   defaultValue,
   ...rest
@@ -46,16 +49,29 @@ const FsRadioGroup = ({
       rules={rules}
       render={({ field }) => {
         return (
-          <Box>
+          <Box sx={containerStyles}>
             <FormLabel>{t(i18nKey)}</FormLabel>
-            <RadioGroup {...field} {...rest}>
-              {list.map(({ label, value }, index) => (
+            <RadioGroup
+              {...field}
+              {...rest}
+              onChange={(e) => {
+                const value =
+                  e.target.value === 'true'
+                    ? true
+                    : e.target.value === 'false'
+                    ? false
+                    : e.target.value;
+                field.onChange(value);
+              }}
+            >
+              {list.map(({ label, value, disabled }, index) => (
                 <FormControlLabel
                   sx={{ width: 'fit-content' }}
                   key={index}
-                  value={value}
-                  control={<Radio />}
+                  value={value.toString()}
+                  control={<Radio size="small" />}
                   label={t(label)}
+                  disabled={disabled}
                 />
               ))}
             </RadioGroup>

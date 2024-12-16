@@ -42,43 +42,59 @@ const FsSmsVerification = ({
       <Box
         display={'flex'}
         justifyContent={'center'}
+        alignItems={'end'}
+        flexDirection={'column'}
         gap={2}
-        sx={{ direction: 'rtl' }}
+        sx={(theme) => ({ direction: theme.direction })}
       >
-        {Array.from({ length: numInputs }, (_, index) => (
-          <Controller
-            key={index}
-            name={`${name}[${index}]`}
-            control={control}
-            defaultValue={defaultValue || ''}
-            rules={rules}
-            render={({ field }) => (
-              <TextField
-                {...field}
-                inputRef={(el) => (refs.current[index] = el)}
-                type="tel"
-                inputProps={{
-                  maxLength: 1,
-                  pattern: '\\d*',
-                  style: { width: '1.4rem', height: '1rem' },
-                }}
-                onChange={handleChange(index, setValue, numInputs, refs, name)}
-                onKeyDown={handleKeyDown(
-                  index,
-                  getValues,
-                  setValue,
-                  refs,
-                  name
-                )}
-                onPaste={handlePaste(numInputs, setValue, refs, name)}
-              />
-            )}
-          />
-        ))}
+        <Box display={'flex'} justifyContent={'center'} gap={2}>
+          {Array.from({ length: numInputs }, (_, index) => (
+            <Controller
+              key={index}
+              name={`${name}[${index}]`}
+              control={control}
+              defaultValue={defaultValue || ''}
+              rules={rules}
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  inputRef={(el) => (refs.current[index] = el)}
+                  type="tel"
+                  inputProps={{
+                    maxLength: 1,
+                    pattern: '\\d*',
+                    style: {
+                      width: '1.8rem',
+                      height: '1.8rem',
+                      textAlign: 'center',
+                    },
+                  }}
+                  onChange={handleChange(
+                    index,
+                    setValue,
+                    numInputs,
+                    refs,
+                    name
+                  )}
+                  onKeyDown={handleKeyDown(
+                    index,
+                    getValues,
+                    setValue,
+                    refs,
+                    name
+                  )}
+                  onPaste={handlePaste(numInputs, setValue, refs, name)}
+                />
+              )}
+            />
+          ))}
+        </Box>
+        {isSubmitted && (!value || hasError) && (
+          <Box dir="rtl">
+            <ErrorMessage i18nKey={String(rules?.required)} />
+          </Box>
+        )}
       </Box>
-      {isSubmitted && (!value || hasError) && (
-        <ErrorMessage i18nKey={String(rules?.required)} />
-      )}
     </>
   );
 };

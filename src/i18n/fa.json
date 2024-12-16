@@ -6,6 +6,7 @@
   "SEARCH": "جستجو",
   "ADVANCED_SEARCH": "جستجوی پیشرفته",
   "LOGIN": "ورود",
+  "LOGIN_IN_SYSTEM": "ورود به سامانه",
   "SIGN_UP": "ثبت نام",
   "USER_NAME": "نام کاربری",
   "RIAL": "ريال",
@@ -39,5 +40,6 @@
   "ROW": "ردیف",
   "UPLOAD_FS_HINT": "فایل/فایل ها را اینجا رها کنید یا انتخاب کنید",
   "UPLOAD_NOT_MULTIPLE_ERROR_MSG": "تنها یک فایل قابل آپلود است.",
+  "FEILD_REQUIRED_MSG": "پر کردن فیلد اجباری است.",
   "REFRESH_CAPTCHA": "بازیابی مجدد کپچا"
 }
