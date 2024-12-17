@@ -153,6 +153,8 @@ const FsThemeContextProvider: React.FC<FsThemeContextProviderProps> = ({
     const localThemeName = localStorage.getItem('themeName');
     const localFontSize = localStorage.getItem('themeFontSize');
     const localFontWeigth = localStorage.getItem('themeFontWeight');
+    const lng = localStorage.getItem('lng');
+    if (!lng) localStorage.setItem('lng', 'fa');
     if (!localMode) localStorage.setItem('themeMode', 'light');
     if (!localThemeName) localStorage.setItem('themeName', 'default');
     if (!localFontSize) localStorage.setItem('themeFontSize', '16');

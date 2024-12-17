@@ -83,9 +83,8 @@ const TableToolbar = ({
           <FsButton
             startIcon={<IconSetting />}
             onClick={() => setOpen((prev) => !prev)}
-          >
-            تنظیمات
-          </FsButton>
+            i18nKey="SETTINGS"
+          />
           {toolbarActions}
         </Box>
       </Grid>
@@ -101,7 +100,7 @@ const TableToolbar = ({
             alignItems={'center'}
           >
             <FsButton
-              i18nKey="پیش‌ فرض"
+              i18nKey="DEFAULT"
               variant="outlined"
               size="small"
               startIcon={<SettingsBackupRestoreOutlinedIcon />}
@@ -115,7 +114,7 @@ const TableToolbar = ({
               }
             />
             <FsButton
-              i18nKey="حذف همه"
+              i18nKey="REMOVE_ALL"
               variant="outlined"
               size="small"
               startIcon={<DeleteOutlineOutlinedIcon />}

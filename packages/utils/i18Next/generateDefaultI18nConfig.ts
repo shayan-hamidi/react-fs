@@ -1,7 +1,5 @@
 export default function generateDefaultI18nConfig() {
   return {
-    lng: 'fa',
-    fallbackLng: 'fa',
     detection: {
       caches: ['localStorage', 'cookie'],
       lookupLocalStorage: 'lng',

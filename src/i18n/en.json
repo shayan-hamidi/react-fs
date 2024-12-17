@@ -1,5 +1,10 @@
 {
   "OK": "Ok",
+  "APPLY": "Apply",
+  "BUTTON": "Button",
+  "TABLE": "Table",
+  "REMOVE_ALL": "Remove all",
+  "DEFAULT": "Default",
   "SUBMIT": "Submit",
   "YES": "Yes",
   "NO": "No",

@@ -42,7 +42,7 @@ const Drawer = ({ dependency }: DrawerProps) => {
     duration,
   } = dependency;
   const theme = useTheme();
-  const { mode, themeTemplate } = useFsTheme();
+  const { mode, themeTemplate, language } = useFsTheme();
   const getDrawerPattern = () => {
     if (mode === 'light') {
       switch (themeTemplate) {
@@ -85,7 +85,7 @@ const Drawer = ({ dependency }: DrawerProps) => {
       onMouseEnter={() => isUpMd && setOpen(true)}
       onMouseLeave={() => isUpMd && !clicked && setOpen(false)}
       sx={{
-        background: `${theme.palette.grey[50]} url(${getDrawerPattern()})`,
+        background: `${theme.palette.grey[50]}`,
         backgroundSize: '9.5rem 10.125rem;',
         backgroundPosition: 'bottom left',
         backgroundRepeat: 'no-repeat',
@@ -128,6 +128,14 @@ const Drawer = ({ dependency }: DrawerProps) => {
       >
         <FsNavigationMenu drawerOpen={open} menuItems={menuItems} />
       </CustomBoxScroll>
+      <img
+        src={getDrawerPattern()}
+        alt="logo"
+        style={{
+          maxWidth: '200px',
+          transform: language === 'en' ? 'scaleX(-1)' : undefined,
+        }}
+      />
     </Box>
   );
 };

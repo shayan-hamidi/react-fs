@@ -33,7 +33,10 @@ const SwitchLanguageSection = ({
       >
         <Grid container>
           <Grid item xs={12} mb={2}>
-            <FsTypography variant="h6" i18nKey={'تنظیمات زبان'} />
+            <FsTypography
+              variant="h6"
+              i18nKey={'_SETTINGS.LANGUAGE_SETTINGS'}
+            />
           </Grid>
           <Grid xs={12} item>
             <FsToggleButtonGroup
@@ -43,14 +46,12 @@ const SwitchLanguageSection = ({
               fullWidth
               items={[
                 {
-                  label: 'فارسی(FA)',
+                  label: '_SETTINGS.LNG_FA',
                   value: 'fa',
-                  disabled: true,
                 },
                 {
-                  label: 'انگلیسی(EN)',
+                  label: '_SETTINGS.LNG_EN',
                   value: 'en',
-                  disabled: true,
                 },
               ]}
             />

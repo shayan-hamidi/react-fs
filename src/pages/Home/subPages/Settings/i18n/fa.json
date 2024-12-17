@@ -1,0 +1,29 @@
+{
+  "_SETTINGS": {
+    "FONT_SETTINGS": "تنظیمات فونت",
+    "LANGUAGE_SETTINGS": "تنظیمات زبان",
+    "THEME_SETTINGS": "تنظیمات تم رنگی",
+    "DARK_MODE": "حالت تاریک",
+    "LIGHT_MODE": "حالت روشن",
+    "GREEN": "سبز",
+    "BLUE": "آبی",
+    "PURPLE": "بنفش",
+    "BROWN": "قهوه ای",
+    "YELLOW": "زرد",
+    "DEFAULT": "پیش فرض",
+    "12PX": "12 پیکسل",
+    "16PX": "16 پیکسل",
+    "20PX": "20 پیکسل",
+    "24PX": "24 پیکسل",
+    "28PX": "28 پیکسل",
+    "PREVIEW": "پیش نمایش",
+    "WEIGHT": "وزن",
+    "TYPE": "نوع",
+    "SIZE": "سایز",
+    "IRAN_SANS_DEFAULT": "ایران سنس (پیش فرض)",
+    "IRAN_Yekan": "ایران یکان",
+    "LNG_FA": "فارسی (FA)",
+    "LNG_EN": "انگلیسی (EN)",
+    "BUTTON_TITLE": "عنوان دکمه"
+  }
+}
