@@ -102,7 +102,7 @@ const Login = () => {
         >
           <img src={logo} alt="site logo" width={150} />
           <FsTypography
-            i18nKey={'LOGIN_IN_SYSTEM'}
+            i18nKey={'_LOGIN.LOGIN_IN_SYSTEM'}
             color={'primary'}
             fontWeight={'bold'}
             variant="h5"
