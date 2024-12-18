@@ -10,7 +10,7 @@ addTranslationSchema('fa', {});
 const UiComponentsRoutes: AppRouteObject = {
   path: '/ui-component',
   handle: {
-    title: 'جعبه ابزار',
+    title: 'BREAD_CRUMBS.TOOL_BOX',
   },
   element: (
     <PageProvider entityName="home" httpService={[uiComponentsService]}>

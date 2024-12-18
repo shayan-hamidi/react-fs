@@ -27,13 +27,11 @@ const PageInfoContext = ({ children }: PropsWithChildren) => {
   const [prefix, setPrefix] = useState('');
 
   return (
-    <div>
-      <FsPageInfoContext.Provider
-        value={{ prefix, setPrefix, setSuffix, setTitle, suffix, title }}
-      >
-        {children}
-      </FsPageInfoContext.Provider>
-    </div>
+    <FsPageInfoContext.Provider
+      value={{ prefix, setPrefix, setSuffix, setTitle, suffix, title }}
+    >
+      {children}
+    </FsPageInfoContext.Provider>
   );
 };
 

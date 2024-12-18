@@ -12,7 +12,7 @@ addTranslationSchema('en', enTranslations);
 const HomeRoutes: AppRouteObject = {
   path: '/',
   handle: {
-    title: 'صفحه اصلی',
+    title: 'BREAD_CRUMBS.MAIN_PAGE',
   },
   element: (
     <PageProvider entityName="home" httpService={[homeService]}>

@@ -24,31 +24,32 @@ import {
   MenuItemsDTO,
   NavigationMenuProps,
 } from './type';
+import { useTranslation } from 'react-i18next';
 
 export const menuItems: MenuItemsDTO[] = [
   {
-    label: 'نام دسته بندی ها',
+    label: 'SIDEBAR.CATEGORY_NAMES',
     items: [
       {
         id: 4,
-        title: 'خانه',
+        title: 'SIDEBAR.HOME',
         icon: HomeOutlined,
       },
       {
         id: 1,
-        title: 'تنظیمات',
+        title: 'SIDEBAR.SETTINGS',
         icon: SettingsOutlined,
         children: [
           {
             id: 2,
-            title: 'کامپوننت ها',
+            title: 'SIDEBAR.COMPONENTS',
             route: '/ui-component',
             children: undefined,
             disabled: import.meta.env.MODE !== 'development',
           },
           {
             id: 3,
-            title: 'تنظیمات سیستم',
+            title: 'SIDEBAR.SYSSTEM_SETTINGS',
             route: '/settings',
             children: undefined,
           },
@@ -88,6 +89,7 @@ const MenuItem = ({
   const { toggleMenu, checkIsActiveMenu, checkIsActiveRoute } = dependency;
   const navigateTo = useNavigate();
   const theme = useTheme();
+  const { t } = useTranslation();
   const handleClick = () => {
     toggleMenu(menuItem.id, level);
     if (!menuItem.children) {
@@ -171,7 +173,7 @@ const MenuItem = ({
                   : theme.palette.grey['800'],
               }}
             >
-              {menuItem?.title}
+              {t(menuItem?.title)}
             </ListItemText>
           )}
           {menuItem.children &&

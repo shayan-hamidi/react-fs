@@ -12,7 +12,7 @@ addTranslationSchema('en', enTranslation);
 const SettingsRoutes: AppRouteObject = {
   path: '/settings',
   handle: {
-    title: 'تنظیمات سامانه',
+    title: 'BREAD_CRUMBS.SYSSTEM_SETTINGS',
   },
   element: (
     <PageProvider entityName="settings" httpService={[]}>

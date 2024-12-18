@@ -25,7 +25,19 @@ const MainHeader = () => {
           variant="h6"
           color="secondary"
           fontWeight={'bold'}
-          i18nKey={`${prefix} ${title} ${suffix}`}
+          i18nKey={prefix}
+        />
+        <FsTypography
+          variant="h6"
+          color="secondary"
+          fontWeight={'bold'}
+          i18nKey={title}
+        />
+        <FsTypography
+          variant="h6"
+          color="secondary"
+          fontWeight={'bold'}
+          i18nKey={suffix}
         />
       </Box>
       <Box mt={2}>
