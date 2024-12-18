@@ -1,7 +1,7 @@
 import { FsToggleButtonGroup, FsTypography } from '@fs/core';
 import type { Language } from '@fs/utils';
 import { Box, Grid, Paper } from '@mui/material';
-import { type MouseEvent, useState } from 'react';
+import { type MouseEvent, useEffect, useState } from 'react';
 
 interface SwitchLanguageSectionProps {
   language: Language;
@@ -13,7 +13,7 @@ const SwitchLanguageSection = ({
   setLanguage,
 }: SwitchLanguageSectionProps) => {
   const [toggledLanguage, setToggledLanguage] = useState<Language>(language);
-
+  
   const toggleLanguageOnChange = (
     _event: MouseEvent<HTMLElement>,
     newAlignment: Language
@@ -21,6 +21,9 @@ const SwitchLanguageSection = ({
     setToggledLanguage(newAlignment);
     setLanguage(newAlignment);
   };
+  useEffect(() => {
+    setToggledLanguage(language);
+  }, [language]);
   return (
     <Paper elevation={3} sx={{ padding: 2, borderRadius: 2 }}>
       <Box
