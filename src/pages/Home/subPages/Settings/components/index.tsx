@@ -55,7 +55,7 @@ const Settings = () => {
     setTempFontSize(16);
     setTempFontWeight(2);
     //update default theme
-    setFontWeight(400);
+    setFontWeight(2);
     setFontSize(16);
     setLanguage('fa');
     setMode('light');

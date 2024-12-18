@@ -107,7 +107,7 @@ const FsThemeContextProvider: React.FC<FsThemeContextProviderProps> = ({
       4: 700,
       5: 900,
     };
-    const fontWeight = baseWeights[weightLevel] || 400;
+    const fontWeight = baseWeights[weightLevel] || 2;
 
     return {
       fontSize: baseSize,
