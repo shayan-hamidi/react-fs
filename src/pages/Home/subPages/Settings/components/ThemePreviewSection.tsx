@@ -87,7 +87,6 @@ const ThemePreviewSection = ({
     { id: 4, lastName: 'رجایی', firstName: 'علی' },
     { id: 5, lastName: 'باکری', firstName: 'مهدی' },
     { id: 6, lastName: 'باهنر', firstName: 'جواد' },
-    { id: 7, lastName: 'جهان آرا', firstName: 'محمد' },
   ];
   const enRows = [
     { id: 1, lastName: 'Chamran', firstName: 'Mostafa' },
@@ -96,7 +95,6 @@ const ThemePreviewSection = ({
     { id: 4, lastName: 'Rajjaiee', firstName: 'Ali' },
     { id: 5, lastName: 'Bakeri', firstName: 'Mahdi' },
     { id: 6, lastName: 'Bahonar', firstName: 'Javad' },
-    { id: 7, lastName: 'Jahanara', firstName: 'mohammad' },
   ];
 
   const faColumns: GridColDef[] = [

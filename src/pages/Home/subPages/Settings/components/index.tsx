@@ -7,9 +7,11 @@ import SwitchFontSection from './SwitchFontSection';
 import ThemePreviewSection from './ThemePreviewSection';
 import { useFsTheme } from '@fs/utils';
 import { useEffect, useState } from 'react';
+import { useAlert } from '@fs/core';
 
 const Settings = () => {
   const methods = useForm();
+  const { triggerAlert } = useAlert();
   const {
     themeTemplate,
     mode,
@@ -40,26 +42,52 @@ const Settings = () => {
   }, [themeTemplate, mode, language, fontSize, fontWeight]);
 
   const applySettings = () => {
-    setThemeTemplate(tempThemeTemplate);
-    setMode(tempMode);
-    setLanguage(tempLanguage);
-    setFontSize(tempFontSize);
-    setFontWeight(tempFontWeight);
+    if (
+      tempMode === mode &&
+      tempLanguage === language &&
+      tempFontSize === fontSize &&
+      tempFontWeight === fontWeight &&
+      tempThemeTemplate === themeTemplate
+    ) {
+      triggerAlert('_SETTINGS.NO_CHANGES', 2000, { severity: 'warning' });
+    } else {
+      setThemeTemplate(tempThemeTemplate);
+      setMode(tempMode);
+      setLanguage(tempLanguage);
+      setFontSize(tempFontSize);
+      setFontWeight(tempFontWeight);
+    }
   };
 
   const resetSettings = () => {
-    // update deault preview
-    setTempThemeTemplate('default');
-    setTempMode('light');
-    setTempLanguage('fa');
-    setTempFontSize(16);
-    setTempFontWeight(2);
-    //update default theme
-    setFontWeight(2);
-    setFontSize(16);
-    setLanguage('fa');
-    setMode('light');
-    setThemeTemplate('default');
+    const isDefaultMode = mode === 'light' && tempMode === 'light';
+    const isDefaultLanguage = language === 'fa' && tempLanguage === 'fa';
+    const isDefaultFontSize = fontSize === 16 && tempFontSize === 16;
+    const isDefaultFontWeight = fontWeight === 2 && tempFontWeight === 2;
+    const isDefaultThemeTemplate =
+      themeTemplate === 'default' && tempThemeTemplate === 'default';
+    if (
+      isDefaultMode &&
+      isDefaultLanguage &&
+      isDefaultFontSize &&
+      isDefaultFontWeight &&
+      isDefaultThemeTemplate
+    ) {
+      triggerAlert('_SETTINGS.ALREADY_DEFAULT', 2000, { severity: 'warning' });
+    } else {
+      // update deault preview
+      setTempThemeTemplate('default');
+      setTempMode('light');
+      setTempLanguage('fa');
+      setTempFontSize(16);
+      setTempFontWeight(2);
+      //update default theme
+      setFontWeight(2);
+      setFontSize(16);
+      setLanguage('fa');
+      setMode('light');
+      setThemeTemplate('default');
+    }
   };
 
   return (

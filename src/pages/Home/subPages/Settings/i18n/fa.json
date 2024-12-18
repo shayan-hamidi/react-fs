@@ -24,6 +24,8 @@
     "IRAN_Yekan": "ایران یکان",
     "LNG_FA": "فارسی (FA)",
     "LNG_EN": "انگلیسی (EN)",
-    "BUTTON_TITLE": "عنوان دکمه"
+    "BUTTON_TITLE": "عنوان دکمه",
+    "NO_CHANGES": "تغییری وجود ندارد",
+    "ALREADY_DEFAULT": "در وضعیت پیش فرض قرار دارد"
   }
 }

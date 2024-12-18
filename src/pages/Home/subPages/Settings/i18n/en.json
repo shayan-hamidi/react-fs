@@ -24,6 +24,8 @@
     "IRAN_Yekan": "Iran Yekan",
     "LNG_FA": "Persian (فا)",
     "LNG_EN": "English (EN)",
-    "BUTTON_TITLE": "Button title"
+    "BUTTON_TITLE": "Button title",
+    "NO_CHANGES": "There are no changes",
+    "ALREADY_DEFAULT": "Already default"
   }
 }
