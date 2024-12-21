@@ -25,7 +25,7 @@ export const brownLightTheme = createTheme({
       main: '#FFD700',
       100: '#FFC107',
       gradient:
-        'linear-gradient(90deg, rgba(255, 255, 255, 0.5) 0%, rgba(215, 229, 236, 0.7) 100%)',
+        'linear-gradient(90deg, rgba(255, 255, 255, 0.6) 0%, rgba(233, 226, 214, 0.6) 100%)',
     },
     customColor2: {
       main: '#FFEFBA',
@@ -60,7 +60,7 @@ export const brownDarkTheme = createTheme({
       main: '#BFAA00',
       100: '#FFCC00',
       gradient:
-        'linear-gradient(90deg, rgba(25, 25, 25, 0.5) 0%, rgba(35, 45, 55, 0.7) 100%)',
+        'linear-gradient(90deg, rgba(54, 54, 54, 0.6) 0%, rgba(84, 73, 54, 0.6) 100%)',
     },
     customColor2: {
       main: '#DCCF8E',
