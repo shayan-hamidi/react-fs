@@ -32,16 +32,18 @@ const Breadcrumbs = () => {
           <Link
             key={index}
             underline="none"
-            sx={({ palette }) => ({
-              color: palette.secondary[400],
-              ':hover': {
-                color: palette.secondary[600],
-              },
-            })}
             component={NavLink}
             to={route?.pathname}
           >
-            <FsTypography i18nKey={route?.handle?.title || ''} />
+            <FsTypography
+              sx={({ palette }) => ({
+                color: palette.secondary[400],
+                ':hover': {
+                  color: palette.secondary[600],
+                },
+              })}
+              i18nKey={route?.handle?.title || ''}
+            />
           </Link>
         )
       )}
