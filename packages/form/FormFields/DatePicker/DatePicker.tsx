@@ -1,10 +1,9 @@
-import { AdapterMomentJalaali } from '@mui/x-date-pickers/AdapterMomentJalaali';
+import { AdapterDateFnsJalali } from '@mui/x-date-pickers/AdapterDateFnsJalaliV3';
 import {
   DatePicker,
   type DatePickerProps,
 } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import moment, { type Moment } from 'moment-jalaali';
 import {
   Controller,
   useFormContext,
@@ -15,6 +14,9 @@ import { useExtractErrorInfo } from '../../useExtractErrorInfo';
 import { Box } from '@mui/material';
 import ErrorMessage from '../../ErrorMessage';
 import ClearButton from '../../ClearButton';
+import type { Moment } from 'moment-jalaali';
+import moment from 'moment-jalaali';
+import { isValid } from 'date-fns-jalali';
 
 type FsDatePickerProps = Omit<DatePickerProps<Moment>, 'value' | 'onChange'> & {
   i18nKey: string;
@@ -38,21 +40,29 @@ const FsDatePicker = ({
   } = useFormContext();
   const { t } = useTranslation();
   const { errorI18nKey } = useExtractErrorInfo(errors, name);
-  moment.loadPersian({ dialect: 'persian-modern' });
 
   const formattedDate = (date: Moment | null) => {
-    return date ? date.format('YYYY-MM-DD') : '';
+    const momentDate = moment.isMoment(date) ? date : moment(date);
+    return momentDate.format('YYYY-MM-DD');
   };
-
+  const internalValidate = {
+    isAlpha: (value: any) => isValid(new Date(value)) || 'تاریخ نامعتبر است',
+  };
   return (
     <Controller
       name={name}
       control={control}
-      rules={rules}
+      rules={{
+        ...rules,
+        validate: {
+          ...internalValidate,
+          ...(rules?.validate || {}),
+        },
+      }}
       defaultValue={defaultValue || null}
       render={({ field }) => {
         return (
-          <LocalizationProvider dateAdapter={AdapterMomentJalaali}>
+          <LocalizationProvider dateAdapter={AdapterDateFnsJalali}>
             <Box
               display={'flex'}
               flexDirection={'column'}
@@ -75,7 +85,7 @@ const FsDatePicker = ({
                 label={t(i18nKey)}
                 {...rest}
                 {...field}
-                value={field.value ? moment(field.value) : undefined}
+                value={field.value ? moment(field.value) : null}
                 onChange={(date) => {
                   field.onChange(formattedDate(date));
                 }}
