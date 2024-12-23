@@ -1,7 +1,7 @@
 import { FsToggleButtonGroup, FsTypography } from '@fs/core';
 import type { Language } from '@fs/utils';
 import { Box, Grid, Paper } from '@mui/material';
-import { type MouseEvent, useState } from 'react';
+import { type MouseEvent, useEffect, useState } from 'react';
 
 interface SwitchLanguageSectionProps {
   language: Language;
@@ -13,7 +13,7 @@ const SwitchLanguageSection = ({
   setLanguage,
 }: SwitchLanguageSectionProps) => {
   const [toggledLanguage, setToggledLanguage] = useState<Language>(language);
-
+  
   const toggleLanguageOnChange = (
     _event: MouseEvent<HTMLElement>,
     newAlignment: Language
@@ -21,6 +21,9 @@ const SwitchLanguageSection = ({
     setToggledLanguage(newAlignment);
     setLanguage(newAlignment);
   };
+  useEffect(() => {
+    setToggledLanguage(language);
+  }, [language]);
   return (
     <Paper elevation={3} sx={{ padding: 2, borderRadius: 2 }}>
       <Box
@@ -33,7 +36,10 @@ const SwitchLanguageSection = ({
       >
         <Grid container>
           <Grid item xs={12} mb={2}>
-            <FsTypography variant="h6" i18nKey={'تنظیمات زبان'} />
+            <FsTypography
+              variant="h6"
+              i18nKey={'_SETTINGS.LANGUAGE_SETTINGS'}
+            />
           </Grid>
           <Grid xs={12} item>
             <FsToggleButtonGroup
@@ -43,14 +49,12 @@ const SwitchLanguageSection = ({
               fullWidth
               items={[
                 {
-                  label: 'فارسی(FA)',
+                  label: '_SETTINGS.LNG_FA',
                   value: 'fa',
-                  disabled: true,
                 },
                 {
-                  label: 'انگلیسی(EN)',
+                  label: '_SETTINGS.LNG_EN',
                   value: 'en',
-                  disabled: true,
                 },
               ]}
             />

@@ -19,6 +19,7 @@ const FsDataTable = (props: FsDataGridTableProps) => {
     rowCount,
     columns,
     name,
+    hideToolbar,
     ...rest
   } = useTableFactory(props);
 
@@ -38,7 +39,6 @@ const FsDataTable = (props: FsDataGridTableProps) => {
         };
       }, {})
   );
-
   return (
     <DataGrid
       data-cy={`${name}Table`}
@@ -55,6 +55,7 @@ const FsDataTable = (props: FsDataGridTableProps) => {
       disableDensitySelector
       disableAutosize
       disableVirtualization
+      disableColumnResize
       slots={{
         pagination: () => (
           <Grid
@@ -86,17 +87,21 @@ const FsDataTable = (props: FsDataGridTableProps) => {
           </Grid>
         ),
         noRowsOverlay: NoRowsOverlay,
-        toolbar: () => (
-          <TableToolbar
-            toolbarTitle={toolbarTitle}
-            toolbarActions={toolbarActions}
-            open={openSetting}
-            setOpen={setOpenSetting}
-            columnVisibilityModel={columnVisibilityModel}
-            columns={columns}
-            setColumnVisibilityModel={setColumnVisibilityModel}
-          />
-        ),
+        toolbar: () => {
+          if (!hideToolbar) {
+            return (
+              <TableToolbar
+                toolbarTitle={toolbarTitle}
+                toolbarActions={toolbarActions}
+                open={openSetting}
+                setOpen={setOpenSetting}
+                columnVisibilityModel={columnVisibilityModel}
+                columns={columns}
+                setColumnVisibilityModel={setColumnVisibilityModel}
+              />
+            );
+          }
+        },
       }}
       sx={(theme) => ({
         ...sx,

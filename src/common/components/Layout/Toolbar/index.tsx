@@ -18,6 +18,7 @@ import {
   useTheme,
 } from '@mui/material';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 interface ToolbarProps {
@@ -31,6 +32,7 @@ interface ToolbarProps {
 const Toolbar = ({ dependency }: ToolbarProps) => {
   const { drawerHeaderHeight, handleDrawerOpen, open } = dependency;
   const theme = useTheme();
+  const { t } = useTranslation();
   const [menuAnchor, setMenuAnchor] = useState<null | HTMLElement>(null);
   const menuOpen = Boolean(menuAnchor);
   const navigate = useNavigate();
@@ -89,7 +91,7 @@ const Toolbar = ({ dependency }: ToolbarProps) => {
             startIcon={<Person />}
             endIcon={<KeyboardArrowDown />}
             onClick={handleClick}
-            i18nKey={`نام یوزر`}
+            i18nKey={`USER_NAME`}
           />
           <Menu
             id="user-menu"
@@ -117,7 +119,7 @@ const Toolbar = ({ dependency }: ToolbarProps) => {
               <ListItemIcon>
                 <ExitToApp />
               </ListItemIcon>
-              <ListItemText primary="خروج" />
+              <ListItemText primary={t('LOGOUT')} />
             </MenuItem>
           </Menu>
         </Box>

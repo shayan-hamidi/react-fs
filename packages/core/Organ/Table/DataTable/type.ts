@@ -35,6 +35,7 @@ export type FsDataGridTableProps = Omit<
   refresh?: boolean;
   setRefresh?: (refresh: boolean) => void;
   name: string;
+  hideToolbar?: boolean;
 };
 
 export type TableFactoryType = FsDataGridTableProps & {

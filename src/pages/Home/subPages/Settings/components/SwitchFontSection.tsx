@@ -2,6 +2,7 @@ import { FsToggleButtonGroup, FsTypography } from '@fs/core';
 import { FsRadioGroup, FsRangeSlider } from '@fs/form';
 import { Box, Grid, Paper } from '@mui/material';
 import { useState, type MouseEvent } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface SwitchFontSectionProps {
   fontSize: number;
@@ -26,6 +27,7 @@ const SwitchFontSection = ({
   ) => {
     setToggledFontVariant(newAlignment);
   };
+  const { t } = useTranslation();
   const fontWeightLabels: Record<number, string> = {
     1: '300',
     2: '400',
@@ -34,11 +36,11 @@ const SwitchFontSection = ({
     5: '900',
   };
   const fontSizesLabels: Record<number, string> = {
-    12: '12 پیکسل',
-    16: '16 پیکسل',
-    20: '20 پیکسل',
-    24: '24 پیکسل',
-    28: '28 پیکسل',
+    12: t('_SETTINGS.12PX'),
+    16: t('_SETTINGS.16PX'),
+    20: t('_SETTINGS.20PX'),
+    24: t('_SETTINGS.24PX'),
+    28: t('_SETTINGS.28PX'),
   };
   return (
     <Paper elevation={3} sx={{ padding: 2, borderRadius: 2 }}>
@@ -52,7 +54,7 @@ const SwitchFontSection = ({
       >
         <Grid container>
           <Grid item xs={12} mb={2}>
-            <FsTypography variant="h6" i18nKey={'تنظیمات فونت'} />
+            <FsTypography variant="h6" i18nKey={'_SETTINGS.FONT_SETTINGS'} />
           </Grid>
           <Grid xs={12} item mb={3}>
             <FsToggleButtonGroup
@@ -62,15 +64,15 @@ const SwitchFontSection = ({
               fullWidth
               items={[
                 {
-                  label: 'نوع',
+                  label: '_SETTINGS.TYPE',
                   value: 'type',
                 },
                 {
-                  label: 'سایز',
+                  label: '_SETTINGS.SIZE',
                   value: 'size',
                 },
                 {
-                  label: 'وزن',
+                  label: '_SETTINGS.WEIGHT',
                   value: 'weight',
                 },
               ]}
@@ -87,8 +89,12 @@ const SwitchFontSection = ({
                 name="fontType"
                 defaultValue={'irSans'}
                 list={[
-                  { value: 'irSans', label: 'ایران سنس (پیش فرض)' },
-                  { value: 'irYekan', label: 'ایران یکان', disabled: true },
+                  { value: 'irSans', label: '_SETTINGS.IRAN_SANS_DEFAULT' },
+                  {
+                    value: 'irYekan',
+                    label: '_SETTINGS.IRAN_Yekan',
+                    disabled: true,
+                  },
                 ]}
               />
             )}

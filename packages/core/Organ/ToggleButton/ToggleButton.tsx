@@ -4,6 +4,7 @@ import {
   type ToggleButtonGroupProps,
   type ToggleButtonProps,
 } from '@mui/material';
+import { useState } from 'react';
 import { FsTypography } from '../../Atom/Typography';
 
 type FsToggleButtonGroupProps = Omit<ToggleButtonGroupProps, 'children'> & {
@@ -17,14 +18,44 @@ type FsToggleButtonGroupProps = Omit<ToggleButtonGroupProps, 'children'> & {
   }[];
 };
 
-const FsToggleButtonGroup = ({ items, ...rest }: FsToggleButtonGroupProps) => {
+const FsToggleButtonGroup = ({
+  items,
+  value: controlledValue,
+  onChange,
+  ...rest
+}: FsToggleButtonGroupProps) => {
+  const [internalValue, setInternalValue] = useState<string | null>(null);
+
+  const value = controlledValue !== undefined ? controlledValue : internalValue;
+
+  const handleChange = (
+    _: React.MouseEvent<HTMLElement>,
+    newValue: string | null
+  ) => {
+    if (newValue === null) return;
+    setInternalValue(newValue);
+    onChange && onChange(_, newValue);
+  };
+
   return (
-    <ToggleButtonGroup {...rest} color="primary">
+    <ToggleButtonGroup
+      {...rest}
+      value={value}
+      onChange={handleChange}
+      color="primary"
+    >
       {items.map(
-        ({ value, label, toggleButtonProps, endIcon, startIcon, disabled }) => (
+        ({
+          value: itemValue,
+          label,
+          toggleButtonProps,
+          endIcon,
+          startIcon,
+          disabled,
+        }) => (
           <ToggleButton
-            key={value}
-            value={value}
+            key={itemValue}
+            value={itemValue}
             disabled={disabled}
             {...toggleButtonProps}
           >
@@ -37,4 +68,5 @@ const FsToggleButtonGroup = ({ items, ...rest }: FsToggleButtonGroupProps) => {
     </ToggleButtonGroup>
   );
 };
+
 export default FsToggleButtonGroup;

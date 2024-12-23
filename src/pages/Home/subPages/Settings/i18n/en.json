@@ -1,0 +1,31 @@
+{
+  "_SETTINGS": {
+    "FONT_SETTINGS": "Font Settings",
+    "LANGUAGE_SETTINGS": "Language Settings",
+    "THEME_SETTINGS": "Theme Settings",
+    "DARK_MODE": "Dark Mode",
+    "LIGHT_MODE": "Light Mode",
+    "GREEN": "Green",
+    "BLUE": "Blue",
+    "PURPLE": "Purple",
+    "BROWN": "Brown",
+    "YELLOW": "Yellow",
+    "DEFAULT": "Default",
+    "12PX": "12px",
+    "16PX": "16px",
+    "20PX": "20px",
+    "24PX": "24px",
+    "28PX": "28px",
+    "PREVIEW": "Preview",
+    "WEIGHT": "Weight",
+    "TYPE": "Type",
+    "SIZE": "Size",
+    "IRAN_SANS_DEFAULT": "Iran Sans (Default)",
+    "IRAN_Yekan": "Iran Yekan",
+    "LNG_FA": "Persian (فا)",
+    "LNG_EN": "English (EN)",
+    "BUTTON_TITLE": "Button title",
+    "NO_CHANGES": "There are no changes",
+    "ALREADY_DEFAULT": "Already default"
+  }
+}

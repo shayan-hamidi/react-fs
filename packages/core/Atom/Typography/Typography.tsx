@@ -23,7 +23,11 @@ const FsTypography = ({
     content = t(i18nKey?.key, i18nKey?.values) as string;
   }
   return (
-    <Typography component={component} {...rest}>
+    <Typography
+      color={(theme) => theme.palette.common.black}
+      component={component}
+      {...rest}
+    >
       {content}
     </Typography>
   );

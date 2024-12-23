@@ -1,5 +1,10 @@
 {
   "OK": "Ok",
+  "APPLY": "Apply",
+  "BUTTON": "Button",
+  "TABLE": "Table",
+  "REMOVE_ALL": "Remove all",
+  "DEFAULT": "Default",
   "SUBMIT": "Submit",
   "YES": "Yes",
   "NO": "No",
@@ -40,5 +45,18 @@
   "UPLOAD_FS_HINT": "Drag and drop file(s) here or select",
   "UPLOAD_NOT_MULTIPLE_ERROR_MSG": "You can upload just one file.",
   "FEILD_REQUIRED_MSG": "Field is required.",
-  "REFRESH_CAPTCHA": "Reset Captcha"
+  "REFRESH_CAPTCHA": "Reset Captcha",
+  "BREAD_CRUMBS": {
+    "SYSSTEM_SETTINGS": "System Settings",
+    "MAIN_PAGE": "Main Page",
+    "HOME": "Home",
+    "TOOL_BOX": "Tool Box"
+  },
+  "SIDEBAR": {
+    "CATEGORY_NAMES": "Category Names",
+    "HOME": "Home",
+    "COMPONENTS": "Components",
+    "SETTINGS": "Settings",
+    "SYSSTEM_SETTINGS": "System Settings"
+  }
 }

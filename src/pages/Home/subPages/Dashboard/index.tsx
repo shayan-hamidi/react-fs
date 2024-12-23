@@ -10,7 +10,7 @@ addTranslationSchema('fa', {});
 const DashboardRoutes: AppRouteObject = {
   index: true,
   handle: {
-    title: 'خانه',
+    title: 'BREAD_CRUMBS.HOME',
     cumbs: false
   },
   element: (

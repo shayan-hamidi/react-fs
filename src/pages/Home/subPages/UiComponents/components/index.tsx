@@ -142,7 +142,7 @@ const Home = () => {
         />
         <Grid container spacing={2}>
           <Grid item xs={6}>
-            <FsDescription title="نام ">شایان</FsDescription>
+            <FsDescription title="نام " text='شایان'/>
           </Grid>
           {/* or */}
           <Grid item xs={6}>

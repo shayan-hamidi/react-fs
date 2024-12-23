@@ -3,14 +3,16 @@ import { addTranslationSchema } from 'src/i18nConfig';
 import type { AppRouteObject } from 'src/routes/type';
 import HomeLayout from './components';
 import homeService from './homeService';
-import authTranslations from './i18n/fa.json';
+import faTranslations from './i18n/fa.json';
+import enTranslations from './i18n/en.json';
 import { HomeChildrenRoute } from './subPages';
 
-addTranslationSchema('fa', authTranslations);
+addTranslationSchema('fa', faTranslations);
+addTranslationSchema('en', enTranslations);
 const HomeRoutes: AppRouteObject = {
   path: '/',
   handle: {
-    title: 'صفحه اصلی',
+    title: 'BREAD_CRUMBS.MAIN_PAGE',
   },
   element: (
     <PageProvider entityName="home" httpService={[homeService]}>

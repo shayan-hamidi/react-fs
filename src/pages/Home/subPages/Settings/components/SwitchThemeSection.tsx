@@ -28,32 +28,32 @@ const SwitchThemeSection = ({
   const themeList: { image: string; title: string; value: themeType }[] = [
     {
       image: defaultTheme,
-      title: 'پیش فرض',
+      title: '_SETTINGS.DEFAULT',
       value: 'default',
     },
     {
       image: jungleTheme,
-      title: 'سبز',
+      title: '_SETTINGS.GREEN',
       value: 'green',
     },
     {
       image: woodTheme,
-      title: 'قهوه ای',
+      title: '_SETTINGS.BROWN',
       value: 'brown',
     },
     {
       image: shineTheme,
-      title: 'زرد',
+      title: '_SETTINGS.YELLOW',
       value: 'yellow',
     },
     {
       image: spaceTheme,
-      title: 'بنفش',
+      title: '_SETTINGS.PURPLE',
       value: 'purple',
     },
     {
       image: earthTheme,
-      title: 'آبی',
+      title: '_SETTINGS.BLUE',
       value: 'blue',
     },
   ];
@@ -71,7 +71,7 @@ const SwitchThemeSection = ({
     <Paper elevation={3} sx={{ padding: 2, borderRadius: 2 }}>
       <Grid container mb={2}>
         <Grid item>
-          <FsTypography variant="h6" i18nKey={'تنظیمات تم رنگی'} />
+          <FsTypography variant="h6" i18nKey={'_SETTINGS.THEME_SETTINGS'} />
         </Grid>
       </Grid>
       <Grid container mb={2}>
@@ -83,12 +83,12 @@ const SwitchThemeSection = ({
             fullWidth
             items={[
               {
-                label: 'حالت روشن',
+                label: '_SETTINGS.LIGHT_MODE',
                 value: 'light',
                 startIcon: <LightModeOutlinedIcon />,
               },
               {
-                label: 'حالت تاریک',
+                label: '_SETTINGS.DARK_MODE',
                 value: 'dark',
                 startIcon: <BedtimeOutlinedIcon />,
               },

@@ -72,6 +72,10 @@ export const defaultDarkColor = {
     '200': '#C0FFD9',
     '100': '#EBFFF3',
   },
+  common: {
+    white: '#000',
+    black: '#ffffff',
+  },
 };
 export const defaultLightColor = {
   grey: {
@@ -147,5 +151,9 @@ export const defaultLightColor = {
     '300': '#95FFBF',
     '200': '#C0FFD9',
     '100': '#EBFFF3',
+  },
+  common: {
+    white: '#ffffff',
+    black: '#000',
   },
 };

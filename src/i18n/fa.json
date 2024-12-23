@@ -1,5 +1,10 @@
 {
   "OK": "باشه",
+  "APPLY": "اعمال",
+  "BUTTON": "دکمه",
+  "TABLE": "جدول",
+  "REMOVE_ALL": "حذف همه",
+  "DEFAULT": "پیش فرض",
   "SUBMIT": "ثبت",
   "YES": "بله",
   "NO": "نه",
@@ -41,5 +46,18 @@
   "UPLOAD_FS_HINT": "فایل/فایل ها را اینجا رها کنید یا انتخاب کنید",
   "UPLOAD_NOT_MULTIPLE_ERROR_MSG": "تنها یک فایل قابل آپلود است.",
   "FEILD_REQUIRED_MSG": "پر کردن فیلد اجباری است.",
-  "REFRESH_CAPTCHA": "بازیابی مجدد کپچا"
+  "REFRESH_CAPTCHA": "بازیابی مجدد کپچا",
+  "BREAD_CRUMBS": {
+    "SYSSTEM_SETTINGS": "تنظیمات سامانه",
+    "MAIN_PAGE": "صفحه اصلی",
+    "HOME": "خانه",
+    "TOOL_BOX": "جعبه ابزار"
+  },
+  "SIDEBAR": {
+    "CATEGORY_NAMES": "نام دسته بندی ها",
+    "HOME": "خانه",
+    "COMPONENTS": "کامپوننت ها",
+    "SETTINGS": "تنظیمات",
+    "SYSSTEM_SETTINGS": "تنظیمات سامانه"
+  }
 }

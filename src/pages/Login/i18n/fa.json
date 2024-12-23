@@ -2,6 +2,7 @@
   "_LOGIN": {
     "USER_NAME": "نام کاربری",
     "PASSWORD": "رمز عبور",
-    "CAPTCHA": "کپچا"
+    "CAPTCHA": "کپچا",
+    "LOGIN_IN_SYSTEM": "ورود به سامانه"
   }
 }

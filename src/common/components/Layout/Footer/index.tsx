@@ -46,7 +46,7 @@ export const Footer = () => {
           <Grid container columnGap={2} alignItems={'center'}>
             <FsTypography
               sx={{ fontSize: '.7rem' }}
-              i18nKey={'تمامی حقوق این سایت متعلق به سازمان استاندارد می باشد.'}
+              i18nKey={'تمامی حقوق این سایت متعلق به سازمان شایان می باشد.'}
             />
           </Grid>
         </Grid>
@@ -54,7 +54,7 @@ export const Footer = () => {
           <FsTypography
             sx={{ fontSize: '.7rem' }}
             color={'primary'}
-            i18nKey={'ارتباط با پشتیبانی : 441178550'}
+            i18nKey={'ارتباط با پشتیبانی : 11111111'}
           />
         </Grid>
         <Grid item>
