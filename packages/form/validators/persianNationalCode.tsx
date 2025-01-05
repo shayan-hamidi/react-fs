@@ -1,8 +1,12 @@
 export default function nationalCodeValidator(value: string) {
-  if (validateNationalCode(value) && value) {
-    return true;
+  if (value) {
+    if (validateNationalCode(value)) {
+      return true;
+    } else {
+      return false;
+    }
   } else {
-    return false;
+    return true;
   }
 }
 const validateNationalCode = (input: string): boolean => {

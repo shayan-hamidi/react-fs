@@ -14,11 +14,10 @@ import { useExtractErrorInfo } from '../../useExtractErrorInfo';
 import { Box } from '@mui/material';
 import ErrorMessage from '../../ErrorMessage';
 import ClearButton from '../../ClearButton';
-import type { Moment } from 'moment-jalaali';
 import moment from 'moment-jalaali';
 import { isValid } from 'date-fns-jalali';
 
-type FsDatePickerProps = Omit<DatePickerProps<Moment>, 'value' | 'onChange'> & {
+type FsDatePickerProps = Omit<DatePickerProps<Date>, 'value' | 'onChange'> & {
   i18nKey: string;
   rules?: ControllerProps['rules'];
   name: string;
@@ -32,6 +31,8 @@ const FsDatePicker = ({
   i18nKey,
   defaultValue,
   clearButton = true,
+  minDate = new Date('1921-03-21'),
+  maxDate = new Date('2082-03-19'),
   ...rest
 }: FsDatePickerProps) => {
   const {
@@ -41,12 +42,38 @@ const FsDatePicker = ({
   const { t } = useTranslation();
   const { errorI18nKey } = useExtractErrorInfo(errors, name);
 
-  const formattedDate = (date: Moment | null) => {
+  const formattedDate = (date: Date | null) => {
     const momentDate = moment.isMoment(date) ? date : moment(date);
     return momentDate.format('YYYY-MM-DD');
   };
   const internalValidate = {
-    isAlpha: (value: any) => isValid(new Date(value)) || 'تاریخ نامعتبر است',
+    isAlpha: (value: any) => {
+      if (value) {
+        return isValid(new Date(value)) || t('INVALID_DATE');
+      } else {
+        return true;
+      }
+    },
+    isWithinRange: (value: any) => {
+      const parsedValue = moment(value);
+      const minY = moment(minDate).format('jYYYY');
+      const minM = moment(minDate).format('jMM');
+      const minD = moment(minDate).format('jDD');
+      const maxY = moment(maxDate).format('jYYYY');
+      const maxM = moment(maxDate).format('jMM');
+      const maxD = moment(maxDate).format('jDD');
+      if (minDate && parsedValue.isBefore(moment(minDate), 'day')) {
+        return t('MIN_DATE_ERROR', {
+          minDate: `${minY}/${minM}/${minD}`,
+        });
+      }
+      if (maxDate && parsedValue.isAfter(moment(maxDate), 'day')) {
+        return t('MAX_DATE_ERROR', {
+          maxDate: `${maxY}/${maxM}/${maxD}`,
+        });
+      }
+      return true;
+    },
   };
   return (
     <Controller
@@ -82,10 +109,12 @@ const FsDatePicker = ({
                     },
                   },
                 }}
+                minDate={minDate}
+                maxDate={maxDate}
                 label={t(i18nKey)}
                 {...rest}
                 {...field}
-                value={field.value ? moment(field.value) : null}
+                value={field.value ? new Date(field.value) : null}
                 onChange={(date) => {
                   field.onChange(formattedDate(date));
                 }}

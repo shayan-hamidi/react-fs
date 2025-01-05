@@ -1,4 +1,8 @@
 {
+  "MIN_DATE_ERROR": "تاریخ نمی‌تواند قبل از {{minDate}} باشد",
+  "MAX_DATE_ERROR": "تاریخ نمی‌تواند بعد از {{maxDate}} باشد",
+  "INVALID_DATE": "تاریخ نامعتبر است.",
+  "INVALID_VALUE": "مقدار وارد شده معتبر نیست.",
   "OK": "باشه",
   "APPLY": "اعمال",
   "BUTTON": "دکمه",
