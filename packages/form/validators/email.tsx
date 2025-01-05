@@ -1,12 +1,14 @@
 export default function emailValidator(value: string) {
-  if (validateEmail(value) && value) {
-    return true;
+  if (value) {
+    if (validateEmail(value)) {
+      return true;
+    } else {
+      return false;
+    }
   } else {
-    return false;
+    return true;
   }
 }
 const validateEmail = (input: string): boolean => {
-  if (/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(input))
-    return true;
-  return false;
+  return /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(input);
 };

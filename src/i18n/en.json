@@ -1,4 +1,8 @@
 {
+  "MIN_DATE_ERROR": "Date can't be less than {{minDate}}",
+  "MAX_DATE_ERROR": "Date can't be more than {{maxDate}}",
+  "INVALID_DATE": "Date is invalid.",
+  "INVALID_VALUE": "Value is invalid.",
   "OK": "Ok",
   "APPLY": "Apply",
   "BUTTON": "Button",

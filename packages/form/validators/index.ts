@@ -6,3 +6,5 @@ export * from './email';
 export { default as emailValidator } from './email';
 export * from './password';
 export { default as passwordValidator } from './password';
+export * from './persianMobileNumber';
+export { default as persianMobileNumberValidator } from './persianMobileNumber';
