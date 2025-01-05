@@ -8,7 +8,7 @@ import { addCommaPattern } from '@fs/utils';
 import { FsTypography } from '../../../Atom';
 import TableToolbar from './components/TableToolbar';
 import { useState } from 'react';
-import { getStyles } from './styles';
+import { tableBasicStyles } from './styles';
 
 const FsDataTable = (props: FsDataGridTableProps) => {
   const {
@@ -71,17 +71,17 @@ const FsDataTable = (props: FsDataGridTableProps) => {
             <Grid item xs={4} justifyContent={'end'} display={'flex'}>
               {loading ? (
                 <CircularProgress size={22} />
+              ) : rowCount ? (
+                <FsTypography
+                  variant="body2"
+                  i18nKey={
+                    String(rowCount) === '0'
+                      ? 'موردی یافت نشد'
+                      : `${addCommaPattern(String(rowCount))} مورد یافت شد`
+                  }
+                />
               ) : (
-                rowCount && (
-                  <FsTypography
-                    variant="body2"
-                    i18nKey={
-                      String(rowCount) === '0'
-                        ? 'موردی یافت نشد'
-                        : `${addCommaPattern(String(rowCount))} مورد یافت شد`
-                    }
-                  />
-                )
+                <></>
               )}
             </Grid>
           </Grid>
@@ -105,7 +105,7 @@ const FsDataTable = (props: FsDataGridTableProps) => {
       }}
       sx={(theme) => ({
         ...sx,
-        ...getStyles(theme),
+        ...tableBasicStyles(theme, rowCount!),
       })}
       {...rest}
     />
