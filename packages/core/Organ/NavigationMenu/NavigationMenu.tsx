@@ -129,7 +129,11 @@ const MenuItem = ({
             {/* dot */}
             <Box
               sx={{
-                marginInlineStart: 4,
+                height: '.2rem',
+                background: theme.palette.grey[400],
+                borderRadius: '100%',
+                width: '.2rem',
+                marginInlineStart: 0.7,
               }}
             />
           </>
