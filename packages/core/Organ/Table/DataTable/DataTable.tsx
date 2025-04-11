@@ -1,4 +1,4 @@
-import { CircularProgress, Grid } from '@mui/material';
+import { Box, CircularProgress, Grid, Skeleton } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 import { NoRowsOverlay } from './components/NoOverly';
 import { CustomPagination } from './components/Pagination';
@@ -39,6 +39,21 @@ const FsDataTable = (props: FsDataGridTableProps) => {
         };
       }, {})
   );
+
+  const CustomLoadingOverlay = () => (
+    <Box sx={{ width: '100%', padding: 1 }}>
+      {[...Array(5)].map((_, index) => (
+        <Skeleton
+          key={index}
+          variant="rounded"
+          animation="pulse"
+          height={40}
+          sx={{ marginBottom: 1 }}
+        />
+      ))}
+    </Box>
+  );
+
   return (
     <DataGrid
       data-cy={`${name}Table`}
@@ -57,6 +72,7 @@ const FsDataTable = (props: FsDataGridTableProps) => {
       disableVirtualization
       disableColumnResize
       slots={{
+        loadingOverlay: CustomLoadingOverlay,
         pagination: () => (
           <Grid
             container
